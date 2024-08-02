@@ -1,0 +1,76 @@
+{
+  "name": "tenmillionpets",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://j38499646.myjino.ru/",
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fontsource/roboto": "^5.0.13",
+    "@mui/icons-material": "^5.16.0",
+    "@mui/material": "^5.16.2",
+    "@popperjs/core": "^2.11.8",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "browserify-zlib": "^0.2.0",
+    "events": "^3.3.0",
+    "firebase": "^10.12.3",
+    "firebase-admin": "^12.2.0",
+    "fs": "^0.0.1-security",
+    "graceful-fs": "^4.2.11",
+    "net": "^1.0.2",
+    "node-events": "^0.0.2",
+    "node-telegram-bot-api": "^0.66.0",
+    "os": "^0.1.2",
+    "path-browserify": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "querystring-es3": "^0.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-firebase-hooks": "^5.1.1",
+    "react-router-dom": "^6.24.1",
+    "react-scripts": "^5.0.1",
+    "timers-browserify": "^2.0.12",
+    "util": "^0.12.5",
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.22"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3",
+    "webpack": "^5.93.0"
+  }
+}

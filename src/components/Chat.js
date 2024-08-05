@@ -123,9 +123,7 @@ const Chat = () => {
             <Grid container
                 justify={"center"}
                 style={{ height: window.innerHeight - 50, marginTop: 20 }}>
-                {/* <div>tg = {tg.initDataUnsafe.user}</div> */}
-
-                <div style={{ width: '80%', height: '70vh', border: '1px solid gray', overflowY: 'auto' }}>
+                <div style={{ width: '100%', height: '70vh', border: '1px solid gray', overflowY: 'auto' }}>
                     {messages?.map(message =>
                         <div style={{
                             margin: 10,

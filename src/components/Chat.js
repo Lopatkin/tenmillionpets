@@ -135,7 +135,7 @@ const Chat = () => {
                             padding: 5,
                         }}>
                             <Grid container>
-                                <Avatar src={userPhotoUrl} />
+                                <Avatar src="https://img.razrisyika.ru/kart/2/1200/5002-koshka-22.jpg" />
                                 <div>{userFirstName} {userName}{userLastName} </div>
                             </Grid>
                             <div>{message.text}</div>

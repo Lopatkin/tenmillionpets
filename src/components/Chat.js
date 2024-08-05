@@ -104,11 +104,11 @@ const Chat = () => {
 
     const sendMessage = async () => {
         firestore.collection('users').doc('800').collection('messages').add({
-            userID: userID,
-            userFirstName: userFirstName,
-            userLastName: userLastName,
-            userName: userName,
-            userPhotoUrl: userPhotoUrl,
+            // userID: userID,
+            // userFirstName: userFirstName,
+            // userLastName: userLastName,
+            // userName: userName,
+            // userPhotoUrl: userPhotoUrl,
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })

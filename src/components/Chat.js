@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-// import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Context } from '../index';
 import { useContext } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
@@ -113,8 +112,8 @@ const Chat = () => {
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
-        setValue(userData?.username);
-        console.log(userData?.username);
+        setValue(userData?.userName);
+        console.log(userData?.userName);
     }
 
 

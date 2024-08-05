@@ -112,8 +112,8 @@ const Chat = () => {
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
-        setValue(userData?.userName);
-        console.log(userData?.userName);
+        setValue('');
+        // console.log(userData?.userName);
     }
 
 

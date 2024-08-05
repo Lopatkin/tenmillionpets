@@ -12,6 +12,7 @@ import firebase from "firebase/compat/app";
 import "firebase/firestore";
 
 // const tg = window.Telegram.WebApp;
+//
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration

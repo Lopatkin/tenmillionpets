@@ -129,8 +129,8 @@ const Chat = () => {
                     {messages?.map(message =>
                         <div style={{
                             margin: 10,
-                            border: userData.uid === message.uid ? '2px solid green' : '2px dashed red',
-                            marginLeft: userData.uid === message.uid ? 'auto' : '10px',
+                            border: userData.userID === message.userID ? '2px solid green' : '2px dashed red',
+                            marginLeft: userData.userID === message.userID ? 'auto' : '10px',
                             width: 'fit-content',
                             padding: 5,
                         }}>

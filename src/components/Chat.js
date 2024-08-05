@@ -106,7 +106,7 @@ const Chat = () => {
         firestore.collection('users').doc('800').collection('messages').add({
             userID: userID,
             userFirstName: userFirstName,
-            // userLastName: userLastName,
+            userLastName: userLastName,
             // userName: userName,
             // userPhotoUrl: userPhotoUrl,
             text: value,
@@ -128,8 +128,8 @@ const Chat = () => {
                     {messages?.map(message =>
                         <div style={{
                             margin: 10,
-                            border: userData.userID === message.userID ? '2px solid green' : '2px dashed red',
-                            marginLeft: userData.userID === message.userID ? 'auto' : '10px',
+                            border: userID === message.userID ? '2px solid green' : '2px dashed red',
+                            marginLeft: userID === message.userID ? 'auto' : '10px',
                             width: 'fit-content',
                             padding: 5,
                         }}>

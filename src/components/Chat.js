@@ -105,7 +105,7 @@ const Chat = () => {
     const sendMessage = async () => {
         firestore.collection('users').doc('800').collection('messages').add({
             userID: userID,
-            // userFirstName: userFirstName,
+            userFirstName: userFirstName,
             // userLastName: userLastName,
             // userName: userName,
             // userPhotoUrl: userPhotoUrl,

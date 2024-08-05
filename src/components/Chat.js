@@ -108,7 +108,7 @@ const Chat = () => {
             userFirstName: userFirstName,
             userLastName: userLastName,
             userName: userName,
-            // userPhotoUrl: userPhotoUrl,
+            userPhotoUrl: userPhotoUrl,
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })

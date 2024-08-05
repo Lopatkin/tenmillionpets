@@ -79,7 +79,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Context.Provider value={{
     userData,
-    firestore
+    firestore,
+    tg
   }}>
     <React.StrictMode>
       <App />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import React, { useEffect } from 'react';
 import { Context } from '../index';
 import { useContext } from 'react';
-import { Button, Container, Grid, TextField } from '@mui/material';
+import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 // import { collection, getDocs } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -73,6 +73,17 @@ const Chat = () => {
     // console.log(messages);
 
     const { userData } = useContext(Context);
+
+    const userID = userData.id;
+    const userFirstName = userData.first_name;
+    const userLastName = userData.last_name;
+    const userName = userData.username;
+    const userPhotoUrl = userData.photo_url;
+
+
+
+
+
     // const { firestore } = useContext(Context)
     // const [value, setValue] = useState('')
     // const [messages, loading] = useCollectionData(
@@ -94,9 +105,11 @@ const Chat = () => {
 
     const sendMessage = async () => {
         firestore.collection('users').doc('800').collection('messages').add({
-            uid: "user",
-            displayName: "displayName",
-            // photoURL: user.photoURL,
+            userID: userID,
+            userFirstName: userFirstName,
+            userLastName: userLastName,
+            userName: userName,
+            userPhotoUrl: userPhotoUrl,
             text: value,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
@@ -122,8 +135,8 @@ const Chat = () => {
                             padding: 5,
                         }}>
                             <Grid container>
-                                {/* <Avatar src={message.photoURL} /> */}
-                                <div>{message.displayName}</div>
+                                <Avatar src={userPhotoUrl} />
+                                <div>{userFirstName} {userName}{userLastName} </div>
                             </Grid>
                             <div>{message.text}</div>
                         </div>

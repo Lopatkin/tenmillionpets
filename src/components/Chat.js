@@ -77,7 +77,7 @@ const Chat = () => {
     const userFirstName = userData.first_name;
     const userLastName = userData.last_name;
     const userName = userData.username;
-    const userPhotoUrl = userData.photo_url;
+    const userPhotoUrl = userData.photo;
 
 
 

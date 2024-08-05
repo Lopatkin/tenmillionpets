@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+// import React, { useEffect } from 'react';
 import { Context } from '../index';
 import { useContext } from 'react';
 import { Button, Container, Grid, TextField } from '@mui/material';
-import { collection, getDocs } from "firebase/firestore";
+// import { collection, getDocs } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 import 'firebase/compat/auth';
@@ -10,7 +11,7 @@ import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 
-const tg = window.Telegram.WebApp;
+// const tg = window.Telegram.WebApp;
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration

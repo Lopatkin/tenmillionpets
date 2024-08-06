@@ -6,10 +6,10 @@ import Chat from "./Chat";
 import { Context } from '..';
 
 const AppRouter = () => {
-    // const user = false;
     const { userData } = useContext(Context);
 
     return userData ?
+
         (
             <Routes>
                 <Route path="/chat" element={<Chat />} />
@@ -19,8 +19,10 @@ const AppRouter = () => {
         :
         (
             <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="*" element={<Navigate to="/login" replace />} />
+                {/* <Route path="/login" element={<Login />} />
+                <Route path="*" element={<Navigate to="/login" replace />} /> */}
+                 <Route path="/chat" element={<Chat />} />
+                 <Route path="*" element={<Navigate to="/chat" replace />} />
             </Routes>
         )
 };

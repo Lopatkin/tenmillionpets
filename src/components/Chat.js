@@ -73,15 +73,21 @@ const Chat = () => {
 
     const { userData } = useContext(Context);
 
-    const userID = userData.id;
-    const userFirstName = userData.first_name;
-    const userLastName = userData.last_name;
-    const userName = userData.username;
+    //реальные данные
+    // const userID = userData.id;
+    // const userFirstName = userData.first_name;
+    // const userLastName = userData.last_name;
+    // const userName = userData.username;
+    // // const userPhotoUrl = userData.photo;
+    // const userPhotoUrl = "";
+
+    //данные для проверки интерфейса
+    const userID = 800;
+    const userFirstName = "Андрей";
+    const userLastName = "Лопаткин";
+    const userName = "vizor101";
     // const userPhotoUrl = userData.photo;
     const userPhotoUrl = "";
-
-
-
 
 
     // const { firestore } = useContext(Context)
@@ -118,6 +124,8 @@ const Chat = () => {
     }
 
 
+
+    // Это работает
     return (
         <Container>
             <Grid container
@@ -132,13 +140,17 @@ const Chat = () => {
                             width: 'fit-content',
                             padding: 5,
                         }}>
-                            <Grid container>
+                            <Grid container
+                                style={{
+                                    display: userID === message.userID ? 'none' : 'visible'
+                                }}>
                                 <Avatar src={message.userPhotoUrl} />
-                                <div>{message.userFirstName} {message.userName} {message.userLastName} </div>
+                                <div>{message.userFirstName} {message.userName} {message.userLastName}</div>
                             </Grid>
                             <div>{message.text}</div>
                         </div>
-                    )}
+                    )
+                    }
 
                     {/* <div className={styles.messages}>
             {messages.map(({ user, message }, i) => {
@@ -154,11 +166,11 @@ const Chat = () => {
         </div> */}
 
 
-                </div>
+                </div >
                 <Grid container
                     direction={"column"}
                     alignItems={"flex-end"}
-                    style={{ width: '80%' }}
+                    style={{ width: '90%' }}
                 >
                     <TextField
                         fullWidth
@@ -167,12 +179,9 @@ const Chat = () => {
                         value={value}
                         onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
                     />
-                    {/* <Button variant={"outlined"}>Отправить</Button> */}
                     <Button onClick={sendMessage} variant={"outlined"}>Отправить</Button>
-
-
                 </Grid>
-            </Grid>
+            </Grid >
         </Container >
     );
 };

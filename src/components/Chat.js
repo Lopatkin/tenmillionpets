@@ -9,6 +9,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
+import { blue, red } from '@mui/material/colors';
 
 // const tg = window.Telegram.WebApp;
 //
@@ -127,27 +128,68 @@ const Chat = () => {
 
     // Это работает
     return (
-        <Container>
+        <Container >
             <Grid container
                 justify={"center"}
-                style={{ height: window.innerHeight - 50, marginTop: 20 }}>
-                <div style={{ width: '100%', height: '70vh', border: '1px solid gray', overflowY: 'auto' }}>
+                style={{
+                    backgroundColor: '#232323',
+                }}
+            >
+                <div style={{ width: '100%', height: '70vh', border: '1px solid black', overflowY: 'auto' }}>
                     {messages?.map(message =>
                         <div style={{
                             margin: 10,
-                            border: userID === message.userID ? '2px solid green' : '2px dashed red',
+                            // border: userID === message.userID ? '2px solid green' : '2px dashed red',
                             marginLeft: userID === message.userID ? 'auto' : '10px',
+
                             width: 'fit-content',
                             padding: 5,
                         }}>
-                            <Grid container
-                                style={{
-                                    display: userID === message.userID ? 'none' : 'visible'
+
+                            <div
+                            >
+
+
+                            </div>
+
+                            <div class="wrapper">
+                                <div class="item1" style={{
+                                    display: userID === message.userID ? 'none' : 'visible',
+                                    color: '#514c4c'
                                 }}>
-                                <Avatar src={message.userPhotoUrl} />
-                                <div>{message.userFirstName} {message.userName} {message.userLastName}</div>
-                            </Grid>
-                            <div>{message.text}</div>
+                                    {message.userFirstName} {message.userName} {message.userLastName}
+
+                                </div>
+
+                                <div class="item2" style={{
+                                    display: userID === message.userID ? 'none' : 'visible'
+                                }}><Avatar src={message.userPhotoUrl} /></div>
+
+                                <div class="item3"><div style={{
+                                    color: '#ffffff',
+                                    backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
+                                    width: 'auto',
+                                    borderRadius: '8px',
+                                    padding: '8px'
+                                }}
+                                >{message.text}</div></div>
+
+                            </div>
+
+                            {/* Работает
+                            <Avatar src={message.userPhotoUrl} />
+                            <div style={{
+                                color: '#ffffff',
+                                backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
+
+                                borderRadius: '8px',
+                                padding: '8px'
+                            }}
+                            >{message.text}</div> */}
+
+
+
+
                         </div>
                     )
                     }

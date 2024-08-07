@@ -5,29 +5,9 @@
   overflow-x: hidden;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-areas:
-    "a a"
-    "b c";
-  align-items: start;
-}
-
-.item1 {
-  grid-area: a;
-}
-
-.item2 {
-  grid-area: b;
-}
-
-.item3 {
-  grid-area: c;
-}
-
 body {
   background: rgb(0, 0, 0);
-  font-size: 16px;
+  font-size: 14px;
   font-family: Rubik, Roboto, sans-serif;
   padding: 0;
   margin: 0;

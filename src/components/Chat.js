@@ -76,7 +76,7 @@ const Chat = () => {
     const { tg } = useContext(Context);
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-
+    tg.disableVerticalSwipes()
 
     //реальные данные
     // const userID = userData.id;

@@ -6,6 +6,7 @@
 }
 
 body {
+  touch-action: none !important;
   background: rgb(0, 0, 0);
   font-size: 14px;
   font-family: Rubik, Roboto, sans-serif;

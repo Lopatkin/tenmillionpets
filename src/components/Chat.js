@@ -73,6 +73,10 @@ const Chat = () => {
     // console.log(messages);
 
     const { userData } = useContext(Context);
+    const { tg } = useContext(Context);
+
+    tg.expand() // метод позволяет растянуть окно на всю высоту.
+
 
     //реальные данные
     // const userID = userData.id;

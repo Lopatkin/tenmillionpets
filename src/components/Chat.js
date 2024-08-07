@@ -137,20 +137,23 @@ const Chat = () => {
             >
                 <div style={{ width: '100%', height: '70vh', border: '1px solid black', overflowY: 'auto' }}>
                     {messages?.map(message =>
+
+
+
                         <div style={{
                             margin: 10,
                             // border: userID === message.userID ? '2px solid green' : '2px dashed red',
                             marginLeft: userID === message.userID ? 'auto' : '10px',
+                            paddingLeft: userID === message.userID ? '50px' : '0px',
+                            paddingRight: userID === message.userID ? '0px' : '50px',
 
                             width: 'fit-content',
                             padding: 5,
                         }}>
 
-                            <div
-                            >
 
 
-                            </div>
+
 
                             <div class="wrapper">
                                 <div class="item1" style={{
@@ -167,8 +170,10 @@ const Chat = () => {
 
                                 <div class="item3"><div style={{
                                     color: '#ffffff',
+                                    marginLeft: userID === message.userID ? 'auto' : '10px',
                                     backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
-                                    width: 'auto',
+                                    float: 'left',
+                                    width: 'fit-content',
                                     borderRadius: '8px',
                                     padding: '8px'
                                 }}

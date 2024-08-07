@@ -124,9 +124,6 @@ const Chat = () => {
         // console.log(userData?.userName);
     }
 
-
-
-    // Это работает
     return (
         <Container >
             <Grid container
@@ -138,82 +135,39 @@ const Chat = () => {
                 <div style={{ width: '100%', height: '70vh', border: '1px solid black', overflowY: 'auto' }}>
                     {messages?.map(message =>
 
-
-
+                        // Блок сообщения
                         <div style={{
                             margin: 10,
-                            // border: userID === message.userID ? '2px solid green' : '2px dashed red',
                             marginLeft: userID === message.userID ? 'auto' : '10px',
-                            paddingLeft: userID === message.userID ? '50px' : '0px',
-                            paddingRight: userID === message.userID ? '0px' : '50px',
-
                             width: 'fit-content',
                             padding: 5,
                         }}>
 
-
-
-
-
-                            <div class="wrapper">
-                                <div class="item1" style={{
-                                    display: userID === message.userID ? 'none' : 'visible',
-                                    color: '#514c4c'
-                                }}>
-                                    {message.userFirstName} {message.userName} {message.userLastName}
-
-                                </div>
-
-                                <div class="item2" style={{
-                                    display: userID === message.userID ? 'none' : 'visible'
-                                }}><Avatar src={message.userPhotoUrl} /></div>
-
-                                <div class="item3"><div style={{
-                                    color: '#ffffff',
-                                    marginLeft: userID === message.userID ? 'auto' : '10px',
-                                    backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
-                                    float: 'left',
-                                    width: 'fit-content',
-                                    borderRadius: '8px',
-                                    padding: '8px'
-                                }}
-                                >{message.text}</div></div>
-
-                            </div>
-
-                            {/* Работает
-                            <Avatar src={message.userPhotoUrl} />
+                            {/* UserName */}
                             <div style={{
-                                color: '#ffffff',
-                                backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
+                                display: userID === message.userID ? 'none' : 'visible',
+                                color: '#514c4c'
+                            }}>{message.userFirstName} {message.userName} {message.userLastName}</div>
 
+                            {/* Avatar */}
+                            <div style={{
+                                display: userID === message.userID ? 'none' : 'inline-block'
+                            }}><Avatar src={message.userPhotoUrl} /></div>
+
+                            {/* Message */}
+                            <div style={{
+                                display: 'inline-block',
+                                color: '#ffffff',
+                                marginLeft: userID === message.userID ? 'auto' : '10px',
+                                backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
+                                width: 'fit-content',
                                 borderRadius: '8px',
                                 padding: '8px'
-                            }}
-                            >{message.text}</div> */}
-
-
-
-
+                            }}>{message.text}</div>
                         </div>
-                    )
-                    }
-
-                    {/* <div className={styles.messages}>
-            {messages.map(({ user, message }, i) => {
-                const itsMe = user.name.trim().toLowerCase() === name.trim().toLowerCase();
-                const className = itsMe ? styles.me : styles.user;
-                return (
-                    <div key={i} className={`${styles.message} ${className}`}>
-                        <span className={styles.user}>{user.name}</span>
-                        <div className={styles.text}>{message}</div>
-                    </div>
-                );
-            })}
-        </div> */}
-
-
+                    )}
                 </div >
+
                 <Grid container
                     direction={"column"}
                     alignItems={"flex-end"}

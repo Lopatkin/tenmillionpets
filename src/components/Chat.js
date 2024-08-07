@@ -137,10 +137,10 @@ const Chat = () => {
 
                         // Блок сообщения
                         <div style={{
-                            margin: 10,
+                            margin: 5,
                             marginLeft: userID === message.userID ? 'auto' : '10px',
                             width: 'fit-content',
-                            padding: 5,
+                            padding: 1,
                         }}>
 
                             {/* UserName */}

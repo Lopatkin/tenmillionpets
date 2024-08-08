@@ -76,7 +76,7 @@ const Chat = () => {
     const { tg } = useContext(Context);
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-    tg.disableVerticalSwipes()
+
 
     //реальные данные
     // const userID = userData.id;
@@ -175,18 +175,9 @@ const Chat = () => {
                 <Grid container
                     direction={"column"}
                     alignItems={"flex-end"}
-                    style={{
-                        width: '50%',
-                        display: 'inline-block'
-
-                    }}
+                    style={{ width: '90%' }}
                 >
                     <TextField
-                    style={{
-                        width: '50%',
-                        display: 'inline-block'
-
-                    }}
                         fullWidth
                         rowsmax={2}
                         variant={"outlined"}

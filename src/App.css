@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -11,6 +12,7 @@ body {
   font-family: Rubik, Roboto, sans-serif;
   padding: 0;
   margin: 0;
+  width: 100%;
   overflow-x: hidden;
   color: rgb(255, 255, 255);
 }

@@ -132,12 +132,14 @@ const Chat = () => {
     return (
         <Container >
             <Grid container
+
                 justify={"center"}
                 style={{
                     backgroundColor: '#232323',
+                    width: '100%'
                 }}
             >
-                <div style={{ width: '100%', height: '70vh', border: '1px solid black', overflowY: 'auto' }}>
+                <div style={{ width: '100%', height: '80vh' }}>
                     {messages?.map(message =>
 
                         // Блок сообщения

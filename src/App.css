@@ -1,5 +1,4 @@
 * {
-  touch-action: none !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,7 +6,6 @@
 }
 
 body {
-  touch-action: none !important;
   background: rgb(0, 0, 0);
   font-size: 14px;
   font-family: Rubik, Roboto, sans-serif;

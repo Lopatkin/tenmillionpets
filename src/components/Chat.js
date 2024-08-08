@@ -176,28 +176,24 @@ const Chat = () => {
                     direction={"column"}
                     alignItems={"flex-end"}
                     style={{
-                        width: '100%',
+                        width: '50%',
                         display: 'inline-block'
 
                     }}
                 >
                     <TextField
-                        style={{
-                            width: '90%',
-                            display: 'inline-block'
+                    style={{
+                        width: '50%',
+                        display: 'inline-block'
 
-                        }}
+                    }}
                         fullWidth
                         rowsmax={2}
                         variant={"outlined"}
                         value={value}
                         onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
                     />
-                    <Button style={{
-                        width: '10%',
-                        display: 'inline-block'
-
-                    }} onClick={sendMessage} variant={"outlined"}>Отправить</Button>
+                    <Button onClick={sendMessage} variant={"outlined"}>Отправить</Button>
                 </Grid>
             </Grid >
         </Container >

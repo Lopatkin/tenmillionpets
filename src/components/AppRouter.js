@@ -21,8 +21,8 @@ const AppRouter = () => {
             <Routes>
                 {/* <Route path="/login" element={<Login />} />
                 <Route path="*" element={<Navigate to="/login" replace />} /> */}
-                 <Route path="/chat" element={<Chat />} />
-                 <Route path="*" element={<Navigate to="/chat" replace />} />
+                <Route path="/chat" element={<Chat />} />
+                <Route path="*" element={<Navigate to="/chat" replace />} />
             </Routes>
         )
 };

@@ -79,20 +79,20 @@ const Chat = () => {
 
 
     //реальные данные
-    const userID = userData.id;
-    const userFirstName = userData.first_name;
-    const userLastName = userData.last_name;
-    const userName = userData.username;
-    // const userPhotoUrl = userData.photo;
-    const userPhotoUrl = "";
-
-    //данные для проверки интерфейса
-    // const userID = 800;
-    // const userFirstName = "Андрей";
-    // const userLastName = "Лопаткин";
-    // const userName = "vizor101";
+    // const userID = userData.id;
+    // const userFirstName = userData.first_name;
+    // const userLastName = userData.last_name;
+    // const userName = userData.username;
     // // const userPhotoUrl = userData.photo;
     // const userPhotoUrl = "";
+
+    //данные для проверки интерфейса
+    const userID = 800;
+    const userFirstName = "Андрей";
+    const userLastName = "Лопаткин";
+    const userName = "vizor101";
+    // const userPhotoUrl = userData.photo;
+    const userPhotoUrl = "";
 
 
     // const { firestore } = useContext(Context)
@@ -115,17 +115,18 @@ const Chat = () => {
 
 
     const sendMessage = async () => {
-        firestore.collection('users').doc('800').collection('messages').add({
-            userID: userID,
-            userFirstName: userFirstName,
-            userLastName: userLastName,
-            userName: userName,
-            userPhotoUrl: userPhotoUrl,
-            text: value,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        })
-        setValue('');
-        // console.log(userData?.userName);
+        if (value) {
+            firestore.collection('users').doc('800').collection('messages').add({
+                userID: userID,
+                userFirstName: userFirstName,
+                userLastName: userLastName,
+                userName: userName,
+                userPhotoUrl: userPhotoUrl,
+                text: value,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            setValue('');
+        } else { }
     }
 
     return (
@@ -175,16 +176,28 @@ const Chat = () => {
                 <Grid container
                     direction={"column"}
                     alignItems={"flex-end"}
-                    style={{ width: '90%' }}
-                >
+                    style={{
+                        width: '100%',
+                        display: 'inline-block'
+
+
+                    }}>
                     <TextField
+                        style={{
+                            width: '90%',
+                            display: 'inline-block'
+                        }}
                         fullWidth
                         rowsmax={2}
                         variant={"outlined"}
                         value={value}
                         onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
                     />
-                    <Button onClick={sendMessage} variant={"outlined"}>Отправить</Button>
+                    <Button style={{
+                        display: 'inline-block',
+                        width: '10%'
+
+                    }} onClick={sendMessage} variant={"outlined"}>Отправить</Button>
                 </Grid>
             </Grid >
         </Container >

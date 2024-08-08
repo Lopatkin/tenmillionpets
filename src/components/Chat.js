@@ -4,8 +4,6 @@ import { useContext } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 // import { collection, getDocs } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import docs from "../images/btn_send.png"
-
 
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -187,8 +185,8 @@ const Chat = () => {
                         style={{
                             width: '90%',
                             display: 'inline-block'
+
                         }}
-                        
                         fullWidth
                         rowsmax={2}
                         variant={"outlined"}
@@ -197,9 +195,9 @@ const Chat = () => {
                     />
                     <Button style={{
                         width: '10%',
-                        display: 'inline-block',
+                        display: 'inline-block'
 
-                    }} onClick={sendMessage} variant={"outlined"}>отправить</Button>
+                    }} onClick={sendMessage} variant={"outlined"}>Отправить</Button>
                 </Grid>
             </Grid >
         </Container >

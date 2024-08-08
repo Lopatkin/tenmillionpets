@@ -4,6 +4,8 @@ import { useContext } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 // import { collection, getDocs } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import docs from "../images/btn_send.png"
+
 
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -175,16 +177,45 @@ const Chat = () => {
                 <Grid container
                     direction={"column"}
                     alignItems={"flex-end"}
-                    style={{ width: '90%' }}
+                    style={{
+                        width: '100%',
+                        display: 'inline-block'
+
+                    }}
                 >
                     <TextField
+                        style={{
+                            width: '90%',
+                            display: 'inline-block'
+                        }}
+                        sx={{
+                            // Root class for the input field
+                            "& .MuiOutlinedInput-root": {
+                                color: "#fff",
+                                fontFamily: "Rubik",
+                                // Class for the border around the input field
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                    borderColor: "#000",
+                                    borderWidth: "1px",
+                                },
+                            },
+                            // Class for the label of the input field
+                            "& .MuiInputLabel-outlined": {
+                                color: "#2e2e2e",
+                                fontWeight: "bold"
+                            },
+                        }}
                         fullWidth
                         rowsmax={2}
                         variant={"outlined"}
                         value={value}
                         onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
                     />
-                    <Button onClick={sendMessage} variant={"outlined"}>Отправить</Button>
+                    <Button style={{
+                        width: '10%',
+                        display: 'inline-block',
+
+                    }} onClick={sendMessage} variant={"outlined"}><img src={docs} alt="my" width={"20px"} /></Button>
                 </Grid>
             </Grid >
         </Container >

@@ -139,7 +139,7 @@ const Chat = () => {
                     width: '100%'
                 }}
             >
-                <div style={{ width: '100%', height: '80vh' }}>
+                <div style={{ width: '100%', height: '80vh'}}>
                     {messages?.map(message =>
 
                         // Блок сообщения

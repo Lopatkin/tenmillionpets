@@ -79,20 +79,20 @@ const Chat = () => {
 
 
     //реальные данные
-    // const userID = userData.id;
-    // const userFirstName = userData.first_name;
-    // const userLastName = userData.last_name;
-    // const userName = userData.username;
-    // // const userPhotoUrl = userData.photo;
-    // const userPhotoUrl = "";
-
-    //данные для проверки интерфейса
-    const userID = 800;
-    const userFirstName = "Андрей";
-    const userLastName = "Лопаткин";
-    const userName = "vizor101";
+    const userID = userData.id;
+    const userFirstName = userData.first_name;
+    const userLastName = userData.last_name;
+    const userName = userData.username;
     // const userPhotoUrl = userData.photo;
     const userPhotoUrl = "";
+
+    //данные для проверки интерфейса
+    // const userID = 800;
+    // const userFirstName = "Андрей";
+    // const userLastName = "Лопаткин";
+    // const userName = "vizor101";
+    // // const userPhotoUrl = userData.photo;
+    // const userPhotoUrl = "";
 
 
     // const { firestore } = useContext(Context)

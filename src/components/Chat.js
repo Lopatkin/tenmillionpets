@@ -188,23 +188,7 @@ const Chat = () => {
                             width: '90%',
                             display: 'inline-block'
                         }}
-                        sx={{
-                            // Root class for the input field
-                            "& .MuiOutlinedInput-root": {
-                                color: "#fff",
-                                fontFamily: "Rubik",
-                                // Class for the border around the input field
-                                "& .MuiOutlinedInput-notchedOutline": {
-                                    borderColor: "#000",
-                                    borderWidth: "1px",
-                                },
-                            },
-                            // Class for the label of the input field
-                            "& .MuiInputLabel-outlined": {
-                                color: "#2e2e2e",
-                                fontWeight: "bold"
-                            },
-                        }}
+                        
                         fullWidth
                         rowsmax={2}
                         variant={"outlined"}
@@ -215,7 +199,7 @@ const Chat = () => {
                         width: '10%',
                         display: 'inline-block',
 
-                    }} onClick={sendMessage} variant={"outlined"}><img src={docs} alt="my" width={"20px"} /></Button>
+                    }} onClick={sendMessage} variant={"outlined"}>отправить</Button>
                 </Grid>
             </Grid >
         </Container >

@@ -5,13 +5,14 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useCollectionData, useCollectionDataOnce } from "react-firebase-hooks/firestore";
 
 
 import Login from "./Login";
 import Chat from "./Chat";
 import { Context } from '..';
 import { fb_users } from '../utils/consts';
+import { Container } from '@mui/material';
 
 const AppRouter = () => {
 
@@ -24,54 +25,32 @@ const AppRouter = () => {
         firestore.collection(fb_users).doc(userData.id)
     )
 
-    console.log(isUserExist);
+    alert(isUserExist)
 
-    <script>
-        < button id="openModal" > Нажми меня!</button>
+    return (
+        <Container >
 
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <button class="close">close</button>
-                <p>Привет, я всплывающее окно!</p>
-            </div>
-        </div>
-    </script>
+        </Container >
+    );
 
-    const modal = document.querySelector('#modal');
-    const btn = document.querySelector('#openModal');
-    const close = document.querySelector('.close');
 
-    btn.onclick = function () {
-        modal.style.display = 'block';
-    };
+    // return userData ?
 
-    close.onclick = function () {
-        modal.style.display = 'none';
-    };
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    };
-
-    return userData ?
-
-        (
-            <Routes>
-                <Route path="/chat" element={<Chat />} />
-                <Route path="*" element={<Navigate to="/chat" replace />} />
-            </Routes>
-        )
-        :
-        (
-            <Routes>
-                {/* <Route path="/login" element={<Login />} />
-                <Route path="*" element={<Navigate to="/login" replace />} /> */}
-                <Route path="/chat" element={<Chat />} />
-                <Route path="*" element={<Navigate to="/chat" replace />} />
-            </Routes>
-        )
+    //     (
+    //         <Routes>
+    //             <Route path="/chat" element={<Chat />} />
+    //             <Route path="*" element={<Navigate to="/chat" replace />} />
+    //         </Routes>
+    //     )
+    //     :
+    //     (
+    //         <Routes>
+    //             {/* <Route path="/login" element={<Login />} />
+    //             <Route path="*" element={<Navigate to="/login" replace />} /> */}
+    //             <Route path="/chat" element={<Chat />} />
+    //             <Route path="*" element={<Navigate to="/chat" replace />} />
+    //         </Routes>
+    //     )
 };
 
 export default AppRouter;

@@ -10,7 +10,7 @@ import { useCollectionData, useCollectionDataOnce } from "react-firebase-hooks/f
 
 import Login from "./Login";
 import Chat from "./Chat";
-import { Context } from '..';
+import { Context } from '../index';
 import { fb_users } from '../utils/consts';
 import { Container } from '@mui/material';
 
@@ -25,7 +25,7 @@ const AppRouter = () => {
     //     firestore.collection(fb_users).doc(userData.id)
     // )
 
-    // alert(userData)
+    alert("appRoutes " + userData.id)
 
     return userData ?
 

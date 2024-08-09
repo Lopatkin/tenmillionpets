@@ -10,6 +10,8 @@ import { useCollectionData, useCollectionDataOnce } from "react-firebase-hooks/f
 
 import Login from "./Login";
 import Chat from "./Chat";
+import Register from "./Register";
+
 import { Context } from '../index';
 import { fb_users } from '../utils/consts';
 import { Container } from '@mui/material';
@@ -25,7 +27,7 @@ const AppRouter = () => {
         firestore.collection(fb_users).doc(userData.id.toString())
     )
 
-    alert("appRoutes " + userData.id)
+    // alert("appRoutes " + userData.id)
 
     return isUserExist ?
 
@@ -38,10 +40,8 @@ const AppRouter = () => {
         :
         (
             <Routes>
-                {/* <Route path="/login" element={<Login />} />
-                <Route path="*" element={<Navigate to="/login" replace />} /> */}
-                {/* <Route path="/chat" element={<Chat />} />
-                <Route path="*" element={<Navigate to="/chat" replace />} /> */}
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<Navigate to="/register" replace />} />
             </Routes>
         )
 };

@@ -25,32 +25,25 @@ const AppRouter = () => {
     //     firestore.collection(fb_users).doc(userData.id)
     // )
 
-    alert(userData)
+    // alert(userData)
 
-    return (
-        <Container >
+    return userData ?
 
-        </Container >
-    );
-
-
-    // return userData ?
-
-    //     (
-    //         <Routes>
-    //             <Route path="/chat" element={<Chat />} />
-    //             <Route path="*" element={<Navigate to="/chat" replace />} />
-    //         </Routes>
-    //     )
-    //     :
-    //     (
-    //         <Routes>
-    //             {/* <Route path="/login" element={<Login />} />
-    //             <Route path="*" element={<Navigate to="/login" replace />} /> */}
-    //             <Route path="/chat" element={<Chat />} />
-    //             <Route path="*" element={<Navigate to="/chat" replace />} />
-    //         </Routes>
-    //     )
+        (
+            <Routes>
+                <Route path="/chat" element={<Chat />} />
+                <Route path="*" element={<Navigate to="/chat" replace />} />
+            </Routes>
+        )
+        :
+        (
+            <Routes>
+                {/* <Route path="/login" element={<Login />} />
+                <Route path="*" element={<Navigate to="/login" replace />} /> */}
+                <Route path="/chat" element={<Chat />} />
+                <Route path="*" element={<Navigate to="/chat" replace />} />
+            </Routes>
+        )
 };
 
 export default AppRouter;

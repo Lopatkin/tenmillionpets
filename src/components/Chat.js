@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Context } from '../index';
 import { useContext } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+
 // import { collection, getDocs } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -9,7 +11,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
-import { blue, red } from '@mui/material/colors';
+import { fb_users, fb_messages } from '../utils/consts';
 
 // const tg = window.Telegram.WebApp;
 //
@@ -109,14 +111,14 @@ const Chat = () => {
     // const [user] = useAuthState(auth)
     const [value, setValue] = useState('')
     const [messages, loading] = useCollectionData(
-        firestore.collection('users').doc('800').collection('messages').orderBy('createdAt')
+        firestore.collection(fb_users).doc('800').collection(fb_messages).orderBy('createdAt')
     )
 
 
 
     const sendMessage = async () => {
         if (value) {
-            firestore.collection('users').doc('800').collection('messages').add({
+            firestore.collection(fb_users).doc('800').collection(fb_messages).add({
                 userID: userID,
                 userFirstName: userFirstName,
                 userLastName: userLastName,
@@ -139,7 +141,7 @@ const Chat = () => {
                     width: '100%'
                 }}
             >
-                <div style={{ width: '100%', height: '80vh'}}>
+                <div style={{ width: '100%', height: '70vh' }}>
                     {messages?.map(message =>
 
                         // Блок сообщения
@@ -186,7 +188,7 @@ const Chat = () => {
                     }}>
                     <TextField
                         style={{
-                            width: '90%',
+                            width: '80%',
                             display: 'inline-block'
                         }}
                         fullWidth
@@ -197,9 +199,9 @@ const Chat = () => {
                     />
                     <Button style={{
                         display: 'inline-block',
-                        width: '10%'
+                        width: '20%'
 
-                    }} onClick={sendMessage} variant={"outlined"}>Отправить</Button>
+                    }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
                 </Grid>
             </Grid >
         </Container >

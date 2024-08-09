@@ -47,7 +47,6 @@ import { fb_users, fb_messages } from '../utils/consts';
 // /////TG/////
 const Register = () => {
 
-    alert("Регистрируем пользовалея ");
 
     //   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
@@ -79,6 +78,7 @@ const Register = () => {
     const { tg } = useContext(Context);
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
+    alert("Регистрируем пользовалея " + userData.id)
 
     //реальные данные
     // const userID = userData.id;

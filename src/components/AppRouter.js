@@ -25,7 +25,7 @@ const AppRouter = () => {
         firestore.collection(fb_users).doc(userData.id.toString())
     )
 
-    // alert("appRoutes " + userData.id)
+    alert("appRoutes " + userData.id)
 
     return isUserExist ?
 

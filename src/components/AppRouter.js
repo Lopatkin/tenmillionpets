@@ -27,21 +27,20 @@ const AppRouter = () => {
         firestore.collection(fb_users).doc('800')
     )
 
-    // alert("appRoutes " + userData.id)
+    alert("appRoutes 800 " + isUserExist)
 
-    return !isUserExist ?
-
+    return isUserExist ?
         (
             <Routes>
-                <Route path="/chat" element={<Chat />} />
-                <Route path="*" element={<Navigate to="/chat" replace />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<Navigate to="/register" replace />} />
             </Routes>
         )
         :
         (
             <Routes>
-                <Route path="/register" element={<Register />} />
-                <Route path="*" element={<Navigate to="/register" replace />} />
+                <Route path="/chat" element={<Chat />} />
+                <Route path="*" element={<Navigate to="/chat" replace />} />
             </Routes>
         )
 };

@@ -24,10 +24,10 @@ const AppRouter = () => {
     const { firestore } = useContext(Context)
 
     const [isUserExist] = useCollectionData(
-        firestore.collection(fb_users).doc(userData.id.toString())
+        firestore.collection(fb_users).doc('300')
     )
 
-    alert("appRoutes 800" + isUserExist)
+    alert("appRoutes 300 " + isUserExist)
 
     return isUserExist ?
         (

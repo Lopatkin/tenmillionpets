@@ -47,7 +47,7 @@ import { fb_users, fb_messages } from '../utils/consts';
 // /////TG/////
 const Register = () => {
 
-    alert("Регистрируем пользовалея " + userData.id)
+    alert("Регистрируем пользовалея ");
 
     //   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 

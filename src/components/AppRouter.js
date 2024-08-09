@@ -27,7 +27,7 @@ const AppRouter = () => {
 
     // alert("appRoutes " + userData.id)
 
-    return userData ?
+    return isUserExist ?
 
         (
             <Routes>

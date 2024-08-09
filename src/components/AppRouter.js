@@ -14,6 +14,9 @@ import { Context } from '..';
 import { fb_users } from '../utils/consts';
 
 const AppRouter = () => {
+
+
+
     const { userData } = useContext(Context);
     const { firestore } = useContext(Context)
 
@@ -23,7 +26,36 @@ const AppRouter = () => {
 
     console.log(isUserExist);
 
-    return isUserExist ?
+    <script>
+        < button id="openModal" > Нажми меня!</button>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <button class="close">close</button>
+                <p>Привет, я всплывающее окно!</p>
+            </div>
+        </div>
+    </script>
+
+    const modal = document.querySelector('#modal');
+    const btn = document.querySelector('#openModal');
+    const close = document.querySelector('.close');
+
+    btn.onclick = function () {
+        modal.style.display = 'block';
+    };
+
+    close.onclick = function () {
+        modal.style.display = 'none';
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    return userData ?
 
         (
             <Routes>

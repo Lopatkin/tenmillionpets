@@ -11,7 +11,8 @@ import { useCollectionData, useCollectionDataOnce, useDocument } from "react-fir
 import Login from "./Login";
 import Chat from "./Chat";
 import Register from "./Register";
-import Register_step1 from "./Register_step1";
+import RegisterStep1 from "./RegisterStep1";
+import RegisterStep2 from "./RegisterStep2";
 
 
 import { Context } from '../index';
@@ -44,8 +45,11 @@ const AppRouter = () => {
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Navigate to="/register" replace />} />
 
-            <Route path="/register_step1" element={<Register_step1 />} />
-            <Route path="*" element={<Navigate to="/register_step1" replace />} />
+            <Route path="/registerStep1" element={<RegisterStep1 />} />
+            <Route path="*" element={<Navigate to="/registerStep1" replace />} />
+
+            <Route path="/registerStep2" element={<RegisterStep2 />} />
+            <Route path="*" element={<Navigate to="/registerStep2" replace />} />
 
         </Routes>
         )

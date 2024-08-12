@@ -1,184 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Redirect } from 'react';
 import { Context } from '../index';
 import { useContext, Link } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
+import { Route, Routes, useNavigate } from 'react-router-dom'
 
-import { Route, Routes, Navigate } from 'react-router-dom'
+import RegisterStep1 from "./RegisterStep1";
 
-
-// import { collection, getDocs } from "firebase/firestore";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-import firebase from "firebase/compat/app";
-import "firebase/firestore";
-import { fb_users, fb_messages } from '../utils/consts';
-
-import Login from "./Login";
-import Chat from "./Chat";
-import Register_step1 from "./Register_step1";
-
-
-// const tg = window.Telegram.WebApp;
-//
-
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-//     apiKey: "AIzaSyDKdcVmzzvFu_7lTiI-rMASUsT8qjchMr8",
-//     authDomain: "tenmillionpets.firebaseapp.com",
-//     projectId: "tenmillionpets",
-//     storageBucket: "tenmillionpets.appspot.com",
-//     messagingSenderId: "105880127070",
-//     appId: "1:105880127070:web:430221607b4b3de026d6cf",
-//     measurementId: "G-J4VZXFD0FS"
-// };
-// // Initialize Firebase
-
-// firebase.initializeApp(firebaseConfig);
-// const db = firebase.firestore();
-/////TG/////
-// const TelegramBot = require('node-telegram-bot-api');
-
-// const token = '7429947035:AAFhVtxukC71l3YUsNiPMGxMeGTjRV_VRPk';
-
-// const bot = new TelegramBot(token, { polling: true });
-
-// bot.on('message', (msg) => {
-//     const chatId = msg.chat.id;
-
-//     // send a message to the chat acknowledging receipt of their message
-//     bot.sendMessage(chatId, 'Received your message');
-// });
-// /////TG/////
 const Register = () => {
-
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
-    const viewProfile = () => {
-        window.location.assign('/register_step1');
+    const navigate = useNavigate();
 
-
-
-    }
+    const navigateToRegisterStep1 = () => {
+        navigate('/registerStep1');
+    };
 
     return (
-        <div className='register'>
+        <div>
             <h2>У многих из нас в детстве был Тамагочи - виртуальный зверёк, за которым нужно было ухаживать, кормить, убирать, играть с ним. А если он вдруг заболевал или умирал - это было трагедией.</h2>
+            <div>
+                {/* <button onClick={navigateHome}>Home</button> */}
+                <Button style={{
+                    display: 'inline-block',
+                    width: '20%'
 
+                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
 
-            {/* <Link to='/profile-page'>
-                <Button color='primary' onClick={e => viewProfile()}>View Profile</Button>
-            </Link> */}
-            <Button style={{
-                display: 'inline-block',
-                width: '20%',
-                alignItems: 'right'
-
-            }} onClick={viewProfile} variant={"outlined"}>Дальше</Button>
+                <Routes>
+                    <Route path="/registerStep1" element={<RegisterStep1 />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </div>
         </div>
-
-
     );
-
-    // alert('Регистрируем пользователя ');
-
-
-    //   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    // {
-    //     <script>
-    // console.log('tg ' + tg.initDataUnsafe.user);
-
-    //         let tg = window.Telegram.WebApp;
-    //     </script>
-    // }
-
-    // db.collection("messages").get().then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //         // doc.data() is never undefined for query doc snapshots
-    //         console.log(doc.id, " => ", doc.data());
-    //     });
-    // });
-
-
-
-    // const { user } = useContext(Context);
-    // const [value, setValue] = useState('');
-    // const [messages, loading] = useCollectionData(
-    //     db.collection('messages').orderBy('createdAt')
-    // )
-    // console.log(messages);
-
-    // const { userData } = useContext(Context);
-    // const { tg } = useContext(Context);
-
-    // tg.expand() // метод позволяет растянуть окно на всю высоту.
-    // alert("Регистрируем пользовалея " + userData)
-
-    //реальные данные
-    // const userID = userData.id;
-    // const userFirstName = userData.first_name;
-    // const userLastName = userData.last_name;
-    // const userName = userData.username;
-    // // const userPhotoUrl = userData.photo;
-    // const userPhotoUrl = "";
-
-    //данные для проверки интерфейса
-    // const userID = 800;
-    // const userFirstName = "Андрей";
-    // const userLastName = "Лопаткин";
-    // const userName = "vizor101";
-    // // const userPhotoUrl = userData.photo;
-    // const userPhotoUrl = "";
-
-
-    // const { firestore } = useContext(Context)
-    // const [value, setValue] = useState('')
-    // const [messages, loading] = useCollectionData(
-    //     firestore.collection('messages').orderBy('createdAt')
-    // )
-
-
-
-
-
-    // const { firestore } = useContext(Context)
-    // // const [user] = useAuthState(auth)
-    // const [value, setValue] = useState('')
-    // const [messages, loading] = useCollectionData(
-    //     firestore.collection(fb_users).doc('800').collection(fb_messages).orderBy('createdAt')
-    // )
-
-
-
-    // const sendMessage = async () => {
-    //     if (value) {
-    //         firestore.collection(fb_users).doc('800').collection(fb_messages).add({
-    //             userID: userID,
-    //             userFirstName: userFirstName,
-    //             userLastName: userLastName,
-    //             userName: userName,
-    //             userPhotoUrl: userPhotoUrl,
-    //             text: value,
-    //             createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    //         })
-    //         setValue('');
-    //     } else { }
-    // }
-
-    // return (
-    //     <Routes>
-    //         <Route path="/chat" element={<Chat />} />
-    //         <Route path="*" element={<Navigate to="/chat" replace />} />
-    //     </Routes>
-    // );
-
-
 };
 
+function Home() {
+    // return <h2>Home</h2>;
+}
 
 export default Register;

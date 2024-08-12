@@ -80,7 +80,7 @@ const userData = tg.initDataUnsafe?.user;
 
 const db = firebase.firestore();
 
-var docRef = db.collection('users').doc("300");
+var docRef = db.collection('users').doc("3030");
 const myData = docRef.get().then((doc) => {
 
   const root = ReactDOM.createRoot(document.getElementById('root'));

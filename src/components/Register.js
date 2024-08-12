@@ -53,7 +53,16 @@ import Chat from "./Chat";
 // /////TG/////
 const Register = () => {
 
-    alert('Регистрируем пользователя ');
+
+    return (
+        <div className='App'>
+            <h2>У многих из нас в детстве был Тамагочи - виртуальный зверёк, за которым нужно было ухаживать, кормить, убирать, играть с ним. А если он вдруг заболевал или умирал - это было трагедией.</h2>
+        </div>
+    );
+
+    // alert('Регистрируем пользователя ');
+
+
     //   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     // {
@@ -80,10 +89,10 @@ const Register = () => {
     // )
     // console.log(messages);
 
-    const { userData } = useContext(Context);
-    const { tg } = useContext(Context);
+    // const { userData } = useContext(Context);
+    // const { tg } = useContext(Context);
 
-    tg.expand() // метод позволяет растянуть окно на всю высоту.
+    // tg.expand() // метод позволяет растянуть окно на всю высоту.
     // alert("Регистрируем пользовалея " + userData)
 
     //реальные данные
@@ -95,12 +104,12 @@ const Register = () => {
     // const userPhotoUrl = "";
 
     //данные для проверки интерфейса
-    const userID = 800;
-    const userFirstName = "Андрей";
-    const userLastName = "Лопаткин";
-    const userName = "vizor101";
-    // const userPhotoUrl = userData.photo;
-    const userPhotoUrl = "";
+    // const userID = 800;
+    // const userFirstName = "Андрей";
+    // const userLastName = "Лопаткин";
+    // const userName = "vizor101";
+    // // const userPhotoUrl = userData.photo;
+    // const userPhotoUrl = "";
 
 
     // const { firestore } = useContext(Context)
@@ -113,37 +122,36 @@ const Register = () => {
 
 
 
-    const { firestore } = useContext(Context)
-    // const [user] = useAuthState(auth)
-    const [value, setValue] = useState('')
-    const [messages, loading] = useCollectionData(
-        firestore.collection(fb_users).doc('800').collection(fb_messages).orderBy('createdAt')
-    )
+    // const { firestore } = useContext(Context)
+    // // const [user] = useAuthState(auth)
+    // const [value, setValue] = useState('')
+    // const [messages, loading] = useCollectionData(
+    //     firestore.collection(fb_users).doc('800').collection(fb_messages).orderBy('createdAt')
+    // )
 
 
 
-    const sendMessage = async () => {
-        if (value) {
-            firestore.collection(fb_users).doc('800').collection(fb_messages).add({
-                userID: userID,
-                userFirstName: userFirstName,
-                userLastName: userLastName,
-                userName: userName,
-                userPhotoUrl: userPhotoUrl,
-                text: value,
-                createdAt: firebase.firestore.FieldValue.serverTimestamp()
-            })
-            setValue('');
-        } else { }
-    }
+    // const sendMessage = async () => {
+    //     if (value) {
+    //         firestore.collection(fb_users).doc('800').collection(fb_messages).add({
+    //             userID: userID,
+    //             userFirstName: userFirstName,
+    //             userLastName: userLastName,
+    //             userName: userName,
+    //             userPhotoUrl: userPhotoUrl,
+    //             text: value,
+    //             createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    //         })
+    //         setValue('');
+    //     } else { }
+    // }
 
-    return (
-        <Routes>
-            <Route path="/chat" element={<Chat />} />
-            <Route path="*" element={<Navigate to="/chat" replace />} />
-        </Routes>
-    );
-
+    // return (
+    //     <Routes>
+    //         <Route path="/chat" element={<Chat />} />
+    //         <Route path="*" element={<Navigate to="/chat" replace />} />
+    //     </Routes>
+    // );
 
 
 };

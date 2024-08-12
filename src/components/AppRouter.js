@@ -11,6 +11,8 @@ import { useCollectionData, useCollectionDataOnce, useDocument } from "react-fir
 import Login from "./Login";
 import Chat from "./Chat";
 import Register from "./Register";
+import Register_step1 from "./Register_step1";
+
 
 import { Context } from '../index';
 import { fb_users } from '../utils/consts';
@@ -41,6 +43,10 @@ const AppRouter = () => {
         (<Routes>
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Navigate to="/register" replace />} />
+
+            <Route path="/register_step1" element={<Register_step1 />} />
+            <Route path="*" element={<Navigate to="/register_step1" replace />} />
+
         </Routes>
         )
 
@@ -77,13 +83,13 @@ const AppRouter = () => {
     //             <Route path="*" element={<Navigate to="/chat" replace />} />
     //         </Routes>
     //     )
-    return (
-        <Routes>
-            <Route path="/chat" element={<Chat />} />
-            <Route path="*" element={<Navigate to="/chat" replace />} />
-        </Routes>
-    )
-    FFF();
+    // return (
+    //     <Routes>
+    //         <Route path="/chat" element={<Chat />} />
+    //         <Route path="*" element={<Navigate to="/chat" replace />} />
+    //     </Routes>
+    // )
+    // FFF();
 };
 
 const FFF = () => {

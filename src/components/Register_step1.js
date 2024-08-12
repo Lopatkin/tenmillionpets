@@ -18,8 +18,6 @@ import { fb_users, fb_messages } from '../utils/consts';
 
 import Login from "./Login";
 import Chat from "./Chat";
-import Register_step1 from "./Register_step1";
-
 
 // const tg = window.Telegram.WebApp;
 //
@@ -53,33 +51,21 @@ import Register_step1 from "./Register_step1";
 //     bot.sendMessage(chatId, 'Received your message');
 // });
 // /////TG/////
-const Register = () => {
+const Register_step1 = () => {
 
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
-    const viewProfile = () => {
-        window.location.assign('/Register_step1');
+    // const viewProfile = () => {
+    //     // window.location.assign('/Chat');
 
-
-
-    }
+    // }
 
     return (
-        <div className='register'>
-            <h2>У многих из нас в детстве был Тамагочи - виртуальный зверёк, за которым нужно было ухаживать, кормить, убирать, играть с ним. А если он вдруг заболевал или умирал - это было трагедией.</h2>
+        <h2>А что если.. по другую сторону экрана будет не виртуальный зверёк, следовавший своим алгоритмам, а настоящий живой человек?..</h2>
 
 
-            {/* <Link to='/profile-page'>
-                <Button color='primary' onClick={e => viewProfile()}>View Profile</Button>
-            </Link> */}
-            <Button style={{
-                display: 'inline-block',
-                width: '20%',
-                alignItems: 'right'
 
-            }} onClick={viewProfile} variant={"outlined"}>Дальше</Button>
-        </div>
 
 
     );
@@ -181,4 +167,4 @@ const Register = () => {
 };
 
 
-export default Register;
+export default Register_step1;

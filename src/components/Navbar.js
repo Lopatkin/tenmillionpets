@@ -9,7 +9,6 @@ import { Grid } from '@mui/material';
 // import { useContext } from 'react';
 
 const Navbar = () => {
-    // const { userData } = useContext(Context);
 
     return (
         <AppBar color={"primary"} position="static">

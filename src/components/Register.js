@@ -4,6 +4,9 @@ import { useContext } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
+import { Route, Routes, Navigate } from 'react-router-dom'
+
+
 // import { collection, getDocs } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -12,6 +15,9 @@ import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import { fb_users, fb_messages } from '../utils/consts';
+
+import Login from "./Login";
+import Chat from "./Chat";
 
 // const tg = window.Telegram.WebApp;
 //
@@ -47,7 +53,7 @@ import { fb_users, fb_messages } from '../utils/consts';
 // /////TG/////
 const Register = () => {
 
-
+    alert('Регистрируем пользователя ');
     //   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     // {
@@ -78,7 +84,7 @@ const Register = () => {
     const { tg } = useContext(Context);
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-    alert("Регистрируем пользовалея " + userData.id)
+    // alert("Регистрируем пользовалея " + userData)
 
     //реальные данные
     // const userID = userData.id;
@@ -132,80 +138,14 @@ const Register = () => {
     }
 
     return (
-        <Container >
-            <Grid container
-
-                justify={"center"}
-                style={{
-                    backgroundColor: '#232323',
-                    width: '100%'
-                }}
-            >
-                <div style={{ width: '100%', height: '70vh' }}>
-                    {messages?.map(message =>
-
-                        // Блок сообщения
-                        <div style={{
-                            margin: 5,
-                            marginLeft: userID === message.userID ? 'auto' : '10px',
-                            width: 'fit-content',
-                            padding: 1,
-                        }}>
-
-                            {/* UserName */}
-                            <div style={{
-                                display: userID === message.userID ? 'none' : 'visible',
-                                color: '#514c4c'
-                            }}>{message.userFirstName} {message.userName} {message.userLastName}</div>
-
-                            {/* Avatar */}
-                            <div style={{
-                                display: userID === message.userID ? 'none' : 'inline-block'
-                            }}><Avatar src={message.userPhotoUrl} /></div>
-
-                            {/* Message */}
-                            <div style={{
-                                display: 'inline-block',
-                                color: '#ffffff',
-                                marginLeft: userID === message.userID ? 'auto' : '10px',
-                                backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
-                                width: 'fit-content',
-                                borderRadius: '8px',
-                                padding: '8px'
-                            }}>{message.text}</div>
-                        </div>
-                    )}
-                </div >
-
-                <Grid container
-                    direction={"column"}
-                    alignItems={"flex-end"}
-                    style={{
-                        width: '100%',
-                        display: 'inline-block'
-
-
-                    }}>
-                    <TextField
-                        style={{
-                            width: '80%',
-                            display: 'inline-block'
-                        }}
-                        fullWidth
-                        rowsmax={2}
-                        variant={"outlined"}
-                        value={value}
-                        onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
-                    />
-                    <Button style={{
-                        display: 'inline-block',
-                        width: '20%'
-
-                    }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
-                </Grid>
-            </Grid >
-        </Container >
+        <Routes>
+            <Route path="/chat" element={<Chat />} />
+            <Route path="*" element={<Navigate to="/chat" replace />} />
+        </Routes>
     );
+
+
+
 };
 
 export default Register;

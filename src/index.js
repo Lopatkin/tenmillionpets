@@ -75,15 +75,28 @@ const tg = window.Telegram.WebApp;
 
 const userData = tg.initDataUnsafe?.user;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Context.Provider value={{
-    userData,
-    firestore,
-    tg
-  }}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Context.Provider>
-);
+
+
+
+const db = firebase.firestore();
+
+var docRef = db.collection('users').doc("300");
+const myData = docRef.get().then((doc) => {
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <Context.Provider value={{
+      userData,
+      firestore,
+      tg,
+      doc
+    }}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Context.Provider>
+  );
+
+}).catch((error) => {
+  console.log("Error getting document:", error);
+});

@@ -9,8 +9,6 @@ import { useContext } from 'react';
 
 const App = () => {
 
-  // const { userData } = useContext(Context);
-
   return (
     <BrowserRouter>
       <Navbar />

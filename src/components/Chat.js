@@ -48,16 +48,6 @@ import { fb_users, fb_messages } from '../utils/consts';
 const Chat = () => {
 
 
-    //   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    // {
-    //     <script>
-    // console.log('tg ' + tg.initDataUnsafe.user);
-
-    //         let tg = window.Telegram.WebApp;
-    //     </script>
-    // }
-
     // db.collection("messages").get().then((querySnapshot) => {
     //     querySnapshot.forEach((doc) => {
     //         // doc.data() is never undefined for query doc snapshots
@@ -88,22 +78,12 @@ const Chat = () => {
     // const userPhotoUrl = "";
 
     //данные для проверки интерфейса
-    const userID = 800;
+    const userID = 300;
     const userFirstName = "Андрей";
     const userLastName = "Лопаткин";
     const userName = "vizor101";
     // const userPhotoUrl = userData.photo;
     const userPhotoUrl = "";
-
-
-    // const { firestore } = useContext(Context)
-    // const [value, setValue] = useState('')
-    // const [messages, loading] = useCollectionData(
-    //     firestore.collection('messages').orderBy('createdAt')
-    // )
-
-
-
 
 
     const { firestore } = useContext(Context)

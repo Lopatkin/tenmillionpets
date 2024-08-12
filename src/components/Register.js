@@ -59,7 +59,7 @@ const Register = () => {
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     const viewProfile = () => {
-        window.location.assign('/Register_step1');
+        window.location.assign('/register_step1');
 
 
 

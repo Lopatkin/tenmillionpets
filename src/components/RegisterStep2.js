@@ -30,6 +30,8 @@ const RegisterStep2 = () => {
     const navigate = useNavigate();
 
     const navigateToRegisterStep3 = () => {
+        alert('пришли ' + userID);
+
         firestore.collection(fb_users).doc(userID).add({
             userID: userID,
             userRole: role,

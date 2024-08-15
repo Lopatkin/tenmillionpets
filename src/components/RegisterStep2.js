@@ -41,7 +41,10 @@ const RegisterStep2 = () => {
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
             .then((docRef) => {
+                alert('ooo ' + userID + 'добавлен')
                 console.log("Document written with ID: ", docRef.id);
+                navigate('/registerStep3');
+
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
@@ -49,7 +52,6 @@ const RegisterStep2 = () => {
 
 
 
-        navigate('/registerStep3');
     };
 
     const navigateToRegisterStep1 = () => {

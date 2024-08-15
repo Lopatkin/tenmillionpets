@@ -43,34 +43,58 @@ const RegisterStep2 = () => {
             userName: userData.username,
             userPhotoUrl: "",
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        })
-            .then((docRef) => {
-                alert('Зарегились');
+        }).then(() => {
+            console.log("Document successfully written!");
+            alert('Зарегились');
 
-                console.log("Document written with ID: ", docRef.id);
+            var docRef = firestore.collection(fb_users).doc(userID);
 
-                var docRef = firestore.collection(fb_users).doc(userID);
+            docRef.get().then((doc) => {
+                if (doc.introPassed) {
+                    alert('ок');
 
-                docRef.get().then((doc) => {
-                    if (doc.exists) {
-                        alert('ок');
+                    console.log("Document data:", doc.data());
+                } else {
+                    alert('не ок');
 
-                        console.log("Document data:", doc.data());
-                    } else {
-                        alert('не ок');
-
-                        // doc.data() will be undefined in this case
-                        console.log("No such document!");
-                    }
-                }).catch((error) => {
-                    console.log("Error getting document:", error);
-                });
-                // navigate('/registerStep3');
-
-            })
-            .catch((error) => {
-                console.error("Error adding document: ", error);
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
             });
+
+        })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+
+
+
+        // .then((docRef) => {
+        //     alert('Зарегились');
+
+        //     console.log("Document written with ID: ", docRef.id);
+
+        //     var docRef = firestore.collection(fb_users).doc(userID);
+
+        //     docRef.get().then((doc) => {
+        //         if (doc.exists) {
+        //             alert('ок');
+
+        //             console.log("Document data:", doc.data());
+        //         } else {
+        //             alert('не ок');
+
+        //             // doc.data() will be undefined in this case
+        //             console.log("No such document!");
+        //         }
+        //     }).catch((error) => {
+        //         console.log("Error getting document:", error);
+        //     });
+        //     // navigate('/registerStep3');
+
+        // });
 
 
 

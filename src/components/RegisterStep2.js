@@ -32,7 +32,7 @@ const RegisterStep2 = () => {
     const navigateToRegisterStep3 = () => {
         alert('пришли ' + userID);
 
-        firestore.collection(fb_users).doc(userID).add({
+        firestore.collection(fb_users).doc(userID).set({
             userID: userID,
             userRole: role,
             // userFirstName: userFirstName,

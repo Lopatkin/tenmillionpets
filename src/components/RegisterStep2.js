@@ -32,6 +32,7 @@ const RegisterStep2 = () => {
     const navigateToRegisterStep3 = () => {
         firestore.collection(fb_users).doc(userID).add({
             userID: userID,
+            userRole: role,
             // userFirstName: userFirstName,
             // userLastName: userLastName,
             // userName: userName,

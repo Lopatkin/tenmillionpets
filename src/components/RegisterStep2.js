@@ -9,24 +9,43 @@ import RegisterStep1 from './RegisterStep1';
 import RegisterStep3 from './RegisterStep1';
 import { master_role, pet_role } from '../utils/consts';
 
+// import { collection, getDocs } from "firebase/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import firebase from "firebase/compat/app";
+import "firebase/firestore";
+import { fb_users, fb_messages } from '../utils/consts';
+
 const RegisterStep2 = () => {
 
     var role;
     const { tg } = useContext(Context);
+    const { userID } = useContext(Context);
+    const { firestore } = useContext(Context)
+
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     const navigate = useNavigate();
 
     const navigateToRegisterStep3 = () => {
-        // firestore.collection(fb_users).doc('800').collection(fb_messages).add({
-        //     userID: userID,
-        //     userFirstName: userFirstName,
-        //     userLastName: userLastName,
-        //     userName: userName,
-        //     userPhotoUrl: userPhotoUrl,
-        //     text: value,
-        //     createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        // })
+        firestore.collection(fb_users).doc(userID).add({
+            userID: userID,
+            // userFirstName: userFirstName,
+            // userLastName: userLastName,
+            // userName: userName,
+            // userPhotoUrl: userPhotoUrl,
+            // text: value,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+
 
 
         navigate('/registerStep3');

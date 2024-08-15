@@ -74,11 +74,13 @@ const firestore = firebase.firestore()
 const tg = window.Telegram.WebApp;
 
 const userData = tg.initDataUnsafe?.user;
-const userID = tg.initDataUnsafe?.user?.id;
+const userID = tg.initDataUnsafe?.user?.id.toString();
 
 const db = firebase.firestore();
 
-var docRef = db.collection(fb_users).doc(userID.toString());
+var docRef = db.collection(fb_users).doc('86754356');
+// var docRef = db.collection(fb_users).doc(userID);
+
 const myData = docRef.get().then((doc) => {
 
   const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -87,7 +89,8 @@ const myData = docRef.get().then((doc) => {
       userData,
       firestore,
       tg,
-      doc
+      doc,
+      userID
     }}>
       <React.StrictMode>
         <App />

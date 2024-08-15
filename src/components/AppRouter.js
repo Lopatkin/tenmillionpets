@@ -31,8 +31,6 @@ const AppRouter = () => {
 
     var isUserExist = doc.exists;
 
-    // alert(isUserExist)
-
     return isUserExist ?
         (
             <Routes>

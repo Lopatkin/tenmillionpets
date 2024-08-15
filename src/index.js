@@ -5,6 +5,7 @@ import App from './App';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import "firebase/database";
+import { fb_users } from './utils/consts';
 
 
 
@@ -74,13 +75,14 @@ const tg = window.Telegram.WebApp;
 
 
 const userData = tg.initDataUnsafe?.user;
+const userID = userData.id;
 
 
 
 
 const db = firebase.firestore();
 
-var docRef = db.collection('users').doc("3030");
+var docRef = db.collection(fb_users).doc(userID);
 const myData = docRef.get().then((doc) => {
 
   const root = ReactDOM.createRoot(document.getElementById('root'));

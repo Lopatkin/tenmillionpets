@@ -7,17 +7,28 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep3 from './RegisterStep1';
-import { Pets } from '@mui/icons-material';
+import { master_role, pet_role } from '../utils/consts';
 
 const RegisterStep2 = () => {
 
-    var textValue;
+    var role;
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     const navigate = useNavigate();
 
     const navigateToRegisterStep3 = () => {
+        // firestore.collection(fb_users).doc('800').collection(fb_messages).add({
+        //     userID: userID,
+        //     userFirstName: userFirstName,
+        //     userLastName: userLastName,
+        //     userName: userName,
+        //     userPhotoUrl: userPhotoUrl,
+        //     text: value,
+        //     createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        // })
+
+
         navigate('/registerStep3');
     };
 
@@ -28,11 +39,13 @@ const RegisterStep2 = () => {
     const human = () => {
         document.getElementById("textRole").innerHTML = 'Хозяин';
         document.getElementById("textRoleDescription").innerHTML = 'Вы сами принимаете за себя решение';
+        role = master_role;
     }
 
     const pet = () => {
         document.getElementById("textRole").innerHTML = 'Питомец';
         document.getElementById("textRoleDescription").innerHTML = 'Ваша судьба неопределена';
+        role = pet_role;
     }
 
 

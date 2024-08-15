@@ -45,9 +45,23 @@ const RegisterStep2 = () => {
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
             .then((docRef) => {
-                // alert('ooo ' + userID + 'добавлен')
+
                 console.log("Document written with ID: ", docRef.id);
-                navigate('/registerStep3');
+
+                firestore.collection(fb_users).doc(userID).get().then((doc) => {
+                    if (doc.introPassed = true) {
+                        console.log("Document data:", doc.data());
+                        alert('intro passed');
+                    } else {
+                        // doc.data() will be undefined in this case
+                        console.log("No such document!");
+                        alert('intro not passed');
+
+                    }
+                }).catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+                // navigate('/registerStep3');
 
             })
             .catch((error) => {

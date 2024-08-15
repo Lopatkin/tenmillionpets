@@ -45,6 +45,7 @@ const RegisterStep2 = () => {
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
             .then((docRef) => {
+                alert('Зарегились');
 
                 console.log("Document written with ID: ", docRef.id);
 

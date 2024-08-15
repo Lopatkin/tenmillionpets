@@ -73,18 +73,12 @@ const firestore = firebase.firestore()
 
 const tg = window.Telegram.WebApp;
 
-
 const userData = tg.initDataUnsafe?.user;
 const userID = tg.initDataUnsafe?.user?.id;
-// const userFirstName = userData.first_name;
-
-
-alert(userID)
-
 
 const db = firebase.firestore();
 
-var docRef = db.collection(fb_users).doc('fedb');
+var docRef = db.collection(fb_users).doc(userID);
 const myData = docRef.get().then((doc) => {
 
   const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -49,15 +49,18 @@ const RegisterStep2 = () => {
 
                 console.log("Document written with ID: ", docRef.id);
 
-                firestore.collection(fb_users).doc(userID).get().then((doc) => {
-                    if (doc.introPassed = true) {
+                var docRef = db.collection(fb_users).doc(userID);
+
+                docRef.get().then((doc) => {
+                    if (doc.exists) {
+                        alert('ок');
+
                         console.log("Document data:", doc.data());
-                        alert('intro passed');
                     } else {
+                        alert('не ок');
+
                         // doc.data() will be undefined in this case
                         console.log("No such document!");
-                        alert('intro not passed');
-
                     }
                 }).catch((error) => {
                     console.log("Error getting document:", error);

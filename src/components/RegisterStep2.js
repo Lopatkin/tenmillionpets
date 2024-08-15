@@ -23,27 +23,29 @@ const RegisterStep2 = () => {
     var role;
     const { tg } = useContext(Context);
     const { userID } = useContext(Context);
-    const { firestore } = useContext(Context)
+    const { firestore } = useContext(Context);
+    const { userData } = useContext(Context);
+
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     const navigate = useNavigate();
 
     const navigateToRegisterStep3 = () => {
-        alert('пришли ' + userID);
+        // alert('пришли ' + userID);
 
         firestore.collection(fb_users).doc(userID).set({
             userID: userID,
             userRole: role,
-            // userFirstName: userFirstName,
-            // userLastName: userLastName,
-            // userName: userName,
-            // userPhotoUrl: userPhotoUrl,
-            // text: value,
+            introPassed: false,
+            userFirstName: userData.first_name,
+            userLastName: userData.last_name,
+            userName: userData.username,
+            userPhotoUrl: "",
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         })
             .then((docRef) => {
-                alert('ooo ' + userID + 'добавлен')
+                // alert('ooo ' + userID + 'добавлен')
                 console.log("Document written with ID: ", docRef.id);
                 navigate('/registerStep3');
 

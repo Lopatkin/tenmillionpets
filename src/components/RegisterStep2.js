@@ -49,7 +49,7 @@ const RegisterStep2 = () => {
 
                 console.log("Document written with ID: ", docRef.id);
 
-                var docRef = db.collection(fb_users).doc(userID);
+                var docRef = firestore.collection(fb_users).doc(userID);
 
                 docRef.get().then((doc) => {
                     if (doc.exists) {

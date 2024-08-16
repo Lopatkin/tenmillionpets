@@ -9,6 +9,8 @@ import firebase from "firebase/compat/app";
 
 import RegisterStep1 from "./RegisterStep1";
 
+alert('пре ок буффер ');
+
 const firestore = firebase.firestore()
 
 const tg = window.Telegram.WebApp;

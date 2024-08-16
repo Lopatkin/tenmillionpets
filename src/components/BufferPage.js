@@ -31,6 +31,10 @@ const BufferPage = () => {
     alert('buffer isUserExist ' + isUserExist);
     alert('buffer isIntroPassed ' + isIntroPassed);
 
+    const navigate = useNavigate();
+
+    // isIntroPassed = false
+    // isUserExist = true
     if (isUserExist && !isIntroPassed) {
         alert('тут')
         navigate('/introStep1');
@@ -38,7 +42,6 @@ const BufferPage = () => {
     }
     alert('вот тут')
 
-    const navigate = useNavigate();
 
     const navigateToRegisterStep1 = () => {
         navigate('/registerStep1');

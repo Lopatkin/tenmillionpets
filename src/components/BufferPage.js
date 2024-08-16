@@ -23,7 +23,24 @@ const BufferPage = () => {
     docRef.get().then((doc) => {
         if (doc.data().introPassed) {
             alert('ок буффер ');
+            return (
+                <div>
+                    <h2>Это буффер.</h2>
+                    <div>
+                        {/* <button onClick={navigateHome}>Home</button> */}
+                        <Button style={{
+                            display: 'inline-block',
+                            width: '20%'
 
+                        }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
+
+                        <Routes>
+                            <Route path="/registerStep1" element={<RegisterStep1 />} />
+                            <Route path="/" element={<Home />} />
+                        </Routes>
+                    </div>
+                </div>
+            );
             console.log("Document data:", doc.data());
         } else {
             alert('не ок буффер' + doc.data().introPassed);
@@ -44,24 +61,7 @@ const BufferPage = () => {
         navigate('/registerStep1');
     };
 
-    return (
-        <div>
-            <h2>Это буффер.</h2>
-            <div>
-                {/* <button onClick={navigateHome}>Home</button> */}
-                <Button style={{
-                    display: 'inline-block',
-                    width: '20%'
 
-                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
-
-                <Routes>
-                    <Route path="/registerStep1" element={<RegisterStep1 />} />
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </div>
-        </div>
-    );
 };
 
 function Home() {

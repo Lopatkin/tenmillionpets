@@ -31,6 +31,7 @@ const userID = tg.initDataUnsafe?.user?.id.toString();
 var docRef = firestore.collection(fb_users).doc(userID);
 
 docRef.get().then((doc) => {
+    alert('introPassed ' + doc.data().introPassed);
     if (doc.data().introPassed) {
         alert('ок буффер ');
 

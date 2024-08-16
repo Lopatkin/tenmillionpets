@@ -27,20 +27,21 @@ const BufferPage = () => {
 
     // alert('это буффер')
 
+    isIntroPassed = false
+    isUserExist = true
 
-    alert('buffer isUserExist ' + isUserExist);
-    alert('buffer isIntroPassed ' + isIntroPassed);
+    // alert('buffer isUserExist ' + isUserExist);
+    // alert('buffer isIntroPassed ' + isIntroPassed);
 
     const navigate = useNavigate();
 
-    // isIntroPassed = false
-    // isUserExist = true
+
     if (isUserExist && !isIntroPassed) {
         alert('тут')
         navigate('/introStep1');
 
     }
-    alert('вот тут')
+    // alert('вот тут')
 
 
     const navigateToRegisterStep1 = () => {
@@ -53,17 +54,17 @@ const BufferPage = () => {
 
             <div>
                 {navigate('/introStep1')}
-                {alert('навигируем')}
+                {/* {alert('навигируем')} */}
 
-                {/* <button onClick={navigateHome}>Home</button> */}
+                {/* <button onClick={navigateHome}>Home</button>
                 <Button style={{
                     display: 'inline-block',
                     width: '20%'
 
-                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
+                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button> */}
 
                 <Routes>
-                    <Route path="/registerStep1" element={<RegisterStep1 />} />
+                    {/* <Route path="/registerStep1" element={<RegisterStep1 />} /> */}
                     <Route path="/introStep1" element={<IntroStep1 />} />
                 </Routes>
             </div>

@@ -12,7 +12,7 @@ const Register = () => {
 
 
 
-    
+
     const navigate = useNavigate();
 
     const navigateToRegisterStep1 = () => {

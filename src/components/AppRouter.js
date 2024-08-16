@@ -35,22 +35,32 @@ const AppRouter = () => {
     var isUserExist = doc.exists;
     var isIntroPassed = doc.data()?.introPassed;
 
-    alert('isUserExist ' + isUserExist);
-    alert('isIntroPassed ' + isIntroPassed);
+    isIntroPassed = false
+    isUserExist = true
+
+    // alert('isUserExist ' + isUserExist);
+    // alert('isIntroPassed ' + isIntroPassed);
 
 
-    return (isUserExist && isIntroPassed) ?
-        (
+    if (isUserExist && isIntroPassed) {
+        return (
             <Routes>
                 <Route path="/chat" element={<Chat />} />
                 <Route path="*" element={<Navigate to="/chat" replace />} />
             </Routes>
         )
-        :
-        (<Routes>
+    }
+    else if (isUserExist && !isIntroPassed) {
+        return (
+            <Routes>
+                <Route path="/introStep1" element={<IntroStep1 />} />
+                <Route path="*" element={<Navigate to="/introStep1" replace />} />
 
-            <Route path="/bufferPage" element={<BufferPage />} />
-            <Route path="*" element={<Navigate to="/bufferPage" replace />} />
+
+            </Routes>
+        )
+    } else if (!isUserExist) {
+        <Routes>
 
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Navigate to="/register" replace />} />
@@ -60,12 +70,8 @@ const AppRouter = () => {
 
             <Route path="/registerStep2" element={<RegisterStep2 />} />
             <Route path="*" element={<Navigate to="/registerStep2" replace />} />
-
-            <Route path="/introStep1" element={<IntroStep1 />} />
-            <Route path="*" element={<Navigate to="/introStep1" replace />} />
-
         </Routes>
-        )
+    }
 
     // const onSuccess = (doc) => {
     //     return !doc.exists ? (

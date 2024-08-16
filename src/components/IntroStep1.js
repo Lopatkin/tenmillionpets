@@ -14,17 +14,17 @@ const IntroStep1 = () => {
     alert('в интро')
 
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const navigateToRegisterStep1 = () => {
-        navigate('/registerStep1');
-    };
+    // const navigateToRegisterStep1 = () => {
+    //     navigate('/registerStep1');
+    // };
 
     return (
         <div>
             <h2>Интро1 </h2>
             <div>
-                {/* <button onClick={navigateHome}>Home</button> */}
+                {/* <button onClick={navigateHome}>Home</button>
                 <Button style={{
                     display: 'inline-block',
                     width: '20%'
@@ -34,7 +34,7 @@ const IntroStep1 = () => {
                 <Routes>
                     <Route path="/registerStep1" element={<RegisterStep1 />} />
                     <Route path="/" element={<Home />} />
-                </Routes>
+                </Routes> */}
             </div>
         </div>
     );

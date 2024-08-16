@@ -32,7 +32,7 @@ const AppRouter = () => {
     var isUserExist = doc.exists;
     var isIntroPassed = doc.introPassed;
 
-    alert('intro passed ' + doc.userID);
+    alert('intro passed ' + doc.data().userID);
 
     return isUserExist ?
         (

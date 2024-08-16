@@ -55,7 +55,7 @@ const RegisterStep2 = () => {
 
                     console.log("Document data:", doc.data());
                 } else {
-                    alert('не ок' + doc.introPassed);
+                    alert('не ок' + doc.data().introPassed);
                     //вот здесь начинается интро
 
                     // doc.data() will be undefined in this case

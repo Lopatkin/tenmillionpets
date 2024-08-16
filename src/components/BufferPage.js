@@ -58,6 +58,9 @@ const BufferPage = () => {
                 <Routes>
                     <Route path="/registerStep1" element={<RegisterStep1 />} />
                     <Route path="/" element={<Home />} />
+
+                    <Route path="/introStep1" element={<IntroStep1 />} />
+                    <Route path="/" element={<Home />} />
                 </Routes>
             </div>
         </div>

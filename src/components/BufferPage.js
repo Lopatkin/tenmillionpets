@@ -6,13 +6,13 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import RegisterStep1 from "./RegisterStep1";
 
-const Register = () => {
+const BufferPage = () => {
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
+    alert('это буффер')
 
 
-    
     const navigate = useNavigate();
 
     const navigateToRegisterStep1 = () => {
@@ -43,4 +43,4 @@ function Home() {
     // return <h2>Home</h2>;
 }
 
-export default Register;
+export default BufferPage;

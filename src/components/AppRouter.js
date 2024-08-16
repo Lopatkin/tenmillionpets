@@ -10,6 +10,7 @@ import { useCollectionData, useCollectionDataOnce, useDocument } from "react-fir
 
 import Login from "./Login";
 import Chat from "./Chat";
+import BufferPage from "./BufferPage";
 import Register from "./Register";
 import RegisterStep1 from "./RegisterStep1";
 import RegisterStep2 from "./RegisterStep2";
@@ -32,7 +33,7 @@ const AppRouter = () => {
     var isUserExist = doc.exists;
     var isIntroPassed = doc.introPassed;
 
-    alert('intro passed ' + doc.data().introPassed);
+    // alert('intro passed ' + doc.data().introPassed);
 
     return isUserExist ?
         (
@@ -43,6 +44,10 @@ const AppRouter = () => {
         )
         :
         (<Routes>
+
+            <Route path="/bufferPage" element={<BufferPage />} />
+            <Route path="*" element={<Navigate to="/bufferPage" replace />} />
+
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Navigate to="/register" replace />} />
 

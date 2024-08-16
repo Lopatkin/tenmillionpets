@@ -59,17 +59,19 @@ const AppRouter = () => {
             </Routes>
         )
     } else if (!isUserExist) {
-        <Routes>
+        return (
+            <Routes>
 
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<Navigate to="/register" replace />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<Navigate to="/register" replace />} />
 
-            <Route path="/registerStep1" element={<RegisterStep1 />} />
-            <Route path="*" element={<Navigate to="/registerStep1" replace />} />
+                <Route path="/registerStep1" element={<RegisterStep1 />} />
+                <Route path="*" element={<Navigate to="/registerStep1" replace />} />
 
-            <Route path="/registerStep2" element={<RegisterStep2 />} />
-            <Route path="*" element={<Navigate to="/registerStep2" replace />} />
-        </Routes>
+                <Route path="/registerStep2" element={<RegisterStep2 />} />
+                <Route path="*" element={<Navigate to="/registerStep2" replace />} />
+            </Routes>
+        )
     }
 
     // const onSuccess = (doc) => {

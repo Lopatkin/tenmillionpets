@@ -9,6 +9,17 @@ import firebase from "firebase/compat/app";
 
 import RegisterStep1 from "./RegisterStep1";
 
+firebase.initializeApp({
+    apiKey: "AIzaSyDKdcVmzzvFu_7lTiI-rMASUsT8qjchMr8",
+    authDomain: "tenmillionpets.firebaseapp.com",
+    projectId: "tenmillionpets",
+    storageBucket: "tenmillionpets.appspot.com",
+    messagingSenderId: "105880127070",
+    appId: "1:105880127070:web:430221607b4b3de026d6cf",
+    measurementId: "G-J4VZXFD0FS"
+}
+);
+
 alert('пре ок буффер ');
 
 const firestore = firebase.firestore()

@@ -50,7 +50,10 @@ const BufferPage = () => {
     return (
         <div>
             <h2>Это буффер.</h2>
+
             <div>
+                {navigate('/introStep1')}
+
                 {/* <button onClick={navigateHome}>Home</button> */}
                 <Button style={{
                     display: 'inline-block',

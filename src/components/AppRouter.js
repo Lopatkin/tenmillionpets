@@ -31,11 +31,13 @@ const AppRouter = () => {
 
 
     var isUserExist = doc.exists;
-    var isIntroPassed = doc.introPassed;
+    var isIntroPassed = doc.data()?.introPassed;
 
-    // alert('intro passed ' + doc.data().introPassed);
+    alert('isUserExist ' + isUserExist);
+    alert('isIntroPassed ' + isIntroPassed);
 
-    return isUserExist ?
+
+    return (isUserExist && isIntroPassed) ?
         (
             <Routes>
                 <Route path="/chat" element={<Chat />} />

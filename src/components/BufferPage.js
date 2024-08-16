@@ -32,9 +32,11 @@ const BufferPage = () => {
     alert('buffer isIntroPassed ' + isIntroPassed);
 
     if (isUserExist && !isIntroPassed) {
+        alert('тут')
         navigate('/introStep1');
 
     }
+    alert('вот тут')
 
     const navigate = useNavigate();
 

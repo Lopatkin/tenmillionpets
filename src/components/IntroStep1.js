@@ -3,38 +3,15 @@ import { Context } from '../index';
 import { useContext, Link } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import { fb_users, fb_messages } from '../utils/consts';
-import firebase from "firebase/compat/app";
-
 
 import RegisterStep1 from "./RegisterStep1";
-import IntroStep1 from "./IntroStep1";
 
-
-
-
-// alert('пре ок буффер ');
-
-
-const BufferPage = () => {
+const IntroStep1 = () => {
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
 
-    const { doc } = useContext(Context)
-    var isUserExist = doc.exists;
-    var isIntroPassed = doc.data()?.introPassed;
 
-    // alert('это буффер')
-
-
-    alert('buffer isUserExist ' + isUserExist);
-    alert('buffer isIntroPassed ' + isIntroPassed);
-
-    if (isUserExist && !isIntroPassed) {
-        navigate('/registerStep1');
-
-    }
 
     const navigate = useNavigate();
 
@@ -44,7 +21,7 @@ const BufferPage = () => {
 
     return (
         <div>
-            <h2>Это буффер.</h2>
+            <h2>Интро1 </h2>
             <div>
                 {/* <button onClick={navigateHome}>Home</button> */}
                 <Button style={{
@@ -66,4 +43,4 @@ function Home() {
     // return <h2>Home</h2>;
 }
 
-export default BufferPage;
+export default IntroStep1;

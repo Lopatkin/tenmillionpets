@@ -68,6 +68,9 @@ const AppRouter = () => {
 
                 <Route path="/registerStep2" element={<RegisterStep2 />} />
                 <Route path="*" element={<Navigate to="/registerStep2" replace />} />
+
+                <Route path="/introStep1" element={<IntroStep1 />} />
+                <Route path="*" element={<Navigate to="/introStep1" replace />} />
             </Routes>
         )
     }

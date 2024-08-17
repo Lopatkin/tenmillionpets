@@ -11,7 +11,7 @@ const IntroStep1 = () => {
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
 
-    alert('в интро')
+    // alert('в интро')
 
 
     // const navigate = useNavigate();

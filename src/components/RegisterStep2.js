@@ -57,6 +57,8 @@ const RegisterStep2 = () => {
                 } else {
                     // alert('не ок' + doc.data().introPassed);
                     //вот здесь начинается интро
+                    alert('пора в интро');
+
                     navigate('/introStep1');
 
 

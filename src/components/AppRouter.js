@@ -38,8 +38,8 @@ const AppRouter = () => {
     // isIntroPassed = false
     // isUserExist = true
 
-    alert('isUserExist ' + isUserExist);
-    alert('isIntroPassed ' + isIntroPassed);
+    // alert('isUserExist ' + isUserExist);
+    // alert('isIntroPassed ' + isIntroPassed);
 
 
     if (isUserExist && isIntroPassed) {
@@ -54,8 +54,6 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/introStep1" element={<IntroStep1 />} />
                 <Route path="*" element={<Navigate to="/introStep1" replace />} />
-
-
             </Routes>
         )
     } else if (!isUserExist) {

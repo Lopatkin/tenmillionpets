@@ -45,18 +45,20 @@ const RegisterStep2 = () => {
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             console.log("Document successfully written!");
-            alert('Зарегились');
+            // alert('Зарегились');
 
             var docRef = firestore.collection(fb_users).doc(userID);
 
             docRef.get().then((doc) => {
                 if (doc.introPassed) {
-                    alert('ок');
+                    // alert('ок');
 
                     console.log("Document data:", doc.data());
                 } else {
-                    alert('не ок' + doc.data().introPassed);
+                    // alert('не ок' + doc.data().introPassed);
                     //вот здесь начинается интро
+                    navigate('/introStep1');
+
 
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
@@ -64,41 +66,10 @@ const RegisterStep2 = () => {
             }).catch((error) => {
                 console.log("Error getting document:", error);
             });
-
         })
             .catch((error) => {
                 console.error("Error writing document: ", error);
             });
-
-
-
-        // .then((docRef) => {
-        //     alert('Зарегились');
-
-        //     console.log("Document written with ID: ", docRef.id);
-
-        //     var docRef = firestore.collection(fb_users).doc(userID);
-
-        //     docRef.get().then((doc) => {
-        //         if (doc.exists) {
-        //             alert('ок');
-
-        //             console.log("Document data:", doc.data());
-        //         } else {
-        //             alert('не ок');
-
-        //             // doc.data() will be undefined in this case
-        //             console.log("No such document!");
-        //         }
-        //     }).catch((error) => {
-        //         console.log("Error getting document:", error);
-        //     });
-        //     // navigate('/registerStep3');
-
-        // });
-
-
-
     };
 
     const navigateToRegisterStep1 = () => {

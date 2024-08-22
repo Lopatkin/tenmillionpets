@@ -14,7 +14,7 @@ import BufferPage from "./BufferPage";
 import Register from "./Register";
 import RegisterStep1 from "./RegisterStep1";
 import RegisterStep2 from "./RegisterStep2";
-import IntroStep1 from "./IntroMasterStep1";
+import IntroStep1 from "./IntroStep1";
 
 
 

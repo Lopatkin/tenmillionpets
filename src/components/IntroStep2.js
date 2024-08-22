@@ -4,9 +4,9 @@ import { useContext, Link } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import { Route, Routes, useNavigate } from 'react-router-dom'
 
-import IntroMasterStep2 from "./IntroMasterStep2";
+import RegisterStep1 from "./RegisterStep1";
 
-const IntroStep1 = () => {
+const IntroStep2 = () => {
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
@@ -16,23 +16,23 @@ const IntroStep1 = () => {
 
     const navigate = useNavigate();
 
-    const navigateToIntroMasterStep2 = () => {
-        navigate('/introMasterStep2');
+    const navigateToRegisterStep1 = () => {
+        navigate('/registerStep1');
     };
 
     return (
         <div>
-            <h2>Вы решили сменить обстановку и уехали жить в другой город. Это было обдуманное решение. Вы выбрали небольшой город, заранее нашли там жильё, работу, купили билет и отправились в путь. </h2>
+            <h2>Интро 2 </h2>
             <div>
 
                 <Button style={{
                     display: 'inline-block',
                     width: '20%'
 
-                }} variant={"outlined"} onClick={navigateToIntroMasterStep2}>Всегда так делаю</Button>
+                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
 
                 <Routes>
-                    <Route path="/introMasterStep2" element={<IntroMasterStep2 />} />
+                    <Route path="/registerStep1" element={<RegisterStep1 />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
                 {/* <button onClick={navigateHome}>Home</button>
@@ -55,4 +55,4 @@ function Home() {
     // return <h2>Home</h2>;
 }
 
-export default IntroStep1;
+export default IntroStep2;

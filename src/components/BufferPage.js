@@ -8,7 +8,7 @@ import firebase from "firebase/compat/app";
 
 
 import RegisterStep1 from "./RegisterStep1";
-import IntroStep1 from "./IntroStep1";
+import IntroStep1 from "./IntroMasterStep1";
 
 
 

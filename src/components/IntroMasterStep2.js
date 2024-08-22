@@ -14,16 +14,27 @@ const IntroStep1 = () => {
     // alert('в интро')
 
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const navigateToRegisterStep1 = () => {
-    //     navigate('/registerStep1');
-    // };
+    const navigateToRegisterStep1 = () => {
+        navigate('/registerStep1');
+    };
 
     return (
         <div>
-            <h2>Интро1 </h2>
+            <h2>Вы решили сменить обстановку и уехали жить в другой город. Это было обдуманное решение. Вы выбрали небольшой город, заранее нашли там жильё, работу, купили билет и отправились в путь. </h2>
             <div>
+
+                <Button style={{
+                    display: 'inline-block',
+                    width: '20%'
+
+                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
+
+                <Routes>
+                    <Route path="/registerStep1" element={<RegisterStep1 />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
                 {/* <button onClick={navigateHome}>Home</button>
                 <Button style={{
                     display: 'inline-block',

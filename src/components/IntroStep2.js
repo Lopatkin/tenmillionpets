@@ -10,6 +10,8 @@ const IntroStep2 = () => {
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
+    const { user_animal } = useContext(Context);
+
 
     // alert('в интро')
 
@@ -19,6 +21,8 @@ const IntroStep2 = () => {
     const navigateToRegisterStep1 = () => {
         navigate('/registerStep1');
     };
+
+    alert(user_animal);
 
     return (
         <div>

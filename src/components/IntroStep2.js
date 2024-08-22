@@ -10,7 +10,9 @@ const IntroStep2 = () => {
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
-    const { user_animal } = useContext(Context);
+
+    const { doc } = useContext(Context)
+    const user_animal = doc.data()?.userAnimal;
 
 
     // alert('в интро')
@@ -35,10 +37,12 @@ const IntroStep2 = () => {
 
                 }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
 
-                <Routes>
+                {/* <Routes>
                     <Route path="/registerStep1" element={<RegisterStep1 />} />
                     <Route path="/" element={<Home />} />
-                </Routes>
+
+                    
+                </Routes> */}
                 {/* <button onClick={navigateHome}>Home</button>
                 <Button style={{
                     display: 'inline-block',

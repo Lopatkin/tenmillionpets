@@ -4,19 +4,22 @@ import { useContext, Link } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import { Route, Routes, useNavigate } from 'react-router-dom'
 
-// import IntroStep3 from "./IntroStep3";
 
 import Context1 from "./RegisterStep2";
-import { animalTypeVAR } from './RegisterStep2';
+import Chat from "./Chat";
 
-import { introStep2_human, introStep2_cat, introStep2_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
+import { animalTypeVAR } from './RegisterStep2';
+import { animalType3 } from './IntroStep2';
+
+
+import { introStep3_human, introStep3_cat, introStep3_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
 
 const IntroStep3 = (props) => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;
     var animalType;
-    var show_intro2;
+    var show_intro3;
 
     if (animalTypeVAR != undefined) {
         animalType = animalTypeVAR;
@@ -25,14 +28,14 @@ const IntroStep3 = (props) => {
         animalType = animalTypeFB;
     }
 
-    if (animalType == animal_human) {
-        show_intro2 = introStep2_human;
+    if (animalType3 == animal_human) {
+        show_intro3 = introStep3_human;
     }
-    if (animalType == animal_cat) {
-        show_intro2 = introStep2_cat;
+    if (animalType3 == animal_cat) {
+        show_intro3 = introStep3_cat;
     }
-    if (animalType == animal_dog) {
-        show_intro2 = introStep2_dog;
+    if (animalType3 == animal_dog) {
+        show_intro3 = introStep3_dog;
     }
 
 
@@ -43,27 +46,26 @@ const IntroStep3 = (props) => {
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
-    // alert('в интро')
 
     const navigate = useNavigate();
 
-    const navigateToIntroStep3 = () => {
-        navigate('/introStep3');
+    const navigateToChat = () => {
+        navigate('/chat');
     };
 
     return (
         <div>
-            <h2>333</h2>
+            <h2>{show_intro3}</h2>
             <div>
 
                 <Button style={{
                     display: 'inline-block',
                     width: '20%'
 
-                }} variant={"outlined"} onClick={navigateToIntroStep3}>Всегда так делаю</Button>
+                }} variant={"outlined"} onClick={navigateToChat}>Поехали</Button>
 
                 <Routes>
-                    <Route path="/introStep3" element={<IntroStep3 />} />
+                    <Route path="/chat" element={<Chat />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
                 {/* <button onClick={navigateHome}>Home</button>

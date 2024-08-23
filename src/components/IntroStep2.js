@@ -14,6 +14,8 @@ import { animalType2 } from './IntroStep1';
 
 import { introStep2_human, introStep2_cat, introStep2_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
 
+export var animalType3;
+
 const IntroStep2 = (props) => {
 
     const { doc } = useContext(Context)
@@ -37,6 +39,8 @@ const IntroStep2 = (props) => {
     if (animalType2 == animal_dog) {
         show_intro2 = introStep2_dog;
     }
+
+    animalType3 = animalType;
 
 
     // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);

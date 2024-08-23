@@ -69,8 +69,13 @@ const RegisterStep2 = () => {
                     // alert('не ок' + doc.data().introPassed);
                     //вот здесь начинается интро
                     // alert('пора в интро');
-
-                    navigate('/introStep1');
+                    if (animal == animal_human) {
+                        navigate('/introStep1');
+                    } else if (animal == animal_cat) {
+                        navigate('/introStep1');
+                    } else if (animal == animal_dog) {
+                        navigate('/introStep1');
+                    }
 
 
                     // doc.data() will be undefined in this case

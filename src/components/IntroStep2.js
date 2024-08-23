@@ -12,8 +12,6 @@ const IntroStep2 = () => {
 
 
     const { doc } = useContext(Context)
-    const user_animal = doc.data()?.userAnimal;
-
 
     // alert('в интро')
 
@@ -24,7 +22,6 @@ const IntroStep2 = () => {
         navigate('/registerStep1');
     };
 
-    alert(user_animal);
 
     return (
         <div>

@@ -13,7 +13,6 @@ const IntroStep1 = () => {
 
     // alert('в интро')
 
-
     const navigate = useNavigate();
 
     const navigateToIntroStep2 = () => {

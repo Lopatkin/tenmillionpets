@@ -40,7 +40,7 @@ const IntroStep2 = (props) => {
         show_intro2 = introStep2_dog;
     }
 
-    animalType3 = animalType;
+    animalType3 = animalType2;
 
 
     // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);

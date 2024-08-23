@@ -75,12 +75,6 @@ const RegisterStep2 = () => {
                     // <IntroStep1 anim_type = "animal_human" />
                     animalTypeVAR = animal;
                     navigate('/introStep1');
-                    // } else if (animal == animal_cat) {
-                    //     navigate('/introStep1');
-                    // } else if (animal == animal_dog) {
-                    //     navigate('/introStep1');
-                    // }
-
 
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
@@ -122,22 +116,17 @@ const RegisterStep2 = () => {
 
     const animal_cat_check = () => {
         document.getElementById("mewgav").style.display = 'inline';
-
         document.getElementById("mewgav").innerHTML = 'Вы кот.';
-
-        role = role_master;
+        role = role_pet;
         animal = animal_cat;
     }
 
     const animal_dog_check = () => {
         document.getElementById("mewgav").style.display = 'inline';
-
         document.getElementById("mewgav").innerHTML = 'Вы собака.';
-
         role = role_pet;
         animal = animal_dog;
     }
-
 
     return (
 

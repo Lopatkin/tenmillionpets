@@ -9,11 +9,14 @@ import IntroStep2 from "./IntroStep2";
 import Context1 from "./RegisterStep2";
 import { animalTypeVAR } from './RegisterStep2';
 
+import { introStep1_human, introStep1_cat, introStep1_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
+
 const IntroStep1 = (props) => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;
     var animalType;
+    var show_intro1;
 
     if (animalTypeVAR != undefined) {
         animalType = animalTypeVAR;
@@ -22,8 +25,19 @@ const IntroStep1 = (props) => {
         animalType = animalTypeFB;
     }
 
+    if (animalType = animal_human) {
+        show_intro1 = introStep1_human;
+    }
+    if (animalType = animal_cat) {
+        show_intro1 = introStep1_cat;
+    }
+    if (animalType = animal_dog) {
+        show_intro1 = introStep1_dog;
+    }
+
+
     // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
-    alert("animalType " + animalType);
+    // alert("animalType " + animalType);
 
 
     const { tg } = useContext(Context);
@@ -39,7 +53,7 @@ const IntroStep1 = (props) => {
 
     return (
         <div>
-            <h2>Вы решили сменить обстановку и уехали жить в другой город. Это было обдуманное решение. Вы выбрали небольшой город, заранее нашли там жильё, работу, купили билет и отправились в путь. </h2>
+            <h2>{show_intro1}</h2>
             <div>
 
                 <Button style={{

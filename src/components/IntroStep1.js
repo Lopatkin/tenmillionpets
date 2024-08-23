@@ -6,7 +6,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import IntroStep2 from "./IntroStep2";
 
-const IntroStep1 = () => {
+const IntroStep1 = (props) => {
+    alert(props);
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 

@@ -13,7 +13,7 @@ import animal_dog_pic from '../images/animal_dog.png';
 
 // import animal_dog_pic from '../src/images/animal_dog.png';
 
-
+import IntroStep1 from './IntroStep1';
 
 
 // import { collection, getDocs } from "firebase/firestore";
@@ -26,8 +26,6 @@ import "firebase/firestore";
 import { fb_users, fb_messages } from '../utils/consts';
 
 const RegisterStep2 = () => {
-
-
 
     var role;
     var animal;
@@ -70,6 +68,7 @@ const RegisterStep2 = () => {
                     //вот здесь начинается интро
                     // alert('пора в интро');
                     if (animal == animal_human) {
+                        <IntroStep1 />
                         navigate('/introStep1');
                     } else if (animal == animal_cat) {
                         navigate('/introStep1');

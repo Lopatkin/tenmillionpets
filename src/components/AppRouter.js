@@ -16,6 +16,8 @@ import RegisterStep1 from "./RegisterStep1";
 import RegisterStep2 from "./RegisterStep2";
 import IntroStep1 from "./IntroStep1";
 import IntroStep2 from "./IntroStep2";
+import IntroStep3 from "./IntroStep3";
+
 
 
 
@@ -60,6 +62,9 @@ const AppRouter = () => {
 
                 <Route path="/introStep2" element={<IntroStep2 />} />
                 <Route path="*" element={<Navigate to="/introStep2" replace />} />
+
+                <Route path="/introStep3" element={<IntroStep3 />} />
+                <Route path="*" element={<Navigate to="/introStep3" replace />} />
             </Routes>
         )
     } else if (!isUserExist) {

@@ -7,11 +7,16 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import IntroStep2 from "./IntroStep2";
 
 import Context1 from "./RegisterStep2";
-import { animalType } from './RegisterStep2';
+import { animalTypeVAR } from './RegisterStep2';
 
 const IntroStep1 = (props) => {
 
-    alert(animalType);
+    const { doc } = useContext(Context)
+    const animalTypeFB = doc.data()?.userAnimal;
+
+
+    alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
+
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 

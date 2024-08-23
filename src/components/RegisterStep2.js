@@ -25,7 +25,7 @@ import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import { fb_users, fb_messages } from '../utils/consts';
 
-export var animalType;
+export var animalTypeVAR;
 
 const RegisterStep2 = () => {
 
@@ -73,7 +73,7 @@ const RegisterStep2 = () => {
                     // alert('пора в интро');
                     // if (animal == animal_human) {
                     // <IntroStep1 anim_type = "animal_human" />
-                    animalType = animal;
+                    animalTypeVAR = animal;
                     navigate('/introStep1');
                     // } else if (animal == animal_cat) {
                     //     navigate('/introStep1');

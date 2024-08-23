@@ -11,6 +11,8 @@ import { animalTypeVAR } from './RegisterStep2';
 
 import { introStep1_human, introStep1_cat, introStep1_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
 
+export var animalType2;
+
 const IntroStep1 = (props) => {
 
     const { doc } = useContext(Context)
@@ -35,6 +37,7 @@ const IntroStep1 = (props) => {
         show_intro1 = introStep1_dog;
     }
 
+    animalType2 = animalType;
 
     // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
     // alert("animalType " + animalType);

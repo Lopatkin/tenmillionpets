@@ -4,37 +4,34 @@ import { useContext, Link } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import { Route, Routes, useNavigate } from 'react-router-dom'
 
-import IntroStep3 from "./IntroStep3";
+// import IntroStep3 from "./IntroStep3";
 
 import Context1 from "./RegisterStep2";
 import { animalTypeVAR } from './RegisterStep2';
 
-import { animalType2 } from './IntroStep1';
-
-
 import { introStep2_human, introStep2_cat, introStep2_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
 
-const IntroStep2 = (props) => {
+const IntroStep3 = (props) => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;
     var animalType;
     var show_intro2;
 
-    // if (animalTypeVAR != undefined) {
-    //     animalType = animalTypeVAR;
-    // }
-    // if (animalTypeFB != undefined) {
-    //     animalType = animalTypeFB;
-    // }
+    if (animalTypeVAR != undefined) {
+        animalType = animalTypeVAR;
+    }
+    if (animalTypeFB != undefined) {
+        animalType = animalTypeFB;
+    }
 
-    if (animalType2 == animal_human) {
+    if (animalType == animal_human) {
         show_intro2 = introStep2_human;
     }
-    if (animalType2 == animal_cat) {
+    if (animalType == animal_cat) {
         show_intro2 = introStep2_cat;
     }
-    if (animalType2 == animal_dog) {
+    if (animalType == animal_dog) {
         show_intro2 = introStep2_dog;
     }
 
@@ -56,14 +53,14 @@ const IntroStep2 = (props) => {
 
     return (
         <div>
-            <h2>{show_intro2}</h2>
+            <h2>333</h2>
             <div>
 
                 <Button style={{
                     display: 'inline-block',
                     width: '20%'
 
-                }} variant={"outlined"} onClick={navigateToIntroStep3}>Допустим</Button>
+                }} variant={"outlined"} onClick={navigateToIntroStep3}>Всегда так делаю</Button>
 
                 <Routes>
                     <Route path="/introStep3" element={<IntroStep3 />} />
@@ -89,4 +86,4 @@ function Home() {
     // return <h2>Home</h2>;
 }
 
-export default IntroStep2;
+export default IntroStep3;

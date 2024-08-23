@@ -25,13 +25,13 @@ const IntroStep1 = (props) => {
         animalType = animalTypeFB;
     }
 
-    if (animalType = animal_human) {
+    if (animalType == animal_human) {
         show_intro1 = introStep1_human;
     }
-    if (animalType = animal_cat) {
+    if (animalType == animal_cat) {
         show_intro1 = introStep1_cat;
     }
-    if (animalType = animal_dog) {
+    if (animalType == animal_dog) {
         show_intro1 = introStep1_dog;
     }
 

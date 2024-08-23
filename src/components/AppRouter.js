@@ -73,7 +73,6 @@ const AppRouter = () => {
     } else if (!isUserExist) {
         return (
             <Routes>
-
                 <Route path="/register" element={<Register />} />
                 <Route path="*" element={<Navigate to="/register" replace />} />
 

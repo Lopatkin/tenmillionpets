@@ -67,12 +67,13 @@ const IntroStep3 = () => {
             // home_id: '2323'
         }).then(() => {
             console.log("Document successfully written!");
-            // alert('Зарегились');
+            alert('ок');
             navigate('/chat');
-        })
-            .catch((error) => {
-                console.error("Error writing document: ", error);
-            });
+        }).catch((error) => {
+            alert('не ок');
+
+            console.error("Error writing document: ", error);
+        });
 
 
     };

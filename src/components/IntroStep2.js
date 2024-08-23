@@ -6,17 +6,13 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import IntroStep3 from "./IntroStep3";
 
-import Context1 from "./RegisterStep2";
-import { animalTypeVAR } from './RegisterStep2';
-
 import { animalType2 } from './IntroStep1';
-
 
 import { introStep2_human, introStep2_cat, introStep2_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
 
 export var animalType3;
 
-const IntroStep2 = (props) => {
+const IntroStep2 = () => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;

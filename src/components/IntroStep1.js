@@ -13,7 +13,7 @@ import { introStep1_human, introStep1_cat, introStep1_dog, animal_human, animal_
 
 export var animalType2;
 
-const IntroStep1 = (props) => {
+const IntroStep1 = () => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;

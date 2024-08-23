@@ -5,7 +5,6 @@ import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import { Route, Routes, useNavigate } from 'react-router-dom'
 
 
-import Context1 from "./RegisterStep2";
 import Chat from "./Chat";
 
 import { animalTypeVAR } from './RegisterStep2';
@@ -20,7 +19,7 @@ import { fb_users, fb_messages } from '../utils/consts';
 
 import { introStep3_human, introStep3_cat, introStep3_dog, animal_human, animal_cat, animal_dog } from '../utils/consts';
 
-const IntroStep3 = (props) => {
+const IntroStep3 = () => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;

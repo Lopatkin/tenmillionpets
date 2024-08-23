@@ -70,34 +70,34 @@ const Chat = () => {
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     //реальные данные
-    // const userID = userData.id;
-    // const userFirstName = userData.first_name;
-    // const userLastName = userData.last_name;
-    // const userName = userData.username;
-    // // const userPhotoUrl = userData.photo;
-    // const userPhotoUrl = "";
-
-    //данные для проверки интерфейса
-    const userID = 300;
-    const userFirstName = "Андрей";
-    const userLastName = "Лопаткин";
-    const userName = "vizor101";
+    const userID = userData.id;
+    const userFirstName = userData.first_name;
+    const userLastName = userData.last_name;
+    const userName = userData.username;
     // const userPhotoUrl = userData.photo;
     const userPhotoUrl = "";
+
+    //данные для проверки интерфейса
+    // const userID = 300;
+    // const userFirstName = "Андрей";
+    // const userLastName = "Лопаткин";
+    // const userName = "vizor101";
+    // // const userPhotoUrl = userData.photo;
+    // const userPhotoUrl = "";
 
 
     const { firestore } = useContext(Context)
     // const [user] = useAuthState(auth)
     const [value, setValue] = useState('')
     const [messages, loading] = useCollectionData(
-        firestore.collection(fb_users).doc('800').collection(fb_messages).orderBy('createdAt')
+        firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
     )
 
 
 
     const sendMessage = async () => {
         if (value) {
-            firestore.collection(fb_users).doc('800').collection(fb_messages).add({
+            firestore.collection(fb_users).doc(userID).collection(fb_messages).add({
                 userID: userID,
                 userFirstName: userFirstName,
                 userLastName: userLastName,

@@ -50,6 +50,10 @@ const IntroStep3 = (props) => {
     const navigate = useNavigate();
 
     const navigateToChat = () => {
+        //Тут выставляем стартовые параметры
+        
+
+
         navigate('/chat');
     };
 

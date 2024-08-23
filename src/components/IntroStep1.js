@@ -15,10 +15,10 @@ const IntroStep1 = (props) => {
     const animalTypeFB = doc.data()?.userAnimal;
     var animalType;
 
-    if (animalTypeVAR != false) {
+    if (animalTypeVAR != undefined) {
         animalType = animalTypeVAR;
     }
-    if (animalTypeFB != false) {
+    if (animalTypeFB != undefined) {
         animalType = animalTypeFB;
     }
 

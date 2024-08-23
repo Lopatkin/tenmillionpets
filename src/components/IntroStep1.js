@@ -7,10 +7,11 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import IntroStep2 from "./IntroStep2";
 
 const IntroStep1 = (props) => {
-    alert(props.anim_type);
+    const AnimContext = useContext(Context);
+
+    alert(AnimContext);
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-
 
     // alert('в интро')
 

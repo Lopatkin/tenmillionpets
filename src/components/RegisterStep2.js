@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { Context } from '../index';
 import { useContext, Link } from 'react';
 import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
@@ -25,6 +25,7 @@ import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import { fb_users, fb_messages } from '../utils/consts';
 
+
 const RegisterStep2 = () => {
 
     var role;
@@ -33,6 +34,7 @@ const RegisterStep2 = () => {
     const { userID } = useContext(Context);
     const { firestore } = useContext(Context);
     const { userData } = useContext(Context);
+
 
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
@@ -70,6 +72,8 @@ const RegisterStep2 = () => {
                     // alert('пора в интро');
                     // if (animal == animal_human) {
                     // <IntroStep1 anim_type = "animal_human" />
+                    const AnimContext = createContext(animal);
+
                     navigate('/introStep1');
                     // } else if (animal == animal_cat) {
                     //     navigate('/introStep1');

@@ -13,9 +13,18 @@ const IntroStep1 = (props) => {
 
     const { doc } = useContext(Context)
     const animalTypeFB = doc.data()?.userAnimal;
+    var animalType;
 
+    if (animalTypeVAR != false) {
+        animalType = animalTypeVAR;
+    }
+    if (animalTypeFB != false) {
+        animalType = animalTypeFB;
+    }
 
-    alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
+    // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
+    alert("animalType " + animalType);
+
 
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.

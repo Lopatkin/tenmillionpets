@@ -91,6 +91,9 @@ const AppRouter = () => {
 
                 <Route path="/introStep3" element={<IntroStep3 />} />
                 <Route path="*" element={<Navigate to="/introStep3" replace />} />
+
+                <Route path="/chat" element={<Chat />} />
+                <Route path="*" element={<Navigate to="/chat" replace />} />
             </Routes>
         )
     }

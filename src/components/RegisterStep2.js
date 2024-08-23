@@ -69,8 +69,8 @@ const RegisterStep2 = () => {
                     //вот здесь начинается интро
                     // alert('пора в интро');
                     // if (animal == animal_human) {
-                    <IntroStep1 anim_type="animal_human" />
-                    // navigate('/introStep1');
+                    // <IntroStep1 anim_type = "animal_human" />
+                    navigate('/introStep1');
                     // } else if (animal == animal_cat) {
                     //     navigate('/introStep1');
                     // } else if (animal == animal_dog) {

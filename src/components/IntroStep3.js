@@ -27,7 +27,7 @@ const IntroStep3 = () => {
     var show_intro3;
     const { userID } = useContext(Context);
 
-
+    alert(userID);
 
     const { firestore } = useContext(Context);
 

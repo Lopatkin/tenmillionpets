@@ -62,7 +62,7 @@ const IntroStep3 = () => {
 
     const navigateToChat = () => {
         //Тут выставляем стартовые параметры
-        firestore.collection(fb_users).doc(userID).set({
+        firestore.collection(fb_users).doc(userID).add({
             introPassed: true,
             // home_id: '2323'
         }).then(() => {

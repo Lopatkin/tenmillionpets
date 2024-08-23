@@ -6,8 +6,10 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import IntroStep2 from "./IntroStep2";
 
+import Context1 from "./RegisterStep2";
+
 const IntroStep1 = (props) => {
-    const { AnimContext } = useContext(Context);
+    const AnimContext = useContext(Context1);
 
     alert(AnimContext);
     const { tg } = useContext(Context);

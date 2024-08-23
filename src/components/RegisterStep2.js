@@ -72,7 +72,7 @@ const RegisterStep2 = () => {
                     // alert('пора в интро');
                     // if (animal == animal_human) {
                     // <IntroStep1 anim_type = "animal_human" />
-                    const AnimContext = createContext("animal");
+                    const Context1 = createContext("animal");
 
                     navigate('/introStep1');
                     // } else if (animal == animal_cat) {

@@ -70,6 +70,7 @@ const IntroStep3 = () => {
             alert('ок');
             navigate('/chat');
         }).catch((error) => {
+            
             alert('не ок');
 
             console.error("Error writing document: ", error);

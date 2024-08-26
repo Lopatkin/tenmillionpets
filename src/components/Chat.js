@@ -70,7 +70,7 @@ const Chat = () => {
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     //реальные данные
-    const userID = userData.id;
+    const userID = userData.id.toString();
     const userFirstName = userData.first_name;
     const userLastName = userData.last_name;
     const userName = userData.username;

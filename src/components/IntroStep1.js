@@ -39,14 +39,8 @@ const IntroStep1 = () => {
 
     animalType2 = animalType;
 
-    // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
-    // alert("animalType " + animalType);
-
-
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-
-    // alert('в интро')
 
     const navigate = useNavigate();
 
@@ -58,28 +52,15 @@ const IntroStep1 = () => {
         <div>
             <h2>{show_intro1}</h2>
             <div>
-
                 <Button style={{
                     display: 'inline-block',
                     width: '20%'
 
                 }} variant={"outlined"} onClick={navigateToIntroStep2}>Всегда так делаю</Button>
-
                 <Routes>
                     <Route path="/introStep2" element={<IntroStep2 />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
-                {/* <button onClick={navigateHome}>Home</button>
-                <Button style={{
-                    display: 'inline-block',
-                    width: '20%'
-
-                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
-
-                <Routes>
-                    <Route path="/registerStep1" element={<RegisterStep1 />} />
-                    <Route path="/" element={<Home />} />
-                </Routes> */}
             </div>
         </div>
     );

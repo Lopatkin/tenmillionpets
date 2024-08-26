@@ -19,13 +19,6 @@ const IntroStep2 = () => {
     var animalType;
     var show_intro2;
 
-    // if (animalTypeVAR != undefined) {
-    //     animalType = animalTypeVAR;
-    // }
-    // if (animalTypeFB != undefined) {
-    //     animalType = animalTypeFB;
-    // }
-
     if (animalType2 == animal_human) {
         show_intro2 = introStep2_human;
     }
@@ -38,15 +31,8 @@ const IntroStep2 = () => {
 
     animalType3 = animalType2;
 
-
-    // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
-    // alert("animalType " + animalType);
-
-
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-
-    // alert('в интро')
 
     const navigate = useNavigate();
 
@@ -64,22 +50,10 @@ const IntroStep2 = () => {
                     width: '20%'
 
                 }} variant={"outlined"} onClick={navigateToIntroStep3}>Допустим</Button>
-
                 <Routes>
                     <Route path="/introStep3" element={<IntroStep3 />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
-                {/* <button onClick={navigateHome}>Home</button>
-                <Button style={{
-                    display: 'inline-block',
-                    width: '20%'
-
-                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
-
-                <Routes>
-                    <Route path="/registerStep1" element={<RegisterStep1 />} />
-                    <Route path="/" element={<Home />} />
-                </Routes> */}
             </div>
         </div>
     );

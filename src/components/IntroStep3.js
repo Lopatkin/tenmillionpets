@@ -26,11 +26,7 @@ const IntroStep3 = () => {
     var animalType;
     var show_intro3;
     const { userID } = useContext(Context);
-
-    alert(userID);
-
     const { firestore } = useContext(Context);
-
 
     if (animalTypeVAR != undefined) {
         animalType = animalTypeVAR;
@@ -49,14 +45,8 @@ const IntroStep3 = () => {
         show_intro3 = introStep3_dog;
     }
 
-
-    // alert("animalTypeFB " + animalTypeFB + ". animalTypeVAR " + animalTypeVAR);
-    // alert("animalType " + animalType);
-
-
     const { tg } = useContext(Context);
     tg.expand() // метод позволяет растянуть окно на всю высоту.
-
 
     const navigate = useNavigate();
 
@@ -67,16 +57,10 @@ const IntroStep3 = () => {
             // home_id: '2323'
         }).then(() => {
             console.log("Document successfully written!");
-            alert('ок');
             navigate('/chat');
         }).catch((error) => {
-
-            alert('не ок');
-
             console.error("Error writing document: ", error);
         });
-
-
     };
 
     return (
@@ -89,27 +73,10 @@ const IntroStep3 = () => {
                     width: '20%'
 
                 }} variant={"outlined"} onClick={navigateToChat}>Поехали</Button>
-
                 <Routes>
                     <Route path="/chat" element={<Chat />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
-
-                {/* <Routes>
-                    <Route path="/chat" element={<Chat />} />
-                    <Route path="/" element={<Home />} />
-                </Routes> */}
-                {/* <button onClick={navigateHome}>Home</button>
-                <Button style={{
-                    display: 'inline-block',
-                    width: '20%'
-
-                }} variant={"outlined"} onClick={navigateToRegisterStep1}>Далее</Button>
-
-                <Routes>
-                    <Route path="/registerStep1" element={<RegisterStep1 />} />
-                    <Route path="/" element={<Home />} />
-                </Routes> */}
             </div>
         </div>
     );

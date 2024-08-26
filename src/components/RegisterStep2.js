@@ -36,8 +36,6 @@ const RegisterStep2 = () => {
     const { firestore } = useContext(Context);
     const { userData } = useContext(Context);
 
-
-
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     const navigate = useNavigate();
@@ -88,13 +86,8 @@ const RegisterStep2 = () => {
             });
     };
 
-    // const navigateToRegisterStep1 = () => {
-    //     navigate('/registerStep1');
-    // };
-
     const hideDiv = () => {
         document.getElementById("animal_pics_block").style.display = 'none';
-
     }
 
     const human = () => {
@@ -129,7 +122,6 @@ const RegisterStep2 = () => {
     }
 
     return (
-
         <Container >
             <Grid container
                 style={{
@@ -163,7 +155,6 @@ const RegisterStep2 = () => {
                         textAlign: 'center'
                     }}>
 
-
                     </div >
 
                     <Grid container
@@ -181,8 +172,6 @@ const RegisterStep2 = () => {
                             textAlign: 'center'
                         }} id="textRoleDescription" />
                     </Grid>
-
-
 
                     <div id='animal_pics_block' style={{
                         display: 'none',
@@ -211,46 +200,10 @@ const RegisterStep2 = () => {
                         marginTop: '20px'
 
                     }} onClick={navigateToRegisterStep3}>Выбрать</Button>
-
-
                 </Grid>
             </Grid >
         </Container >
-
-
-        // <div>
-        //     <h2>Кем вы хотите быть?</h2>
-
-        //     <div>
-        //         <img onClick={human} width='20%' src='https://cdn.icon-icons.com/icons2/906/PNG/512/hand_icon-icons.com_70115.png' />
-        //         <img onClick={pet} width='20%' src='https://cdn.promodj.com/afs/83a444d059de51cfcf3520e927a47e4a12%3Aresize%3A2000x2000%3Asame%3A269e3e' />
-        //     </div>
-
-        //     <div>
-        //         {/* <button onClick={navigateToRegisterStep1}>Назад</button> */}
-        //         <Button style={{
-        //             display: 'inline-block',
-        //             width: '20%'
-
-        //         }} onClick={navigateToRegisterStep3}>Выбрать</Button>
-
-        //         <Routes>
-        //             {/* <Route path="/registerStep1" element={<RegisterStep1 />} /> */}
-        //             <Route path="/registerStep3" element={<RegisterStep3 />} />
-        //         </Routes>
-        //     </div>
-        // </div>
     );
 };
-
-// function Register_step1() {
-//     return <h2>Register_step1</h2>;
-// }
-
-// function Register_step3() {
-//     return <h2>Register_step3</h2>;
-// }
-
-
 
 export default RegisterStep2;

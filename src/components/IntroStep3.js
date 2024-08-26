@@ -94,6 +94,11 @@ const IntroStep3 = () => {
                     <Route path="/chat" element={<Chat />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
+
+                {/* <Routes>
+                    <Route path="/chat" element={<Chat />} />
+                    <Route path="/" element={<Home />} />
+                </Routes> */}
                 {/* <button onClick={navigateHome}>Home</button>
                 <Button style={{
                     display: 'inline-block',

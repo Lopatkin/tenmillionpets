@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Context } from '../index';
 import { useContext } from 'react';
-import { Avatar, Button, Container, Grid, TextField } from '@mui/material';
+import { Paper, Tab, Tabs, Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
 // import { collection, getDocs } from "firebase/firestore";
@@ -89,6 +89,7 @@ const Chat = () => {
     const { firestore } = useContext(Context)
     // const [user] = useAuthState(auth)
     const [value, setValue] = useState('')
+    const [value_tab, setValue_tab] = React.useState(2);
     const [messages, loading] = useCollectionData(
         firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
     )
@@ -181,9 +182,34 @@ const Chat = () => {
                         width: '20%'
 
                     }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
+
+                    <div
+                        style={{
+                            marginLeft: "40%",
+                        }}
+                    >
+                        <h2>How to Create Tabs in ReactJS?</h2>
+                        <Paper square>
+                            <Tabs
+                                value={value}
+                                textColor="primary"
+                                indicatorColor="primary"
+                                onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                }}
+                            >
+                                <Tab label="Active TAB One" />
+                                <Tab label="Active TAB Two" />
+                                <Tab label="Disabled TAB!" disabled />
+                                <Tab label="Active Tab Three" />
+                            </Tabs>
+                            <h3>TAB NO: {value} clicked!</h3>
+                        </Paper>
+                    </div>
                 </Grid>
             </Grid >
         </Container >
+
     );
 };
 

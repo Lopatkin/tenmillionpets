@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Context } from '../index';
 import { useContext } from 'react';
 import { Paper, Tab, Tabs, Avatar, Button, Container, Grid, TextField } from '@mui/material';
@@ -47,6 +47,16 @@ import { fb_users, fb_messages } from '../utils/consts';
 // /////TG/////
 const Chat = () => {
 
+    const [toggleState, setToggleState] = useState(1);
+
+    const toggleTab = (index) => {
+        setToggleState(index);
+    };
+
+    const getActiveClass = (index, className) =>
+        toggleState === index ? className : "";
+
+    // Get the element with id="defaultOpen" and click on it
 
     // db.collection("messages").get().then((querySnapshot) => {
     //     querySnapshot.forEach((doc) => {
@@ -70,26 +80,25 @@ const Chat = () => {
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     //реальные данные
-    const userID = userData.id.toString();
-    const userFirstName = userData.first_name;
-    const userLastName = userData.last_name;
-    const userName = userData.username;
-    // const userPhotoUrl = userData.photo;
-    const userPhotoUrl = "";
-
-    //данные для проверки интерфейса
-    // const userID = 300;
-    // const userFirstName = "Андрей";
-    // const userLastName = "Лопаткин";
-    // const userName = "vizor101";
+    // const userID = userData.id.toString();
+    // const userFirstName = userData.first_name;
+    // const userLastName = userData.last_name;
+    // const userName = userData.username;
     // // const userPhotoUrl = userData.photo;
     // const userPhotoUrl = "";
+
+    //данные для проверки интерфейса
+    const userID = "859320";
+    const userFirstName = "Андрей";
+    const userLastName = "Лопаткин";
+    const userName = "vizor101";
+    // const userPhotoUrl = userData.photo;
+    const userPhotoUrl = "";
 
 
     const { firestore } = useContext(Context)
     // const [user] = useAuthState(auth)
     const [value, setValue] = useState('')
-    const [value_tab, setValue_tab] = React.useState(2);
     const [messages, loading] = useCollectionData(
         firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
     )
@@ -111,8 +120,22 @@ const Chat = () => {
         } else { }
     }
 
+
+
     return (
+
+
+
+
+
+
+
         <Container >
+
+
+
+
+
             <Grid container
 
                 justify={"center"}
@@ -121,92 +144,138 @@ const Chat = () => {
                     width: '100%'
                 }}
             >
-                <div style={{ width: '100%', height: '70vh' }}>
-                    {messages?.map(message =>
 
-                        // Блок сообщения
-                        <div style={{
-                            margin: 5,
-                            marginLeft: userID === message.userID ? 'auto' : '10px',
-                            width: 'fit-content',
-                            padding: 1,
-                        }}>
 
-                            {/* UserName */}
-                            <div style={{
-                                display: userID === message.userID ? 'none' : 'visible',
-                                color: '#514c4c'
-                            }}>{message.userFirstName} {message.userName} {message.userLastName}</div>
 
-                            {/* Avatar */}
-                            <div style={{
-                                display: userID === message.userID ? 'none' : 'inline-block'
-                            }}><Avatar src={message.userPhotoUrl} /></div>
 
-                            {/* Message */}
-                            <div style={{
-                                display: 'inline-block',
-                                color: '#ffffff',
-                                marginLeft: userID === message.userID ? 'auto' : '10px',
-                                backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
-                                width: 'fit-content',
-                                borderRadius: '8px',
-                                padding: '8px'
-                            }}>{message.text}</div>
+
+
+
+                {/* tabs begin */}
+
+
+                <div className="container">
+
+                    <div>
+                        <div className={`content ${getActiveClass(1, "active-content")}`}>
+                            <div style={{ width: '100%', height: '75vh' }}>
+                                {messages?.map(message =>
+
+                                    // Блок сообщения
+                                    <div style={{
+                                        margin: 5,
+                                        marginLeft: userID === message.userID ? 'auto' : '10px',
+                                        width: 'fit-content',
+                                        padding: 1,
+                                    }}>
+
+                                        {/* UserName */}
+                                        <div style={{
+                                            display: userID === message.userID ? 'none' : 'visible',
+                                            color: '#514c4c'
+                                        }}>{message.userFirstName} {message.userName} {message.userLastName}</div>
+
+                                        {/* Avatar */}
+                                        <div style={{
+                                            display: userID === message.userID ? 'none' : 'inline-block'
+                                        }}><Avatar src={message.userPhotoUrl} /></div>
+
+                                        {/* Message */}
+                                        <div style={{
+                                            display: 'inline-block',
+                                            color: '#ffffff',
+                                            marginLeft: userID === message.userID ? 'auto' : '10px',
+                                            backgroundColor: userID === message.userID ? '#0d49d7' : '#4e4c4f',
+                                            width: 'fit-content',
+                                            borderRadius: '8px',
+                                            padding: '8px'
+                                        }}>{message.text}</div>
+                                    </div>
+                                )}
+                            </div >
+
+                            <Grid container
+                                direction={"column"}
+                                alignItems={"flex-end"}
+                                style={{
+                                    width: '100%',
+                                    display: 'inline-block'
+
+
+                                }}>
+                                <TextField
+                                    style={{
+                                        width: '80%',
+                                        display: 'inline-block'
+                                    }}
+                                    fullWidth
+                                    rowsmax={2}
+                                    variant={"outlined"}
+                                    value={value}
+                                    onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
+                                />
+                                <Button style={{
+                                    display: 'inline-block',
+                                    width: '20%'
+
+                                }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
+
+
+
+
+
+
+
+
+
+
+
+                            </Grid >
                         </div>
-                    )}
-                </div >
-
-                <Grid container
-                    direction={"column"}
-                    alignItems={"flex-end"}
-                    style={{
-                        width: '100%',
-                        display: 'inline-block'
-
-
-                    }}>
-                    <TextField
-                        style={{
-                            width: '80%',
-                            display: 'inline-block'
-                        }}
-                        fullWidth
-                        rowsmax={2}
-                        variant={"outlined"}
-                        value={value}
-                        onChange={e => setValue(e.target.value)} //получаем значение в инпуте и кладём его в состояние
-                    />
-                    <Button style={{
-                        display: 'inline-block',
-                        width: '20%'
-
-                    }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
-
-                    <div
-                        style={{
-                            marginLeft: "40%",
-                        }}
-                    >
-                        <h2>How to Create Tabs in ReactJS?</h2>
-                        <Paper square>
-                            <Tabs
-                                value={value}
-                                textColor="primary"
-                                indicatorColor="primary"
-                                onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                }}
-                            >
-                                <Tab label="Active TAB One" />
-                                <Tab label="Active TAB Two" />
-                                <Tab label="Disabled TAB!" disabled />
-                                <Tab label="Active Tab Three" />
-                            </Tabs>
-                            <h3>TAB NO: {value} clicked!</h3>
-                        </Paper>
+                        <div className={`content ${getActiveClass(2, "active-content")}`}>
+                            <h2>Ipsum</h2>
+                        </div>
+                        <div className={`content ${getActiveClass(3, "active-content")}`}>
+                            <h2>Dolor</h2>
+                        </div>
                     </div>
-                </Grid>
+
+
+
+                    <ul className="tab-list">
+                        <li
+                            className={`tabs ${getActiveClass(1, "active-tabs")}`}
+                            onClick={() => toggleTab(1)}
+                        >
+                            Чат
+                        </li>
+                        <li
+                            className={`tabs ${getActiveClass(2, "active-tabs")}`}
+                            onClick={() => toggleTab(2)}
+                        >
+                            Карта
+                        </li>
+                        <li
+                            className={`tabs ${getActiveClass(3, "active-tabs")}`}
+                            onClick={() => toggleTab(3)}
+                        >
+                            Профиль
+                        </li>
+                    </ul>
+                </div>
+
+                {/* tabs end */}
+
+
+
+
+
+
+
+
+
+
+
             </Grid >
         </Container >
 

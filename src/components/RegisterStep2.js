@@ -54,7 +54,7 @@ const RegisterStep2 = () => {
         var getProfession;
         var myAddressArr;
         var fullAddress;
-        var petLocation;
+        var petLocation = "";
 
         // alert('пришли ' + userID);
 

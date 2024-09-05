@@ -8,6 +8,12 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep3 from './RegisterStep1';
 import { animal_dog, animal_cat, animal_human, role_master, role_pet } from '../utils/consts';
+import { professionsArr } from '../utils/consts_professions';
+import { get_random_profession } from './FirstInit';
+
+
+
+
 import animal_cat_pic from '../images/animal_cat.png';
 import animal_dog_pic from '../images/animal_dog.png';
 
@@ -41,7 +47,16 @@ const RegisterStep2 = () => {
     const navigate = useNavigate();
 
     const navigateToRegisterStep3 = () => {
+        var getProfession;
         // alert('пришли ' + userID);
+
+        if (animal == animal_human) {
+            getProfession = get_random_profession();
+            alert(getProfession);
+        } else {
+            alert("я " + animal);
+        }
+
 
         firestore.collection(fb_users).doc(userID).set({
             userID: userID,
@@ -52,6 +67,11 @@ const RegisterStep2 = () => {
             userLastName: userData.last_name,
             userName: userData.username,
             userPhotoUrl: "",
+            socialRating: 0,
+            profession: getProfession,
+            salary: 0,
+            salaryMultiplier: 1,
+            experience: 0,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
             console.log("Document successfully written!");

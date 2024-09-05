@@ -4,47 +4,20 @@ import { useContext } from 'react';
 import { Paper, Tab, Tabs, Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-// import { collection, getDocs } from "firebase/firestore";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import { first_alert } from './FirstInit'
+import { get_random_apartment } from './FirstInit'
+import { get_random_profession } from './FirstInit'
 
+
+
+
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import { fb_users, fb_messages } from '../utils/consts';
 
-// const tg = window.Telegram.WebApp;
-//
-
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-//     apiKey: "AIzaSyDKdcVmzzvFu_7lTiI-rMASUsT8qjchMr8",
-//     authDomain: "tenmillionpets.firebaseapp.com",
-//     projectId: "tenmillionpets",
-//     storageBucket: "tenmillionpets.appspot.com",
-//     messagingSenderId: "105880127070",
-//     appId: "1:105880127070:web:430221607b4b3de026d6cf",
-//     measurementId: "G-J4VZXFD0FS"
-// };
-// // Initialize Firebase
-
-// firebase.initializeApp(firebaseConfig);
-// const db = firebase.firestore();
-/////TG/////
-// const TelegramBot = require('node-telegram-bot-api');
-
-// const token = '7429947035:AAFhVtxukC71l3YUsNiPMGxMeGTjRV_VRPk';
-
-// const bot = new TelegramBot(token, { polling: true });
-
-// bot.on('message', (msg) => {
-//     const chatId = msg.chat.id;
-
-//     // send a message to the chat acknowledging receipt of their message
-//     bot.sendMessage(chatId, 'Received your message');
-// });
-// /////TG/////
 const Chat = () => {
 
     const [toggleState, setToggleState] = useState(1);
@@ -55,24 +28,6 @@ const Chat = () => {
 
     const getActiveClass = (index, className) =>
         toggleState === index ? className : "";
-
-    // Get the element with id="defaultOpen" and click on it
-
-    // db.collection("messages").get().then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //         // doc.data() is never undefined for query doc snapshots
-    //         console.log(doc.id, " => ", doc.data());
-    //     });
-    // });
-
-
-
-    // const { user } = useContext(Context);
-    // const [value, setValue] = useState('');
-    // const [messages, loading] = useCollectionData(
-    //     db.collection('messages').orderBy('createdAt')
-    // )
-    // console.log(messages);
 
     const { userData } = useContext(Context);
     const { tg } = useContext(Context);
@@ -103,9 +58,19 @@ const Chat = () => {
         firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
     )
 
-
-
     const sendMessage = async () => {
+        if (value == "first_init") {
+            first_alert();
+        }
+
+        if (value == "get_random_apartment") {
+            get_random_apartment();
+        }
+
+        if (value == "get_random_profession") {
+            get_random_profession();
+        }
+
         if (value) {
             firestore.collection(fb_users).doc(userID).collection(fb_messages).add({
                 userID: userID,
@@ -120,24 +85,9 @@ const Chat = () => {
         } else { }
     }
 
-
-
     return (
-
-
-
-
-
-
-
         <Container >
-
-
-
-
-
             <Grid container
-
                 justify={"center"}
                 style={{
                     backgroundColor: '#232323',
@@ -145,17 +95,8 @@ const Chat = () => {
                 }}
             >
 
-
-
-
-
-
-
                 {/* tabs begin */}
-
-
                 <div className="container">
-
                     <div>
                         <div className={`content ${getActiveClass(1, "active-content")}`}>
                             <div style={{ width: '100%', height: '75vh' }}>
@@ -253,13 +194,13 @@ const Chat = () => {
                             className={`tabs ${getActiveClass(2, "active-tabs")}`}
                             onClick={() => toggleTab(2)}
                         >
-                            Карта
+                            Действия
                         </li>
                         <li
                             className={`tabs ${getActiveClass(3, "active-tabs")}`}
                             onClick={() => toggleTab(3)}
                         >
-                            Профиль
+                            Карта
                         </li>
                     </ul>
                 </div>

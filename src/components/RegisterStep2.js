@@ -13,6 +13,10 @@ import { get_random_profession } from './FirstInit';
 import { getRandomAddress } from './FirstInit';
 import { getRandomLocation } from './FirstInit';
 
+import { city_name } from '../utils/consts_housing';
+
+
+
 
 
 
@@ -51,9 +55,9 @@ const RegisterStep2 = () => {
     const navigate = useNavigate();
 
     const navigateToRegisterStep3 = () => {
-        var getProfession;
-        var myAddressArr;
-        var fullAddress;
+        var getProfession = "";
+        var myAddressArr = "";
+        var fullAddress = "";
         var petLocation = "";
 
         // alert('пришли ' + userID);
@@ -65,6 +69,14 @@ const RegisterStep2 = () => {
             fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + apps;
         } else {
             petLocation = getRandomLocation();
+            myAddressArr[0] = city_name;
+            myAddressArr[1] = "";
+            myAddressArr[2] = "";
+            myAddressArr[3] = "";
+            myAddressArr[4] = "";
+
+
+
         }
 
 

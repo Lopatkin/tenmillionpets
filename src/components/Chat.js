@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { Paper, Tab, Tabs, Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
-import { first_alert } from './FirstInit'
+import { getRandomAddress } from './FirstInit'
 import { get_random_apartment } from './FirstInit'
 import { get_random_profession } from './FirstInit'
 
@@ -59,17 +59,17 @@ const Chat = () => {
     )
 
     const sendMessage = async () => {
-        if (value == "first_init") {
-            first_alert();
-        }
+        // if (value == "first_init") {
+        //     console.log(getRandomAddress());
+        // }
 
-        if (value == "get_random_apartment") {
-            get_random_apartment();
-        }
+        // if (value == "get_random_apartment") {
+        //     get_random_apartment();
+        // }
 
-        if (value == "get_random_profession") {
-            get_random_profession();
-        }
+        // if (value == "get_random_profession") {
+        //     get_random_profession();
+        // }
 
         if (value) {
             firestore.collection(fb_users).doc(userID).collection(fb_messages).add({

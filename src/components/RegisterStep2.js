@@ -7,9 +7,12 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep3 from './RegisterStep1';
-import { animal_dog, animal_cat, animal_human, role_master, role_pet } from '../utils/consts';
+import { animal_dog, animal_cat, animal_human, role_master, role_pet, base_salary } from '../utils/consts';
 import { professionsArr } from '../utils/consts_professions';
 import { get_random_profession } from './FirstInit';
+import { getRandomAddress } from './FirstInit';
+
+
 
 
 
@@ -48,13 +51,17 @@ const RegisterStep2 = () => {
 
     const navigateToRegisterStep3 = () => {
         var getProfession;
+        var getAddress;
+
         // alert('пришли ' + userID);
 
         if (animal == animal_human) {
             getProfession = get_random_profession();
-            alert(getProfession);
+            getAddress = getRandomAddress();
+
+            // alert(getProfession);
         } else {
-            alert("я " + animal);
+            // alert("я " + animal);
         }
 
 
@@ -69,8 +76,9 @@ const RegisterStep2 = () => {
             userPhotoUrl: "",
             socialRating: 0,
             profession: getProfession,
-            salary: 0,
+            salary: base_salary,
             salaryMultiplier: 1,
+            address: getAddress,
             experience: 0,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {

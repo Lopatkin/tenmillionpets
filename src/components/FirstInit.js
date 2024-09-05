@@ -4,12 +4,10 @@ import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 
-import { city_name, district_dachniy, district_Sfera } from '../utils/consts';
-import { district_dachniy_streets_count, district_dachniy_houses_per_street_count } from '../utils/consts';
-import { district_Sfera_streets_count, district_Sfera_houses_per_street_count, district_Sfera_apartments_per_house_count } from '../utils/consts';
+import { city_name, district_dachniy, district_Sfera } from '../utils/consts_housing';
 
-import { street_vishnevaya, street_abrikosovaya, street_vinogradnaya, street_cvetochnaya, street_solnechnaya, street_druzhnaya, street_udachnaya, street_letnyaya, street_arbuznaya, street_persikovaya, street_sadovaya, street_sirenevaya, street_desertnaya, street_buketnaya, street_prazdnichnaya, street_rozhdestvenskaya, street_plyazhnaya } from '../utils/consts';
-import { street_pryamaya, street_uglovaya, street_kosvennaya, street_orkuzhnaya, street_modulnaya, street_mediannaya, street_kubicheskaya, street_centrobezhnaya } from '../utils/consts';
+import { district_dachniy_streets_arr, district_dachniy_houses_per_street_count } from '../utils/consts_housing';
+import { sfera_streets_arr, district_Sfera_houses_per_street_count, district_Sfera_apartments_per_house_count } from '../utils/consts_housing';
 
 import { professionsArr } from '../utils/consts_professions';
 
@@ -30,62 +28,36 @@ const FirstInit = () => {
 
 };
 
-export const first_alert = () => {
+export const getRandomAddress = () => {
 
-    //инитим Дачный район
-    let streetsArrDacha = [street_vishnevaya, street_abrikosovaya, street_vinogradnaya, street_cvetochnaya, street_solnechnaya, street_druzhnaya, street_udachnaya, street_letnyaya, street_arbuznaya, street_persikovaya, street_sadovaya, street_sirenevaya, street_desertnaya, street_buketnaya, street_prazdnichnaya, street_rozhdestvenskaya, street_plyazhnaya];
+    const all_dachniy_rooms_count = district_dachniy_streets_arr.length * district_dachniy_houses_per_street_count;
+    const all_sfera_rooms_count = sfera_streets_arr.length * district_Sfera_houses_per_street_count * district_Sfera_apartments_per_house_count;
+    const all_rooms_count = all_dachniy_rooms_count + all_sfera_rooms_count;
 
-    let sID = 1;
-    let i = 0;
-    while (i <= district_dachniy_streets_count - 1) {
+    const randomRoomID = randomNumber(1, all_rooms_count);
 
-        let j = 1;
-        while (j <= district_dachniy_houses_per_street_count) {
-            firestore.collection(fb_init).doc(fb_data).collection(fb_homes).doc(sID.toString()).set({
-                homeID: sID,
-                homeCity: city_name,
-                districtName: district_dachniy,
-                homeStreet: streetsArrDacha[i],
-                homeHumber: j,
-                homeApartment: "",
-                isBusy: false,
-                ownerID: "",
-                ownerName: ""
-            })
-            j++;
-            sID++;
-        }
-        i++;
+    var myAddress = "Автобусная остановка";
+    if (randomRoomID <= all_dachniy_rooms_count) {
+        //район ДАЧНЫЙ
+        const randomStreet = randomNumber(0, district_dachniy_streets_arr.length - 1);
+        const randomHouse = randomNumber(1, district_dachniy_houses_per_street_count);
+        const dachniy_address = district_dachniy_streets_arr[randomStreet] + ", дом " + randomHouse;
+        myAddress = dachniy_address;
+    } else {
+        //ЖК СФЕРА
+        const randomStreet = randomNumber(0, sfera_streets_arr.length - 1);
+        const randomHouse = randomNumber(1, district_Sfera_houses_per_street_count);
+        const randomApartment = randomNumber(1, district_Sfera_apartments_per_house_count);
+        const sfera_address = sfera_streets_arr[randomStreet] + ", дом " + randomHouse + ", кв. " + randomApartment;
+        myAddress = sfera_address;
     }
+    return myAddress;
+}
 
-    //инитим ЖК Сферу
-    let streetsArrSfera = [street_pryamaya, street_uglovaya, street_kosvennaya, street_orkuzhnaya, street_modulnaya, street_mediannaya, street_kubicheskaya, street_centrobezhnaya];
-
-    let r = 0;
-    while (r <= district_Sfera_streets_count - 1) {
-
-        let w = 1;
-        while (w <= district_Sfera_houses_per_street_count) {
-            let k = 1;
-            while (k <= district_Sfera_apartments_per_house_count) {
-                firestore.collection(fb_init).doc(fb_data).collection(fb_homes).doc(sID.toString()).set({
-                    homeID: sID,
-                    homeCity: city_name,
-                    districtName: district_Sfera,
-                    homeStreet: streetsArrSfera[r],
-                    homeHumber: w,
-                    homeApartment: k,
-                    isBusy: false,
-                    ownerID: "",
-                    ownerName: ""
-                })
-                k++;
-                sID++;
-            }
-            w++;
-        }
-        r++;
-    }
+function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export const get_random_apartment = () => {

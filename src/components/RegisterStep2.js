@@ -59,7 +59,8 @@ const RegisterStep2 = () => {
         if (animal == animal_human) {
             getProfession = get_random_profession();
             myAddressArr = getRandomAddress();
-            fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + (myAddressArr[4] > 0) ? ", кв " + myAddressArr[4] : "";
+            var apps = (myAddressArr[4] > 0) ? ", кв " + myAddressArr[4] : "";
+            fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + apps;
 
             // alert(getProfession);
         } else {

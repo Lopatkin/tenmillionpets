@@ -11,6 +11,7 @@ import { animal_dog, animal_cat, animal_human, role_master, role_pet, base_salar
 import { professionsArr } from '../utils/consts_professions';
 import { get_random_profession } from './FirstInit';
 import { getRandomAddress } from './FirstInit';
+import { getRandomLocation } from './FirstInit';
 
 
 
@@ -53,6 +54,7 @@ const RegisterStep2 = () => {
         var getProfession;
         var myAddressArr;
         var fullAddress;
+        var petLocation;
 
         // alert('пришли ' + userID);
 
@@ -61,14 +63,13 @@ const RegisterStep2 = () => {
             myAddressArr = getRandomAddress();
             var apps = (myAddressArr[4] > 0) ? ", кв " + myAddressArr[4] : "";
             fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + apps;
-
-            // alert(getProfession);
         } else {
-            // alert("я " + animal);
+            petLocation = getRandomLocation();
         }
 
 
         firestore.collection(fb_users).doc(userID).set({
+            //Для всех
             userID: userID,
             userRole: role,
             userAnimal: animal,
@@ -77,18 +78,24 @@ const RegisterStep2 = () => {
             userLastName: userData.last_name,
             userName: userData.username,
             userPhotoUrl: "",
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            experience: 0,
+            city: myAddressArr[0],
+            fullAddress: fullAddress,
+
+            //Для человека
             socialRating: 0,
             profession: getProfession,
             salary: base_salary,
             salaryMultiplier: 1,
-            fullAddress: fullAddress,
-            city: myAddressArr[0],
             district: myAddressArr[1],
             street: myAddressArr[2],
             home: myAddressArr[3],
             appartment: myAddressArr[4],
-            experience: 0,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+
+            //Для животного
+            location: petLocation
+
         }).then(() => {
             console.log("Document successfully written!");
             // alert('Зарегились');

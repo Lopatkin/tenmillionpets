@@ -81,3 +81,15 @@ export const sfera_streets_arr = [
 
 export const district_Sfera_houses_per_street_count = 42
 export const district_Sfera_apartments_per_house_count = 420
+
+export const busStation = 'Автобусная остановка'
+export const forest = 'Лес'
+export const railwayStation = 'Вокзал'
+export const park = 'Парк'
+
+export const petStartLocation = [
+    busStation,
+    forest,
+    railwayStation,
+    park
+]

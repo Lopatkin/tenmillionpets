@@ -9,6 +9,8 @@ import { city_name, district_dachniy, district_Sfera } from '../utils/consts_hou
 import { district_dachniy_streets_arr, district_dachniy_houses_per_street_count } from '../utils/consts_housing';
 import { sfera_streets_arr, district_Sfera_houses_per_street_count, district_Sfera_apartments_per_house_count } from '../utils/consts_housing';
 
+import { petStartLocation } from '../utils/consts_housing';
+
 import { professionsArr } from '../utils/consts_professions';
 
 firebase.initializeApp({
@@ -67,6 +69,10 @@ export const getRandomAddress = () => {
     }
 
     return myAddressArr;
+}
+
+export const getRandomLocation = () => {
+    return petStartLocation[randomNumber(0, petStartLocation.length - 1)]
 }
 
 function randomNumber(min, max) {

@@ -51,13 +51,15 @@ const RegisterStep2 = () => {
 
     const navigateToRegisterStep3 = () => {
         var getProfession;
-        var getAddress;
+        var myAddressArr;
+        var fullAddress;
 
         // alert('пришли ' + userID);
 
         if (animal == animal_human) {
             getProfession = get_random_profession();
-            getAddress = getRandomAddress();
+            myAddressArr = getRandomAddress();
+            fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + (myAddressArr[4] > 0) ? ", кв " + myAddressArr[4] : "";
 
             // alert(getProfession);
         } else {
@@ -78,7 +80,12 @@ const RegisterStep2 = () => {
             profession: getProfession,
             salary: base_salary,
             salaryMultiplier: 1,
-            address: getAddress,
+            fullAddress: fullAddress,
+            city: myAddressArr[0],
+            district: myAddressArr[1],
+            street: myAddressArr[2],
+            home: myAddressArr[3],
+            appartment: myAddressArr[4],
             experience: 0,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {

@@ -37,12 +37,20 @@ export const getRandomAddress = () => {
     const randomRoomID = randomNumber(1, all_rooms_count);
 
     var myAddress = "Автобусная остановка";
+    var myAddressArr = [];
     if (randomRoomID <= all_dachniy_rooms_count) {
         //район ДАЧНЫЙ
         const randomStreet = randomNumber(0, district_dachniy_streets_arr.length - 1);
         const randomHouse = randomNumber(1, district_dachniy_houses_per_street_count);
         const dachniy_address = district_dachniy_streets_arr[randomStreet] + ", дом " + randomHouse;
         myAddress = dachniy_address;
+
+        myAddressArr[0] = city_name;
+        myAddressArr[1] = district_dachniy;
+        myAddressArr[2] = district_dachniy_streets_arr[randomStreet];
+        myAddressArr[3] = randomHouse;
+        myAddressArr[4] = 0;
+
     } else {
         //ЖК СФЕРА
         const randomStreet = randomNumber(0, sfera_streets_arr.length - 1);
@@ -50,8 +58,15 @@ export const getRandomAddress = () => {
         const randomApartment = randomNumber(1, district_Sfera_apartments_per_house_count);
         const sfera_address = sfera_streets_arr[randomStreet] + ", дом " + randomHouse + ", кв. " + randomApartment;
         myAddress = sfera_address;
+
+        myAddressArr[0] = city_name;
+        myAddressArr[1] = district_Sfera;
+        myAddressArr[2] = sfera_streets_arr[randomStreet];
+        myAddressArr[3] = randomHouse;
+        myAddressArr[4] = randomApartment;
     }
-    return myAddress;
+
+    return myAddressArr;
 }
 
 function randomNumber(min, max) {

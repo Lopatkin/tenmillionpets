@@ -69,13 +69,20 @@ const RegisterStep2 = () => {
             fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + apps;
         } else {
             petLocation = getRandomLocation();
+
+
             myAddressArr[0] = city_name;
             myAddressArr[1] = "";
             myAddressArr[2] = "";
             myAddressArr[3] = "";
             myAddressArr[4] = "";
 
-
+            alert(petLocation)
+            alert(myAddressArr[0])
+            alert(myAddressArr[1])
+            alert(myAddressArr[2])
+            alert(myAddressArr[3])
+            alert(myAddressArr[4])
 
         }
 

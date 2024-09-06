@@ -8,7 +8,7 @@ export const fb_init = 'init'
 export const fb_data = 'data'
 export const fb_homes = 'homes'
 
-export const base_salary = 50000;
+export var base_salary = 50000;
 
 
 

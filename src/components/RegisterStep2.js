@@ -57,32 +57,33 @@ const RegisterStep2 = () => {
     const navigateToRegisterStep3 = () => {
         var getProfession = "";
         var myAddressArr;
-        myAddressArr[0] = "";
-        myAddressArr[1] = "";
-        myAddressArr[2] = "";
-        myAddressArr[3] = "";
-        myAddressArr[4] = "";
         var fullAddress = "";
         var petLocation = "";
+        var salaryMultiplier;
+        var varBaseSallary = base_salary;
+
 
         // alert('пришли ' + userID);
+        myAddressArr = getRandomAddress();
 
         if (animal == animal_human) {
             getProfession = get_random_profession();
             myAddressArr = getRandomAddress();
             var apps = (myAddressArr[4] > 0) ? ", кв " + myAddressArr[4] : "";
             fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + apps;
+            salaryMultiplier = 1;
         } else {
             petLocation = getRandomLocation();
 
             // alert('varv')
 
-            // myAddressArr[0] = city_name;
-            // myAddressArr[1] = "";
-            // myAddressArr[2] = "";
-            // myAddressArr[3] = "";
-            // myAddressArr[4] = "";
-
+            myAddressArr[0] = city_name;
+            myAddressArr[1] = "";
+            myAddressArr[2] = "";
+            myAddressArr[3] = "";
+            myAddressArr[4] = "";
+            varBaseSallary = 0;
+            salaryMultiplier = 0;
             // alert(petLocation)
             // alert(myAddressArr[0])
             // alert(myAddressArr[1])
@@ -99,20 +100,20 @@ const RegisterStep2 = () => {
             userRole: role,
             userAnimal: animal,
             introPassed: false,
-            userFirstName: userData.first_name,
-            userLastName: userData.last_name,
-            userName: userData.username,
+            // userFirstName: userData.first_name,
+            // userLastName: userData.last_name,
+            // userName: userData.username,
             userPhotoUrl: "",
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             experience: 0,
-            city: myAddressArr[0],
+            city: city_name,
             fullAddress: fullAddress,
 
             //Для человека
             socialRating: 0,
             profession: getProfession,
-            salary: base_salary,
-            salaryMultiplier: 1,
+            salary: varBaseSallary,
+            salaryMultiplier: salaryMultiplier,
             district: myAddressArr[1],
             street: myAddressArr[2],
             home: myAddressArr[3],

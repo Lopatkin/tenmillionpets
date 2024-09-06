@@ -45,14 +45,16 @@ const Navbar = () => {
                 >
                     <div style={{
                         position: 'absolute',
-                        left: '15px',
-                        top: '15px'
+                        left: '7px',
+                        top: '7px',
+                        width: '30%',
+                        overflow: 'hidden'
                     }}>{fullAddress}</div>
 
                     <div style={{
                         position: 'absolute',
                         right: '15px',
-                        top: '15px'
+                        top: '15px',
                     }}>{fullName}</div>
 
                     {/* {userData ?

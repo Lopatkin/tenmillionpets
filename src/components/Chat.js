@@ -185,14 +185,19 @@ const Chat = () => {
                         </div>
                         <div className={`content ${getActiveClass(3, "active-content")}`}>
 
-                            <h2>город Туманный</h2>
+                            <div style={{
+                                margin: '0 auto',
+                                display: "block"
+
+                            }}>город Туманный</div>
+
                             <img
                                 style={{
                                     margin: '0 auto',
                                     display: "block"
 
                                 }}
-                                width='50%' src={city_map} />
+                                width='100%' src={city_map} />
 
 
 

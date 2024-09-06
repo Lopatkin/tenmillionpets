@@ -75,8 +75,6 @@ const RegisterStep2 = () => {
         } else {
             petLocation = getRandomLocation();
 
-            // alert('varv')
-
             myAddressArr[0] = city_name;
             myAddressArr[1] = "";
             myAddressArr[2] = "";
@@ -84,15 +82,7 @@ const RegisterStep2 = () => {
             myAddressArr[4] = "";
             varBaseSallary = 0;
             salaryMultiplier = 0;
-            // alert(petLocation)
-            // alert(myAddressArr[0])
-            // alert(myAddressArr[1])
-            // alert(myAddressArr[2])
-            // alert(myAddressArr[3])
-            // alert(myAddressArr[4])
-
         }
-
 
         firestore.collection(fb_users).doc(userID).set({
             //Для всех
@@ -100,9 +90,9 @@ const RegisterStep2 = () => {
             userRole: role,
             userAnimal: animal,
             introPassed: false,
-            // userFirstName: userData.first_name,
-            // userLastName: userData.last_name,
-            // userName: userData.username,
+            userFirstName: userData.first_name,
+            userLastName: userData.last_name,
+            userName: userData.username,
             userPhotoUrl: "",
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             experience: 0,

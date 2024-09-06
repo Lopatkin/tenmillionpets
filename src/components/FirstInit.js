@@ -72,7 +72,12 @@ export const getRandomAddress = () => {
 }
 
 export const getRandomLocation = () => {
-    return petStartLocation[randomNumber(0, petStartLocation.length - 1)]
+    var getRndm;
+    var rndmNum;
+    rndmNum = randomNumber(0, petStartLocation.length - 1);
+    alert("фымв ф" + rndmNum)
+
+    // return petStartLocation[randomNumber(0, petStartLocation.length - 1)]
 }
 
 function randomNumber(min, max) {

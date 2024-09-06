@@ -8,6 +8,7 @@ import { getRandomAddress } from './FirstInit'
 import { get_random_apartment } from './FirstInit'
 import { get_random_profession } from './FirstInit'
 
+import city_map from '../images/city_map.png';
 
 
 
@@ -58,6 +59,8 @@ const Chat = () => {
         firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
     )
 
+
+
     const sendMessage = async () => {
         // if (value == "first_init") {
         //     console.log(getRandomAddress());
@@ -84,6 +87,10 @@ const Chat = () => {
             setValue('');
         } else { }
     }
+
+    // const img = document.createElement('img');
+    // img.src = 'path/to/image.png';
+    // document.getElementById('map-container').append(img);
 
     return (
         <Container >
@@ -177,7 +184,18 @@ const Chat = () => {
                             <h2>Ipsum</h2>
                         </div>
                         <div className={`content ${getActiveClass(3, "active-content")}`}>
-                            <h2>Dolor</h2>
+
+                            <h2>город Туманный</h2>
+                            <img
+                                style={{
+                                    margin: '0 auto',
+                                    display: "block"
+
+                                }}
+                                width='50%' src={city_map} />
+
+
+
                         </div>
                     </div>
 

@@ -75,7 +75,7 @@ export const getRandomLocation = () => {
     var getRndm;
     var rndmNum;
     rndmNum = randomNumber(0, petStartLocation.length - 1);
-    alert("фымв ф" + rndmNum)
+    alert("фымв ф " + petStartLocation[rndmNum])
 
     // return petStartLocation[randomNumber(0, petStartLocation.length - 1)]
 }

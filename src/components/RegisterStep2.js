@@ -56,7 +56,12 @@ const RegisterStep2 = () => {
 
     const navigateToRegisterStep3 = () => {
         var getProfession = "";
-        var myAddressArr = "";
+        var myAddressArr;
+        myAddressArr[0] = "";
+        myAddressArr[1] = "";
+        myAddressArr[2] = "";
+        myAddressArr[3] = "";
+        myAddressArr[4] = "";
         var fullAddress = "";
         var petLocation = "";
 
@@ -70,7 +75,7 @@ const RegisterStep2 = () => {
         } else {
             petLocation = getRandomLocation();
 
-            alert('varv')
+            // alert('varv')
 
             myAddressArr[0] = city_name;
             myAddressArr[1] = "";
@@ -78,12 +83,12 @@ const RegisterStep2 = () => {
             myAddressArr[3] = "";
             myAddressArr[4] = "";
 
-            alert(petLocation)
-            alert(myAddressArr[0])
-            alert(myAddressArr[1])
-            alert(myAddressArr[2])
-            alert(myAddressArr[3])
-            alert(myAddressArr[4])
+            // alert(petLocation)
+            // alert(myAddressArr[0])
+            // alert(myAddressArr[1])
+            // alert(myAddressArr[2])
+            // alert(myAddressArr[3])
+            // alert(myAddressArr[4])
 
         }
 

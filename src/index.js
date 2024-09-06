@@ -78,8 +78,8 @@ const userID = tg.initDataUnsafe?.user?.id.toString();
 
 const db = firebase.firestore();
 
-// var docRef = db.collection(fb_users).doc('86754356');
-var docRef = db.collection(fb_users).doc(userID);
+var docRef = db.collection(fb_users).doc('86754356');
+// var docRef = db.collection(fb_users).doc(userID);
 
 const myData = docRef.get().then((doc) => {
 

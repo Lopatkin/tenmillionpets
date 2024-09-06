@@ -93,18 +93,27 @@ const Chat = () => {
     // document.getElementById('map-container').append(img);
 
     return (
-        <Container >
+        <Container style={{
+            position: 'absolute',
+            left: 0,
+            bottom: 0,
+            right: 0
+
+        }}>
             <Grid container
                 justify={"center"}
                 style={{
                     backgroundColor: '#232323',
                     width: '100%'
+
+
+
                 }}
             >
 
                 {/* tabs begin */}
-                <div className="container">
-                    <div>
+                <div className="container" >
+                    <div >
                         <div className={`content ${getActiveClass(1, "active-content")}`}>
                             <div style={{ width: '100%', height: '75vh' }}>
                                 {messages?.map(message =>
@@ -186,18 +195,18 @@ const Chat = () => {
                         <div className={`content ${getActiveClass(3, "active-content")}`}>
 
                             <div style={{
-                                margin: '0 auto',
                                 display: "block"
 
                             }}>город Туманный</div>
 
                             <img
                                 style={{
-                                    margin: '0 auto',
+                                    // height: '1%',
+                                    // margin: '10px',
                                     display: "block"
 
                                 }}
-                                width='100%' src={city_map} />
+                                src={city_map} />
 
 
 

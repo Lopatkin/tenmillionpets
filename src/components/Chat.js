@@ -93,21 +93,12 @@ const Chat = () => {
     // document.getElementById('map-container').append(img);
 
     return (
-        <Container style={{
-            position: 'absolute',
-            left: 0,
-            bottom: 0,
-            right: 0
-
-        }}>
+        <Container >
             <Grid container
                 justify={"center"}
                 style={{
                     backgroundColor: '#232323',
                     width: '100%'
-
-
-
                 }}
             >
 
@@ -200,13 +191,8 @@ const Chat = () => {
                             }}>город Туманный</div>
 
                             <img
-                                style={{
-                                    // height: '1%',
-                                    // margin: '10px',
-                                    display: "block"
 
-                                }}
-                                src={city_map} />
+                                height='10px' src={city_map} />
 
 
 

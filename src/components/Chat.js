@@ -167,17 +167,6 @@ const Chat = () => {
                                     width: '20%'
 
                                 }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
-
-
-
-
-
-
-
-
-
-
-
                             </Grid >
                         </div>
                         <div className={`content ${getActiveClass(2, "active-content")}`}>
@@ -185,21 +174,40 @@ const Chat = () => {
                         </div>
                         <div className={`content ${getActiveClass(3, "active-content")}`}>
 
-                            <div style={{
-                                display: "block"
 
-                            }}>город Туманный</div>
+                            <Container container
+                                justify={"end"}
+                                style={{
+                                    backgroundColor: '#232323',
+                                    width: '100%'
+                                }}>
+                                <Grid container
+                                    direction={"column"}
+                                    alignItems={"flex-end"}
+                                    style={{
+                                        width: '100%',
+                                        display: 'inline-block'
+                                    }}>
+                                    <div style={{
+                                        display: 'inline-block'
+                                    }}><h3>город Туманный</h3></div>
 
-                            <img
+                                    <div style={{
+                                        position: 'absolute',
+                                        right: '20px',
+                                        display: 'inline-block'
+                                    }}>
+                                        <Button>карта</Button>
+                                        <Button>списком</Button>
+                                    </div>
+                                </Grid>
 
-                                height='10px' src={city_map} />
+                            </Container>
 
-
+                            <img src={city_map} />
 
                         </div>
                     </div>
-
-
 
                     <ul className="tab-list">
                         <li
@@ -218,7 +226,7 @@ const Chat = () => {
                             className={`tabs ${getActiveClass(3, "active-tabs")}`}
                             onClick={() => toggleTab(3)}
                         >
-                            Карта
+                            Навигация
                         </li>
                     </ul>
                 </div>

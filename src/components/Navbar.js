@@ -55,6 +55,7 @@ const Navbar = () => {
                         position: 'absolute',
                         right: '7px',
                         top: '7px',
+                        textAlign: 'center'
                     }}>{fullName}</div>
 
                     {/* {userData ?

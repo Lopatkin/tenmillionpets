@@ -3,6 +3,8 @@ export const CHAT_ROUTE = '/chat'
 
 export const fb_users = 'users'
 export const fb_messages = 'messages'
+export const fb_locations = 'locations'
+
 
 export const fb_init = 'init'
 export const fb_data = 'data'

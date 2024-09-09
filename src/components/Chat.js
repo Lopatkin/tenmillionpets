@@ -7,6 +7,10 @@ import SendIcon from '@mui/icons-material/Send';
 import { getRandomAddress } from './FirstInit'
 import { get_random_apartment } from './FirstInit'
 import { get_random_profession } from './FirstInit'
+import { FirstInit } from './FirstInit'
+
+
+
 
 import city_map from '../images/city_map.png';
 
@@ -59,12 +63,23 @@ const Chat = () => {
         firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
     )
 
+    const switchToMap = () => {
 
+        // alert('тут карта')
+        document.getElementById("city_map").style.display = 'inline';
+
+    }
+    const switchToList = () => {
+        // alert('тут список')
+        document.getElementById("city_map").style.display = 'none';
+
+
+    }
 
     const sendMessage = async () => {
-        // if (value == "first_init") {
-        //     console.log(getRandomAddress());
-        // }
+        if (value == "first_init") {
+            FirstInit();
+        }
 
         // if (value == "get_random_apartment") {
         //     get_random_apartment();
@@ -197,14 +212,14 @@ const Chat = () => {
                                         right: '20px',
                                         display: 'inline-block'
                                     }}>
-                                        <Button>карта</Button>
-                                        <Button>списком</Button>
+                                        <Button onClick={switchToMap}>карта</Button>
+                                        <Button onClick={switchToList}>списком</Button>
                                     </div>
                                 </Grid>
 
                             </Container>
 
-                            <img src={city_map} />
+                            <img id='city_map' src={city_map} />
 
                         </div>
                     </div>
@@ -247,6 +262,8 @@ const Chat = () => {
         </Container >
 
     );
+
+
 };
 
 export default Chat;

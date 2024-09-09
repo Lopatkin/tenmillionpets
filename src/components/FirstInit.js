@@ -13,6 +13,14 @@ import { petStartLocation } from '../utils/consts_housing';
 
 import { professionsArr } from '../utils/consts_professions';
 
+import { locationsList } from '../utils/consts_housing';
+
+import { fb_locations } from '../utils/consts';
+
+
+
+
+
 firebase.initializeApp({
     apiKey: "AIzaSyDKdcVmzzvFu_7lTiI-rMASUsT8qjchMr8",
     authDomain: "tenmillionpets.firebaseapp.com",
@@ -26,9 +34,43 @@ firebase.initializeApp({
 
 const firestore = firebase.firestore()
 
-const FirstInit = () => {
-
+export const FirstInit = () => {
+    // alert('унс');
+    initLocations()
 };
+
+export const initLocations = () => {
+    var i = 0;
+    for (i = 0, locationsList.length; i < locationsList.length; ++i) {
+        console.log(locationsList[i])
+
+
+        firestore.collection(fb_locations).doc(locationsList[i]).set({
+            //Для всех
+            locationName: locationsList[i],
+            locationID: (i + 1),
+            currentUsers: ['Наблюдатель'],
+            locationOwner: '',
+            locationPublic: true
+        }).then(() => {
+            console.log("Document successfully written!");
+            // alert('Зарегились');
+        }).catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+
+
+
+    }
+
+
+
+
+
+
+
+
+}
 
 export const getRandomAddress = () => {
 

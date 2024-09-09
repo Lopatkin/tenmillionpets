@@ -87,6 +87,26 @@ export const forest = 'Лес'
 export const railwayStation = 'Вокзал'
 export const park = 'Парк'
 
+
+
+export const location_busStation = 'Автобусная остановка'
+export const location_forest = 'Лес'
+export const location_railwayStation = 'Вокзал'
+export const location_park = 'Парк'
+export const location_dachniy = 'район Дачный'
+export const location_SFERA = 'ЖК "СФЕРА"'
+export const location_factory = 'Завод'
+
+export const locationsList = [
+    location_busStation,
+    location_forest,
+    location_railwayStation,
+    location_park,
+    location_dachniy,
+    location_SFERA,
+    location_factory
+]
+
 export const petStartLocation = [
     busStation,
     forest,

@@ -20,6 +20,7 @@ import { city_name } from '../utils/consts_housing';
 
 
 
+import { fb_locations } from '../utils/consts';
 
 
 import animal_cat_pic from '../images/animal_cat.png';
@@ -114,6 +115,24 @@ const RegisterStep2 = () => {
 
         }).then(() => {
             console.log("Document successfully written!");
+
+            //Добавляем новую локацию
+            firestore.collection(fb_locations).doc(userID + "_house").set({
+                //Для всех
+                locationName: userID + "_house",
+                locationID: userID + "_house",
+                currentUsers: [userID],
+                locationOwner: userID,
+                locationPublic: false
+            }).then(() => {
+                console.log("Document successfully written!");
+                // alert('Зарегились');
+            }).catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+            //
+
+
             // alert('Зарегились');
 
             var docRef = firestore.collection(fb_users).doc(userID);

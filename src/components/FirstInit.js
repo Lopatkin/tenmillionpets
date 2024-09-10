@@ -50,7 +50,7 @@ export const initLocations = () => {
             locationName: locationsList[i],
             locationID: (i + 1),
             currentUsers: ['Наблюдатель'],
-            locationOwner: '',
+            locationOwner: 'Город',
             locationPublic: true
         }).then(() => {
             console.log("Document successfully written!");

@@ -135,6 +135,8 @@ const RegisterStep2 = () => {
                     locationOwner: userID,
                     locationPublic: false
                 }).then(() => {
+                    alert('тут ээвап')
+
                     console.log("Document successfully written!");
                     // alert('Зарегились');
                 }).catch((error) => {

@@ -124,9 +124,11 @@ const RegisterStep2 = () => {
 
         }).then(() => {
             console.log("Document successfully written!");
-            alert(role)
             //Добавляем новую локацию для человека
-            if (role = role_master) {
+            if (role == role_master) {
+
+                alert('тут ээвап')
+
                 firestore.collection(fb_locations).doc(userID + "_house").set({
                     //Для всех
                     locationName: fullAddress,
@@ -135,7 +137,6 @@ const RegisterStep2 = () => {
                     locationOwner: userID,
                     locationPublic: false
                 }).then(() => {
-                    alert('тут ээвап')
 
                     console.log("Document successfully written!");
                     // alert('Зарегились');

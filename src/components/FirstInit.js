@@ -16,6 +16,7 @@ import { professionsArr } from '../utils/consts_professions';
 import { locationsList } from '../utils/consts_housing';
 
 import { fb_locations } from '../utils/consts';
+import { ContentCopy } from '@mui/icons-material';
 
 
 
@@ -125,7 +126,9 @@ function findIndex(array, value) {
 }
 
 export const getLocationID = (curLocationName) => {
-    return findIndex(petStartLocation, curLocationName)
+
+    return petStartLocation.indexOf(curLocationName) + 1;
+    // return findIndex(petStartLocation, curLocationName)
     // var getRndm;
     // var rndmNum;
     // rndmNum = randomNumber(0, petStartLocation.length - 1);

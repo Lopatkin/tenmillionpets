@@ -14,6 +14,7 @@ import { getRandomAddress } from './FirstInit';
 import { getRandomLocation } from './FirstInit';
 import { getLocationID } from './FirstInit';
 
+import { test_user_id } from '../utils/consts';
 
 
 
@@ -50,10 +51,25 @@ const RegisterStep2 = () => {
 
     var role;
     var animal;
+
+    var regUserFirstName;
+    var regUserLastName;
+    var regUserName;
+
     const { tg } = useContext(Context);
     const { userID } = useContext(Context);
     const { firestore } = useContext(Context);
     const { userData } = useContext(Context);
+
+    if (userID == test_user_id) {
+        regUserFirstName = 'Вася'
+        regUserLastName = 'Пупкин'
+        regUserName = 'Watcher'
+    } else {
+        regUserFirstName = userData.first_name;
+        regUserLastName = userData.last_name;
+        regUserName = userData.username;
+    }
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
@@ -83,6 +99,7 @@ const RegisterStep2 = () => {
 
         } else {
             curLocation = getRandomLocation();
+            console.log('curLocation  ' + curLocation)
             curLocationID = getLocationID(curLocation);
 
             myAddressArr[0] = city_name;
@@ -100,9 +117,9 @@ const RegisterStep2 = () => {
             userRole: role,
             userAnimal: animal,
             introPassed: false,
-            userFirstName: userData.first_name,
-            userLastName: userData.last_name,
-            userName: userData.username,
+            userFirstName: regUserFirstName,
+            userLastName: regUserLastName,
+            userName: regUserName,
             userPhotoUrl: "",
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             experience: 0,
@@ -126,9 +143,6 @@ const RegisterStep2 = () => {
             console.log("Document successfully written!");
             //Добавляем новую локацию для человека
             if (role == role_master) {
-
-                alert('тут ээвап')
-
                 firestore.collection(fb_locations).doc(userID + "_house").set({
                     //Для всех
                     locationName: fullAddress,

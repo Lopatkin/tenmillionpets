@@ -5,6 +5,9 @@ export const fb_users = 'users'
 export const fb_messages = 'messages'
 export const fb_locations = 'locations'
 
+export const test_user_id = '99999999999999999999'
+
+
 
 export const fb_init = 'init'
 export const fb_data = 'data'

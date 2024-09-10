@@ -5,7 +5,7 @@ import App from './App';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import "firebase/database";
-import { fb_users } from './utils/consts';
+import { fb_users, test_user_id } from './utils/consts';
 
 
 
@@ -74,14 +74,17 @@ const firestore = firebase.firestore()
 const tg = window.Telegram.WebApp;
 
 const userData = tg.initDataUnsafe?.user;
-// const userID = tg.initDataUnsafe?.user?.id.toString();
-const userID = "859320";
+// console.log(userData)
+var userID = tg.initDataUnsafe?.user?.id.toString();
 
+if (userID == undefined) {
+  userID = test_user_id;
+}
 
 const db = firebase.firestore();
 
-var docRef = db.collection(fb_users).doc('859320');
-// var docRef = db.collection(fb_users).doc(userID);
+// var docRef = db.collection(fb_users).doc('859320');
+var docRef = db.collection(fb_users).doc(userID);
 
 const myData = docRef.get().then((doc) => {
 

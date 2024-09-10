@@ -46,7 +46,7 @@ export const initLocations = () => {
         console.log(locationsList[i])
 
 
-        firestore.collection(fb_locations).doc(locationsList[i]).set({
+        firestore.collection(fb_locations).doc((i + 1).toString()).set({
             //Для всех
             locationName: locationsList[i],
             locationID: (i + 1),

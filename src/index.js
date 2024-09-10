@@ -95,7 +95,8 @@ const myData = docRef.get().then((doc) => {
       firestore,
       tg,
       doc,
-      userID
+      userID,
+      docRef
     }}>
       <React.StrictMode>
         <App />

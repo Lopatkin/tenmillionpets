@@ -9,6 +9,7 @@ import { get_random_apartment } from './FirstInit'
 import { get_random_profession } from './FirstInit'
 import { FirstInit } from './FirstInit'
 
+import { test_user_id } from '../utils/consts';
 
 
 
@@ -21,7 +22,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
-import { fb_users, fb_messages } from '../utils/consts';
+import { fb_users, fb_messages, fb_locations } from '../utils/consts';
 
 const Chat = () => {
 
@@ -36,8 +37,31 @@ const Chat = () => {
 
     const { userData } = useContext(Context);
     const { tg } = useContext(Context);
+    const { userID } = useContext(Context);
+    const { doc } = useContext(Context);
+    const { docRef } = useContext(Context);
+
 
     tg.expand() // метод позволяет растянуть окно на всю высоту.
+
+    var userFirstName;
+    var userLastName;
+    var userName;
+    var userPhotoUrl;
+
+    if (userID == test_user_id) {
+        userFirstName = "Вася";
+        userLastName = "Пупкин";
+        userName = "Watcher";
+        //  userPhotoUrl = userData.photo;
+        userPhotoUrl = "";
+    } else {
+        userFirstName = userData.first_name;
+        userLastName = userData.last_name;
+        userName = userData.username;
+        // userPhotoUrl = userData.photo;
+        userPhotoUrl = "";
+    }
 
     //реальные данные
     // const userID = userData.id.toString();
@@ -48,23 +72,21 @@ const Chat = () => {
     // const userPhotoUrl = "";
 
     //данные для проверки интерфейса
-    const userID = "859320";
-    const userFirstName = "Андрей";
-    const userLastName = "Лопаткин";
-    const userName = "vizor101";
+    // const userID = "859320";
+    // const userFirstName = "Андрей";
+    // const userLastName = "Лопаткин";
+    // const userName = "vizor101";
     // const userPhotoUrl = userData.photo;
-    const userPhotoUrl = "";
-
+    // const userPhotoUrl = "";
 
     const { firestore } = useContext(Context)
     // const [user] = useAuthState(auth)
     const [value, setValue] = useState('')
     const [messages, loading] = useCollectionData(
-        firestore.collection(fb_users).doc(userID).collection(fb_messages).orderBy('createdAt')
+        firestore.collection(fb_locations).doc(doc.data().locationID).collection(fb_messages).orderBy('createdAt')
     )
 
     const switchToMap = () => {
-
         // alert('тут карта')
         document.getElementById("city_map").style.display = 'inline';
 
@@ -72,8 +94,6 @@ const Chat = () => {
     const switchToList = () => {
         // alert('тут список')
         document.getElementById("city_map").style.display = 'none';
-
-
     }
 
     const sendMessage = async () => {
@@ -90,7 +110,7 @@ const Chat = () => {
         // }
 
         if (value) {
-            firestore.collection(fb_users).doc(userID).collection(fb_messages).add({
+            firestore.collection(fb_locations).doc(doc.data().locationID).collection(fb_messages).add({
                 userID: userID,
                 userFirstName: userFirstName,
                 userLastName: userLastName,

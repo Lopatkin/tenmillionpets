@@ -26,7 +26,7 @@ const Navbar = () => {
     const userName = doc.data()?.userName;
     const userLastName = doc.data()?.userLastName;
 
-    const fullAddress = doc.data()?.fullAddress;
+    const location = doc.data()?.location;
 
 
 
@@ -49,7 +49,7 @@ const Navbar = () => {
                         top: '3px',
                         width: '50%',
                         overflow: 'hidden'
-                    }}>{fullAddress}</div>
+                    }}>{location}</div>
 
                     <div style={{
                         position: 'absolute',

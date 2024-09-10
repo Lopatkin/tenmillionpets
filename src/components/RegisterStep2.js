@@ -137,7 +137,7 @@ const RegisterStep2 = () => {
             appartment: myAddressArr[4],
 
             location: curLocation,
-            locationID: curLocationID
+            locationID: curLocationID.toString()
 
         }).then(() => {
             console.log("Document successfully written!");

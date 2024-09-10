@@ -12,6 +12,10 @@ import { professionsArr } from '../utils/consts_professions';
 import { get_random_profession } from './FirstInit';
 import { getRandomAddress } from './FirstInit';
 import { getRandomLocation } from './FirstInit';
+import { getLocationID } from './FirstInit';
+
+
+
 
 import { city_name } from '../utils/consts_housing';
 
@@ -59,7 +63,8 @@ const RegisterStep2 = () => {
         var getProfession = "";
         var myAddressArr;
         var fullAddress = "";
-        var petLocation = "";
+        var curLocationID = "";
+        var curLocation = "";
         var salaryMultiplier;
         var varBaseSallary = base_salary;
 
@@ -73,8 +78,12 @@ const RegisterStep2 = () => {
             var apps = (myAddressArr[4] > 0) ? ", кв " + myAddressArr[4] : "";
             fullAddress = myAddressArr[1] + ", " + myAddressArr[2] + ", дом " + myAddressArr[3] + apps;
             salaryMultiplier = 1;
+            curLocationID = userID + "_house";
+            curLocation = fullAddress;
+
         } else {
-            petLocation = getRandomLocation();
+            curLocation = getRandomLocation();
+            curLocationID = getLocationID(curLocation);
 
             myAddressArr[0] = city_name;
             myAddressArr[1] = "";
@@ -110,26 +119,28 @@ const RegisterStep2 = () => {
             home: myAddressArr[3],
             appartment: myAddressArr[4],
 
-            //Для животного
-            location: petLocation
+            location: curLocation,
+            locationID: curLocationID
 
         }).then(() => {
             console.log("Document successfully written!");
 
-            //Добавляем новую локацию
-            firestore.collection(fb_locations).doc(userID + "_house").set({
-                //Для всех
-                locationName: userID + "_house",
-                locationID: userID + "_house",
-                currentUsers: [userID],
-                locationOwner: userID,
-                locationPublic: false
-            }).then(() => {
-                console.log("Document successfully written!");
-                // alert('Зарегились');
-            }).catch((error) => {
-                console.error("Error writing document: ", error);
-            });
+            //Добавляем новую локацию для человека
+            if (role = role_master) {
+                firestore.collection(fb_locations).doc(userID + "_house").set({
+                    //Для всех
+                    locationName: fullAddress,
+                    locationID: userID + "_house",
+                    currentUsers: [userID],
+                    locationOwner: userID,
+                    locationPublic: false
+                }).then(() => {
+                    console.log("Document successfully written!");
+                    // alert('Зарегились');
+                }).catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+            }
             //
 
 

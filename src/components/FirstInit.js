@@ -120,6 +120,21 @@ export const getRandomLocation = () => {
 
     return petStartLocation[rndmNum]
 }
+function findIndex(array, value) {
+    return array.findIndex(([v]) => v === value);
+}
+
+export const getLocationID = (curLocationName) => {
+    return findIndex(petStartLocation, curLocationName)
+    // var getRndm;
+    // var rndmNum;
+    // rndmNum = randomNumber(0, petStartLocation.length - 1);
+
+    // return petStartLocation[rndmNum]
+}
+
+
+
 
 function randomNumber(min, max) {
     min = Math.ceil(min);

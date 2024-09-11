@@ -14,6 +14,8 @@ import { test_user_id } from '../utils/consts';
 
 
 import city_map from '../images/city_map.png';
+import { currentLoc } from './RegisterStep2';
+
 
 
 
@@ -41,7 +43,10 @@ const Chat = () => {
     const { doc } = useContext(Context);
     const { docRef } = useContext(Context);
 
-
+    var curLoc = doc.data()?.locationID;
+    if (curLoc == undefined) {
+        curLoc = currentLoc;
+    }
     tg.expand() // метод позволяет растянуть окно на всю высоту.
 
     var userFirstName;
@@ -83,7 +88,7 @@ const Chat = () => {
     // const [user] = useAuthState(auth)
     const [value, setValue] = useState('')
     const [messages, loading] = useCollectionData(
-        firestore.collection(fb_locations).doc(doc.data().locationID).collection(fb_messages).orderBy('createdAt')
+        firestore.collection(fb_locations).doc(curLoc).collection(fb_messages).orderBy('createdAt')
     )
 
     const switchToMap = () => {
@@ -110,7 +115,7 @@ const Chat = () => {
         // }
 
         if (value) {
-            firestore.collection(fb_locations).doc(doc.data().locationID).collection(fb_messages).add({
+            firestore.collection(fb_locations).doc(curLoc).collection(fb_messages).add({
                 userID: userID,
                 userFirstName: userFirstName,
                 userLastName: userLastName,

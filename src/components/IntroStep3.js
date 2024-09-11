@@ -8,6 +8,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import Chat from "./Chat";
 
 import { animalTypeVAR } from './RegisterStep2';
+import { currentLoc } from './RegisterStep2';
+
 import { animalType3 } from './IntroStep2';
 
 import 'firebase/compat/auth';
@@ -34,7 +36,6 @@ const IntroStep3 = () => {
     if (animalTypeFB != undefined) {
         animalType = animalTypeFB;
     }
-
     if (animalType3 == animal_human) {
         show_intro3 = introStep3_human;
     }
@@ -57,6 +58,7 @@ const IntroStep3 = () => {
             // home_id: '2323'
         }).then(() => {
             console.log("Document successfully written!");
+            // alert('currentLoc ' + currentLoc)
             navigate('/chat');
         }).catch((error) => {
             console.error("Error writing document: ", error);

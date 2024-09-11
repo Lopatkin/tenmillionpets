@@ -46,6 +46,8 @@ import "firebase/firestore";
 import { fb_users, fb_messages } from '../utils/consts';
 
 export var animalTypeVAR;
+export var currentLoc;
+
 
 const RegisterStep2 = () => {
 
@@ -110,6 +112,8 @@ const RegisterStep2 = () => {
             varBaseSallary = 0;
             salaryMultiplier = 0;
         }
+
+        currentLoc = curLocationID.toString();
 
         firestore.collection(fb_users).doc(userID).set({
             //Для всех

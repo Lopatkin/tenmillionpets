@@ -3,6 +3,7 @@ import { Context } from '../index';
 import { useContext } from 'react';
 import { Paper, Tab, Tabs, Avatar, Button, Container, Grid, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { Route, Routes, useNavigate } from 'react-router-dom'
 
 import { getRandomAddress } from './FirstInit'
 import { get_random_apartment } from './FirstInit'
@@ -11,6 +12,7 @@ import { FirstInit } from './FirstInit'
 
 import { test_user_id } from '../utils/consts';
 
+// import Chat from "./Chat";
 
 
 import city_map from '../images/city_map.png';
@@ -28,6 +30,9 @@ import { fb_users, fb_messages, fb_locations } from '../utils/consts';
 import { ControlCameraSharp } from '@mui/icons-material';
 
 const Chat = () => {
+
+    const navigate = useNavigate();
+
 
     const [toggleState, setToggleState] = useState(1);
 
@@ -96,7 +101,7 @@ const Chat = () => {
         firestore.collection(fb_locations).where("locationPublic", "==", true)
     )
 
-    console.log('locations ' + locations)
+    // console.log('locations ' + locations)
     const switchToMap = () => {
         // alert('тут карта')
         document.getElementById("city_map").style.display = 'inline';
@@ -113,7 +118,28 @@ const Chat = () => {
     }
 
     const goToLocation = (loc) => {
-        alert('goToLocation ' + loc)
+        // alert('goToLocation ' + loc)
+
+        firestore.collection(fb_users).doc(userID).update({
+            locationID: loc.locationID.toString(),
+            locationName: loc.locationName
+            // home_id: '2323'
+        }).then(() => {
+            // console.log("Document successfully written!");
+            // alert('currentLoc ' + currentLoc)
+            // navigate('/chat');
+            // curLoc = loc;
+            window.location.reload();
+        }).catch((error) => {
+            // console.error("Error writing document: ", error);
+        });
+
+        // <Routes>
+        //     <Route path="/chat" element={<Chat />} />
+        //     <Route path="/" element={<Home />} />
+        // </Routes>
+        // navigate('/chat');
+
 
     }
 
@@ -279,7 +305,7 @@ const Chat = () => {
 
 
                                         {/* Message */}
-                                        <div onClick={function () { goToLocation(location.locationID) }} style={{
+                                        <div onClick={function () { goToLocation(location) }} style={{
                                             display: 'inline-block',
                                             color: '#ffffff',
                                             fontSize: '20px',
@@ -337,5 +363,9 @@ const Chat = () => {
 
 
 };
+
+function Home() {
+    // return <h2>Home</h2>;
+}
 
 export default Chat;

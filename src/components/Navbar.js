@@ -26,7 +26,7 @@ const Navbar = () => {
     const userName = doc.data()?.userName;
     const userLastName = doc.data()?.userLastName;
 
-    const location = doc.data()?.location;
+    const location = doc.data()?.locationName;
 
 
 

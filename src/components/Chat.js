@@ -25,6 +25,7 @@ import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import { fb_users, fb_messages, fb_locations } from '../utils/consts';
+import { ControlCameraSharp } from '@mui/icons-material';
 
 const Chat = () => {
 
@@ -91,14 +92,24 @@ const Chat = () => {
         firestore.collection(fb_locations).doc(curLoc).collection(fb_messages).orderBy('createdAt')
     )
 
+    const [locations, loading1] = useCollectionData(
+        firestore.collection(fb_locations).where("locationPublic", "==", true)
+    )
+
+    console.log('locations ' + locations)
     const switchToMap = () => {
         // alert('тут карта')
         document.getElementById("city_map").style.display = 'inline';
+        document.getElementById("city_list").style.display = 'none';
+
+
 
     }
     const switchToList = () => {
         // alert('тут список')
         document.getElementById("city_map").style.display = 'none';
+        document.getElementById("city_list").style.display = 'inline';
+
     }
 
     const sendMessage = async () => {
@@ -245,6 +256,33 @@ const Chat = () => {
                             </Container>
 
                             <img id='city_map' src={city_map} />
+
+                            <div id='city_list' style={{ width: '100%', height: '75vh' }}>
+                                {locations?.map(location =>
+
+                                    // Блок сообщения
+                                    <div style={{
+                                        margin: 5,
+                                        marginLeft: 'auto',
+                                        width: 'fit-content',
+                                        padding: 1,
+                                    }}>
+
+
+                                        {/* Message */}
+                                        <div style={{
+                                            display: 'inline-block',
+                                            color: '#ffffff',
+                                            fontSize: '20px',
+                                            marginLeft: 'auto',
+                                            backgroundColor: '#7ba730',
+                                            width: 'fit-content',
+                                            borderRadius: '15px',
+                                            padding: '15px'
+                                        }}> {location.locationName}</div>
+                                    </div>
+                                )}
+                            </div >
 
                         </div>
                     </div>

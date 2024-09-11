@@ -112,6 +112,15 @@ const Chat = () => {
 
     }
 
+    const goToLocation = (loc) => {
+        alert('goToLocation ' + loc)
+
+    }
+
+
+
+
+
     const sendMessage = async () => {
         if (value == "first_init") {
             FirstInit();
@@ -270,7 +279,7 @@ const Chat = () => {
 
 
                                         {/* Message */}
-                                        <div style={{
+                                        <div onClick={function () { goToLocation(location.locationID) }} style={{
                                             display: 'inline-block',
                                             color: '#ffffff',
                                             fontSize: '20px',

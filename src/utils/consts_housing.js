@@ -96,6 +96,8 @@ export const location_park = 'Парк'
 export const location_dachniy = 'район Дачный'
 export const location_SFERA = 'ЖК "СФЕРА"'
 export const location_factory = 'Завод'
+export const location_shelter = 'Приют для животных'
+
 
 export const locationsList = [
     location_busStation,
@@ -104,7 +106,8 @@ export const locationsList = [
     location_park,
     location_dachniy,
     location_SFERA,
-    location_factory
+    location_factory,
+    location_shelter
 ]
 
 export const petStartLocation = [

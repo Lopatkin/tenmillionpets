@@ -10,7 +10,7 @@ import { get_random_apartment } from './FirstInit'
 import { get_random_profession } from './FirstInit'
 import { FirstInit } from './FirstInit'
 
-import { test_user_id } from '../utils/consts';
+import { test_user_id, role_master, role_pet } from '../utils/consts';
 
 // import Chat from "./Chat";
 
@@ -26,7 +26,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
-import { fb_users, fb_messages, fb_locations } from '../utils/consts';
+import { fb_users, fb_messages, fb_locations, fb_actions } from '../utils/consts';
 import { ControlCameraSharp } from '@mui/icons-material';
 
 
@@ -86,6 +86,8 @@ const Chat = () => {
     var userLastName;
     var userName;
     var userPhotoUrl;
+    var userRole;
+
 
     if (userID == test_user_id) {
         userFirstName = "Вася";
@@ -93,12 +95,15 @@ const Chat = () => {
         userName = "Watcher";
         //  userPhotoUrl = userData.photo;
         userPhotoUrl = "";
+        userRole = role_master
     } else {
         userFirstName = userData.first_name;
         userLastName = userData.last_name;
         userName = userData.username;
         // userPhotoUrl = userData.photo;
         userPhotoUrl = "";
+        userRole = userData.userRole;
+
     }
 
     //реальные данные
@@ -127,6 +132,21 @@ const Chat = () => {
     const [locations, loading1] = useCollectionData(
         firestore.collection(fb_locations).where("locationPublic", "==", true)
     )
+
+
+    // var mUserRole = 
+
+    // if (userRole == role_pet) {
+    const [actions, loading2] = useCollectionData(
+        firestore.collection(fb_actions).where("actionFor", "==", userRole)
+    )
+    // }
+
+    // if (userRole == role_master) {
+    //     const [actions, loading2] = useCollectionData(
+    //         firestore.collection(fb_actions).where("actionFor", "==", role_master)
+    //     )
+    // }
 
     // console.log('locations ' + locations)
     const switchToMap = () => {
@@ -169,7 +189,31 @@ const Chat = () => {
 
 
     }
+    const goToAction = (act) => {
+        // alert('goToLocation ' + loc)
 
+        // firestore.collection(fb_users).doc(userID).update({
+        //     locationID: loc.locationID.toString(),
+        //     locationName: loc.locationName
+        //     // home_id: '2323'
+        // }).then(() => {
+        //     // console.log("Document successfully written!");
+        //     // alert('currentLoc ' + currentLoc)
+        //     // navigate('/chat');
+        //     // curLoc = loc;
+        //     window.location.reload();
+        // }).catch((error) => {
+        //     // console.error("Error writing document: ", error);
+        // });
+
+        // <Routes>
+        //     <Route path="/chat" element={<Chat />} />
+        //     <Route path="/" element={<Home />} />
+        // </Routes>
+        // navigate('/chat');
+
+
+    }
 
 
 
@@ -268,8 +312,6 @@ const Chat = () => {
                                         display: 'inline-block',
                                         сolor: 'ffffff',
                                         background: '98FB98'
-
-
                                     }}
                                     fullWidth
                                     rowsmax={2}
@@ -284,8 +326,37 @@ const Chat = () => {
                                 }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}></Button>
                             </Grid >
                         </div>
+
+                        {/* Действия */}
                         <div className={`content ${getActiveClass(2, "active-content")}`}>
-                            <h2>Ipsum</h2>
+
+                            <div id='actions_list' style={{ width: '100%', height: '75vh', display: 'inline-block' }}>
+                                {actions?.map(action =>
+
+                                    // Блок сообщения
+                                    <div style={{
+                                        margin: 5,
+                                        marginLeft: 'auto',
+                                        width: 'fit-content',
+                                        padding: 1,
+                                    }}>
+
+
+                                        {/* Message */}
+                                        <div onClick={function () { goToAction(action) }} style={{
+                                            display: 'inline-block',
+                                            color: '#ffffff',
+                                            fontSize: '20px',
+                                            marginLeft: 'auto',
+                                            backgroundColor: '#4379F2',
+                                            width: 'fit-content',
+                                            borderRadius: '50px',
+                                            padding: '20px'
+                                        }}> {action.actionReq}</div>
+                                    </div>
+                                )}
+                            </div >
+
                         </div>
                         <div className={`content ${getActiveClass(3, "active-content")}`}>
 

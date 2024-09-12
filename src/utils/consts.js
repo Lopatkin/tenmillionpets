@@ -4,6 +4,8 @@ export const CHAT_ROUTE = '/chat'
 export const fb_users = 'users'
 export const fb_messages = 'messages'
 export const fb_locations = 'locations'
+export const fb_actions = 'actions'
+
 
 export const test_user_id = '99999999999999999999'
 

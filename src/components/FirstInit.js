@@ -9,13 +9,17 @@ import { city_name, district_dachniy, district_Sfera } from '../utils/consts_hou
 import { district_dachniy_streets_arr, district_dachniy_houses_per_street_count } from '../utils/consts_housing';
 import { sfera_streets_arr, district_Sfera_houses_per_street_count, district_Sfera_apartments_per_house_count } from '../utils/consts_housing';
 
+import { init_all_actions } from '../utils/consts_actions';
+
+
+
 import { petStartLocation } from '../utils/consts_housing';
 
 import { professionsArr } from '../utils/consts_professions';
 
 import { locationsList } from '../utils/consts_housing';
 
-import { fb_locations } from '../utils/consts';
+import { fb_locations, fb_actions } from '../utils/consts';
 import { ContentCopy } from '@mui/icons-material';
 
 
@@ -37,8 +41,59 @@ const firestore = firebase.firestore()
 
 export const FirstInit = () => {
     // alert('унс');
-    initLocations()
+    // initLocations();
+    initActions()
 };
+
+export const initActions = () => {
+    var i = 0;
+
+    for (i = 0, init_all_actions.length; i < init_all_actions.length; ++i) {
+
+        var j = 0;
+        for (j = 0, init_all_actions[i].length; j < init_all_actions[i].length; ++j)
+
+            firestore.collection(fb_actions).doc(init_all_actions[i][0].toString()).set({
+                //Для всех
+                actionID: init_all_actions[i][0].toString(),
+                actionReq: init_all_actions[i][1].toString(),
+                actionAsk: init_all_actions[i][2].toString(),
+                actionFor: init_all_actions[i][3].toString()
+
+
+            }).then(() => {
+                console.log("Document successfully written!");
+                // alert('Зарегились');
+            }).catch((error) => {
+                console.error("Error writing document: ", error);
+            });
+
+        // console.log(init_all_actions[i][j])
+    }
+
+    // var i = 0;
+    // for (i = 0, locationsList.length; i < locationsList.length; ++i) {
+    //     console.log(locationsList[i])
+
+
+    //     firestore.collection(fb_locations).doc((i + 1).toString()).set({
+    //         //Для всех
+    //         locationName: locationsList[i],
+    //         locationID: (i + 1),
+    //         currentUsers: ['Наблюдатель'],
+    //         locationOwner: 'Город',
+    //         locationPublic: true
+    //     }).then(() => {
+    //         console.log("Document successfully written!");
+    //         // alert('Зарегились');
+    //     }).catch((error) => {
+    //         console.error("Error writing document: ", error);
+    //     });
+
+
+
+    // }
+}
 
 export const initLocations = () => {
     var i = 0;

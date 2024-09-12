@@ -137,9 +137,9 @@ const Chat = () => {
     // var mUserRole = 
 
     // if (userRole == role_pet) {
-    const [actions, loading2] = useCollectionData(
-        firestore.collection(fb_actions).where("actionFor", "==", userRole)
-    )
+    // const [actions, loading2] = useCollectionData(
+    //     firestore.collection(fb_actions).where("actionFor", "==", userRole)
+    // )
     // }
 
     // if (userRole == role_master) {

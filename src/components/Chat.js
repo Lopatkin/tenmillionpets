@@ -29,26 +29,23 @@ import "firebase/firestore";
 import { fb_users, fb_messages, fb_locations } from '../utils/consts';
 import { ControlCameraSharp } from '@mui/icons-material';
 
+
 const Chat = () => {
+    var coll;
 
-    // window.addEventListener("deviceorientation", handleOrientation, true);
+    window.ondevicemotion = function (event) {
 
-    var absolute;
-    var alpha;
-    var beta;
-    var gamma;
-    function handleOrientation(event) {
-        absolute = event.absolute;
-        alpha = event.alpha;
-        beta = event.beta;
-        gamma = event.gamma;
-        // Do stuff with the new orientation data
+        var accelerationX = event.accelerationIncludingGravity.x.toString();
+        var accelerationY = event.accelerationIncludingGravity.y;
+        var accelerationZ = event.accelerationIncludingGravity.z;
+        // console.log('accelerationX ' + accelerationX)
+        // coll = event.accelerationIncludingGravity.x.toString()
+
+
+        document.getElementById("acc").innerHTML = accelerationX;
+
     }
-
-    window.addEventListener("deviceorientation", handleOrientation, true);
-
-
-    alert(absolute + " " + alpha + " " + beta + " " + gamma)
+    // console.log('accelerationX  coll ' + coll)
 
     // navigator.getBattery()
     //     .then(function (battery) {
@@ -218,6 +215,9 @@ const Chat = () => {
                     width: '100%'
                 }}
             >
+
+                <div id='acc'>тут</div>
+
 
                 {/* tabs begin */}
                 <div className="container" >

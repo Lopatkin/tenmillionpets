@@ -40,8 +40,11 @@ const Chat = () => {
         var accelerationZ = event.accelerationIncludingGravity.z;
         // console.log('accelerationX ' + accelerationX)
         // coll = event.accelerationIncludingGravity.x.toString()
+        if ((Math.round(Math.abs(accelerationX))) > 5) {
 
-        coll = coll + Math.round(Math.abs(accelerationX));
+            coll = coll + Math.round(Math.abs(accelerationX));
+
+        }
         document.getElementById("acc").innerHTML = coll;
 
     }

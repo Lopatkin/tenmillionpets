@@ -101,7 +101,7 @@ const Chat = () => {
         firestore.collection(fb_locations).where("locationPublic", "==", true)
     )
 
-    // console.log('locations ' + locations)
+    console.log('locations ' + locations)
     const switchToMap = () => {
         // alert('тут карта')
         document.getElementById("city_map").style.display = 'inline';

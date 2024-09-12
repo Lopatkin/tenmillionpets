@@ -102,7 +102,7 @@ const Chat = () => {
         userName = userData.username;
         // userPhotoUrl = userData.photo;
         userPhotoUrl = "";
-        userRole = role_master;
+        userRole = doc.userRole;
 
     }
 

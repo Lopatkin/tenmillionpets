@@ -102,7 +102,7 @@ const Chat = () => {
         userName = userData.username;
         // userPhotoUrl = userData.photo;
         userPhotoUrl = "";
-        userRole = doc.userRole;
+        userRole = doc.data()?.userRole;
 
     }
 
@@ -137,9 +137,9 @@ const Chat = () => {
     // var mUserRole = 
 
     // if (userRole == role_pet) {
-    // const [actions, loading2] = useCollectionData(
-    //     firestore.collection(fb_actions).where("actionFor", "==", userRole)
-    // )
+    const [actions, loading2] = useCollectionData(
+        firestore.collection(fb_actions).where("actionFor", "==", userRole)
+    )
     // }
 
     // if (userRole == role_master) {

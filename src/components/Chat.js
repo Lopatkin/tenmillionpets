@@ -31,6 +31,18 @@ import { ControlCameraSharp } from '@mui/icons-material';
 
 const Chat = () => {
 
+    navigator.getBattery()
+        .then(function (battery) {
+
+            // Get current battery level .
+            var batteryLevel = battery.level * 100;
+            alert(batteryLevel)
+            console.log(batteryLevel);
+        })
+        .catch(function (e) {
+            console.error(e);
+        });
+
     const navigate = useNavigate();
 
 
@@ -101,7 +113,7 @@ const Chat = () => {
         firestore.collection(fb_locations).where("locationPublic", "==", true)
     )
 
-    console.log('locations ' + locations)
+    // console.log('locations ' + locations)
     const switchToMap = () => {
         // alert('тут карта')
         document.getElementById("city_map").style.display = 'inline';
@@ -292,7 +304,7 @@ const Chat = () => {
 
                             <img id='city_map' src={city_map} />
 
-                            <div id='city_list' style={{ width: '100%', height: '75vh' }}>
+                            <div id='city_list' style={{ width: '100%', height: '75vh', display: 'none' }}>
                                 {locations?.map(location =>
 
                                     // Блок сообщения

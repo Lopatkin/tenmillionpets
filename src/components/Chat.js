@@ -31,17 +31,36 @@ import { ControlCameraSharp } from '@mui/icons-material';
 
 const Chat = () => {
 
-    navigator.getBattery()
-        .then(function (battery) {
+    // window.addEventListener("deviceorientation", handleOrientation, true);
 
-            // Get current battery level .
-            var batteryLevel = battery.level * 100;
-            alert(batteryLevel)
-            console.log(batteryLevel);
-        })
-        .catch(function (e) {
-            console.error(e);
-        });
+    var absolute;
+    var alpha;
+    var beta;
+    var gamma;
+    function handleOrientation(event) {
+        absolute = event.absolute;
+        alpha = event.alpha;
+        beta = event.beta;
+        gamma = event.gamma;
+        // Do stuff with the new orientation data
+    }
+
+    window.addEventListener("deviceorientation", handleOrientation, true);
+
+
+    alert(absolute + " " + alpha + " " + beta + " " + gamma)
+
+    // navigator.getBattery()
+    //     .then(function (battery) {
+
+    //         // Get current battery level .
+    //         var batteryLevel = battery.level * 100;
+    //         alert(batteryLevel)
+    //         console.log(batteryLevel);
+    //     })
+    //     .catch(function (e) {
+    //         console.error(e);
+    //     });
 
     const navigate = useNavigate();
 

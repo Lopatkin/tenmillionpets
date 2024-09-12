@@ -31,18 +31,18 @@ import { ControlCameraSharp } from '@mui/icons-material';
 
 
 const Chat = () => {
-    var coll;
+    var coll = 0;
 
     window.ondevicemotion = function (event) {
 
-        var accelerationX = event.accelerationIncludingGravity.x.toString();
+        var accelerationX = event.accelerationIncludingGravity.x;
         var accelerationY = event.accelerationIncludingGravity.y;
         var accelerationZ = event.accelerationIncludingGravity.z;
         // console.log('accelerationX ' + accelerationX)
         // coll = event.accelerationIncludingGravity.x.toString()
 
-
-        document.getElementById("acc").innerHTML = accelerationX;
+        coll = coll + Math.round(Math.abs(accelerationX));
+        document.getElementById("acc").innerHTML = coll;
 
     }
     // console.log('accelerationX  coll ' + coll)

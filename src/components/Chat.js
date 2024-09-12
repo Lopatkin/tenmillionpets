@@ -31,25 +31,21 @@ import { ControlCameraSharp } from '@mui/icons-material';
 
 
 const Chat = () => {
-    var coll = 0;
 
-    window.ondevicemotion = function (event) {
+    //Потрясти телефон
+    // var coll = 0;
+    // window.ondevicemotion = function (event) {
+    //     var accelerationX = event.accelerationIncludingGravity.x;
+    //     var accelerationY = event.accelerationIncludingGravity.y;
+    //     var accelerationZ = event.accelerationIncludingGravity.z;
 
-        var accelerationX = event.accelerationIncludingGravity.x;
-        var accelerationY = event.accelerationIncludingGravity.y;
-        var accelerationZ = event.accelerationIncludingGravity.z;
-        // console.log('accelerationX ' + accelerationX)
-        // coll = event.accelerationIncludingGravity.x.toString()
-        if ((Math.round(Math.abs(accelerationX))) > 5) {
+    //     if ((Math.round(Math.abs(accelerationX))) > 5) {
+    //         coll = coll + Math.round(Math.abs(accelerationX));
+    //     }
+    //     document.getElementById("acc").innerHTML = coll;
+    // }
 
-            coll = coll + Math.round(Math.abs(accelerationX));
-
-        }
-        document.getElementById("acc").innerHTML = coll;
-
-    }
-    // console.log('accelerationX  coll ' + coll)
-
+    //Получить значени батареи
     // navigator.getBattery()
     //     .then(function (battery) {
 
@@ -216,11 +212,7 @@ const Chat = () => {
                 style={{
                     backgroundColor: '#232323',
                     width: '100%'
-                }}
-            >
-
-                <div id='acc'>тут</div>
-
+                }}>
 
                 {/* tabs begin */}
                 <div className="container" >
@@ -267,14 +259,17 @@ const Chat = () => {
                                 alignItems={"flex-end"}
                                 style={{
                                     width: '100%',
-                                    display: 'inline-block'
-
+                                    display: 'inline-block',
 
                                 }}>
-                                <TextField
+                                <TextField sx={{ input: { color: 'white' } }}
                                     style={{
                                         width: '80%',
-                                        display: 'inline-block'
+                                        display: 'inline-block',
+                                        сolor: 'ffffff',
+                                        background: '98FB98'
+
+
                                     }}
                                     fullWidth
                                     rowsmax={2}
@@ -286,7 +281,7 @@ const Chat = () => {
                                     display: 'inline-block',
                                     width: '20%'
 
-                                }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}>SEND</Button>
+                                }} onClick={sendMessage} variant={"outlined"} endIcon={<SendIcon />}></Button>
                             </Grid >
                         </div>
                         <div className={`content ${getActiveClass(2, "active-content")}`}>
